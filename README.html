@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<title>elemapprox user manual</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id$
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="elemapprox-user-manual">
+<h1 class="title">elemapprox user manual</h1>
+
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><strong>Title</strong></td>
+<td>elemapprox (Elementary functions approximation in ANSI C
+and Verilog HDL)</td>
+</tr>
+<tr><td><strong>Author</strong></td>
+<td>Nikolaos Kavvadias (C) 2013, 2014</td>
+</tr>
+<tr><td><strong>Contact</strong></td>
+<td><a class="reference external" href="mailto:nikos&#64;nkavvadias.com">nikos&#64;nkavvadias.com</a></td>
+</tr>
+<tr><td><strong>Website</strong></td>
+<td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
+</tr>
+<tr><td><strong>Release Date</strong></td>
+<td>16 September 2014</td>
+</tr>
+<tr><td><strong>Version</strong></td>
+<td>1.0.0</td>
+</tr>
+<tr><td><strong>Rev. history</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>v1.0.0</strong></td>
+<td><p class="first">2014-09-16</p>
+<p class="last">Initial release. This is an expanded version built upon
+Mark G. Arnold's Verilog Transcendental Functions paper.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="introduction">
+<h1>1. Introduction</h1>
+<p><tt class="docutils literal">elemapprox</tt> is an ANSI C code and Verilog HDL collection of modules that
+provide the capability of evaluating and plotting transcendental functions by
+evaluating them in single precision. The original work supports plotting in
+ASCII of a subset of the functions; this version provides a more complete list
+of functions in addition to bitmap plotting for the transcendental functions as
+PBM image files.</p>
+<p><tt class="docutils literal">elemapprox</tt> has been conceived as an extension of Prof. Mark G. Arnold's work
+as puhlished in HDLCON 2001. Most functions have been prefixed with the letter
+<tt class="docutils literal">k</tt> in order to avoid function name classes in both ANSI C and Verilog HDL
+implementations.</p>
+<p>The transcendental functions supported include most elementary functions
+(hence the name <tt class="docutils literal">elemapprox</tt>) and the list is as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>Function</td>
+<td>Description</td>
+</tr>
+<tr><td>kfabs</td>
+<td>Floating-point absolute value (helper function).</td>
+</tr>
+<tr><td>ksin</td>
+<td>Sine.</td>
+</tr>
+<tr><td>kcos</td>
+<td>Cosine.</td>
+</tr>
+<tr><td>ktan</td>
+<td>Tangent.</td>
+</tr>
+<tr><td>kcot</td>
+<td>Cotangent.</td>
+</tr>
+<tr><td>ksec</td>
+<td>Secant.</td>
+</tr>
+<tr><td>kcsc</td>
+<td>Cosecant.</td>
+</tr>
+<tr><td>rootof2</td>
+<td>Calculate root-of-2.</td>
+</tr>
+<tr><td>kexp</td>
+<td>Exponential.</td>
+</tr>
+<tr><td>klog</td>
+<td>Natural logarithm.</td>
+</tr>
+<tr><td>kpow</td>
+<td>Powering function.</td>
+</tr>
+<tr><td>ksqrt</td>
+<td>Square root.</td>
+</tr>
+<tr><td>khypot</td>
+<td>Hypotenuse.</td>
+</tr>
+<tr><td>katan</td>
+<td>Arc tangent.</td>
+</tr>
+<tr><td>katan2</td>
+<td>Two-argument (x/y) arc tangent.</td>
+</tr>
+<tr><td>kasin</td>
+<td>Arc sine.</td>
+</tr>
+<tr><td>kacos</td>
+<td>Arc cosine.</td>
+</tr>
+<tr><td>kacot</td>
+<td>Arc cotangent.</td>
+</tr>
+<tr><td>kasec</td>
+<td>Arc secant.</td>
+</tr>
+<tr><td>kcsc</td>
+<td>Arc cosecant.</td>
+</tr>
+<tr><td>ksinh</td>
+<td>Hyperbolic sine.</td>
+</tr>
+<tr><td>kcosh</td>
+<td>Hyperbolic cosine.</td>
+</tr>
+<tr><td>ktanh</td>
+<td>Hyperbolic tangent.</td>
+</tr>
+<tr><td>kcoth</td>
+<td>Hyperbolic cotangent.</td>
+</tr>
+<tr><td>ksech</td>
+<td>Hyperbolic secant.</td>
+</tr>
+<tr><td>kcsch</td>
+<td>Hyperbolic cosecant.</td>
+</tr>
+<tr><td>kasinh</td>
+<td>Inverse hyperbolic sine.</td>
+</tr>
+<tr><td>kacosh</td>
+<td>Inverse hyperbolic cosine.</td>
+</tr>
+<tr><td>katanh</td>
+<td>Inverse hyperbolic tangent.</td>
+</tr>
+<tr><td>kacoth</td>
+<td>Inverse hyperbolic cotangent.</td>
+</tr>
+<tr><td>kasech</td>
+<td>Inverse hyperbolic secant.</td>
+</tr>
+<tr><td>kacsch</td>
+<td>Inverse hyperbolic cosecant.</td>
+</tr>
+</tbody>
+</table>
+<p>The reference paper and the corresponding presentation are available from the
+web at the following links:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.cse.lehigh.edu/~caar/marnold/papers/sanjose_hdlcon.doc">http://www.cse.lehigh.edu/~caar/marnold/papers/sanjose_hdlcon.doc</a></li>
+<li><a class="reference external" href="http://www.cse.lehigh.edu/~caar/marnold/presentations/freeddy.ppt">http://www.cse.lehigh.edu/~caar/marnold/presentations/freeddy.ppt</a></li>
+</ul>
+</div>
+<div class="section" id="file-listing">
+<h1>2. File listing</h1>
+<p>The <tt class="docutils literal">elemapprox</tt> library and modules include the following files:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>/elemapprox</td>
+<td>Top-level directory</td>
+</tr>
+<tr><td>AUTHORS</td>
+<td>List of authors.</td>
+</tr>
+<tr><td>LICENSE</td>
+<td>License argeement (Modified BSD license).</td>
+</tr>
+<tr><td>README.rst</td>
+<td>This file.</td>
+</tr>
+<tr><td>README.html</td>
+<td>HTML version of README.</td>
+</tr>
+<tr><td>README.pdf</td>
+<td>PDF version of README.</td>
+</tr>
+<tr><td>rst2docs.sh</td>
+<td>Bash script for generating the HTML and PDF versions.</td>
+</tr>
+<tr><td>VERSION</td>
+<td>Current version.</td>
+</tr>
+<tr><td>/ansic</td>
+<td>ANSI C implementation</td>
+</tr>
+<tr><td>clean-math-ansic.sh</td>
+<td>Bash script for cleaning up the generated
+executables.</td>
+</tr>
+<tr><td>elemapprox.c</td>
+<td>C code for the function approximations.</td>
+</tr>
+<tr><td>elemapprox.h</td>
+<td>C header file for the above. Defines certain
+mathematical constants and declares function
+prototypes.</td>
+</tr>
+<tr><td>funcplot.c</td>
+<td>Reference code for creating the plot data for the
+functions.</td>
+</tr>
+<tr><td>funcplot.h</td>
+<td>C header file for the above.</td>
+</tr>
+<tr><td>graph.c</td>
+<td>Collection of ASCII and PBM graphing functions.</td>
+</tr>
+<tr><td>graph.h</td>
+<td>C header file for the above.</td>
+</tr>
+<tr><td>Makefile</td>
+<td>GNU Makefile for building <tt class="docutils literal">testfunc.exe</tt>.</td>
+</tr>
+<tr><td>plot-ansic-ascii.sh</td>
+<td>Bash script for plotting the elementary functions
+as ASCII graphs using <tt class="docutils literal">testfunc.exe</tt>.</td>
+</tr>
+<tr><td>plot-ansic-pbm.sh</td>
+<td>Bash script for plotting the elementary functions
+as PBM images using <tt class="docutils literal">testfunc.exe</tt>.</td>
+</tr>
+<tr><td>testfunc.c</td>
+<td>Application code for the elementary function
+Options include PBM or ASCII image generation and
+function selection.</td>
+</tr>
+<tr><td>test&lt;func&gt;.pbm</td>
+<td>Generated PBM image data for the function &lt;func&gt;.</td>
+</tr>
+<tr><td>test&lt;func&gt;.txt</td>
+<td>Generated ASCII graph data for the function &lt;func&gt;.</td>
+</tr>
+<tr><td>test&lt;func&gt;-ascii.txt</td>
+<td>Concatenation of the generated ASCII graph data for
+all supported functions.</td>
+</tr>
+<tr><td>/verilog</td>
+<td>Verilog HDL implementation</td>
+</tr>
+<tr><td>clean-math-verilog.sh</td>
+<td>Bash script for cleaning up the generated
+interpreted intermediate code (for Icarus Verilog).</td>
+</tr>
+<tr><td>constants.v</td>
+<td>Certain mathematical constants.</td>
+</tr>
+<tr><td>elemapprox.v</td>
+<td>Verilog HDL code for the function approximations.</td>
+</tr>
+<tr><td>elemapproxpp.v</td>
+<td>Preprocessed version of the above, directly including
+the mathematical constants from <tt class="docutils literal">constants.v</tt> and
+expanding all macro-definitions.</td>
+</tr>
+<tr><td>funcplot.v</td>
+<td>Reference code for creating the plot data for the
+functions.</td>
+</tr>
+<tr><td>graph.v</td>
+<td>Collection of ASCII and PBM graphing tasks.</td>
+</tr>
+<tr><td>Makefile</td>
+<td>GNU Makefile for building <tt class="docutils literal">testfunc.exe</tt>.</td>
+</tr>
+<tr><td>plot-verilog-ascii.sh</td>
+<td>Bash script for plotting the elementary functions
+as ASCII graphs using <tt class="docutils literal">testfunc.v</tt>. The script
+Icarus Verilog' VVP interpreter which is capable of
+parsing command-line options.</td>
+</tr>
+<tr><td>plot-verilog-pbm.sh</td>
+<td>Bash script for plotting the elementary functions
+as PBM images using <tt class="docutils literal">testfunc.v</tt>.</td>
+</tr>
+<tr><td>testfunc.v</td>
+<td>Application code for the elementary function
+Options include PBM or ASCII image generation and
+function selection.</td>
+</tr>
+<tr><td>test&lt;func&gt;.pbm</td>
+<td>Generated PBM image data for the function &lt;func&gt;.</td>
+</tr>
+<tr><td>test&lt;func&gt;.txt</td>
+<td>Generated ASCII graph data for the function &lt;func&gt;.</td>
+</tr>
+<tr><td>test&lt;func&gt;-ascii.txt</td>
+<td>Concatenation of the generated ASCII graph data for
+all supported functions.</td>
+</tr>
+<tr><td>/refs</td>
+<td>Reference documentation</td>
+</tr>
+<tr><td>sanjose_hdlcon.doc</td>
+<td>MS Word document for the manuscript:
+M. G. Arnold, C. Walter and F. Engineer, &quot;Verilog
+Transcendental Functions for Numerical Testbenches,&quot;
+Proceedings of the Tenth International HDL
+conference, Santa Clara, California, March 1, 2001.</td>
+</tr>
+<tr><td>freeddy.ppt</td>
+<td>MS PowerPoint presentation of the above work.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="usage">
+<h1>3. Usage</h1>
+<p>Both the ANSI C and Verilog HDL versions can be used for generating graph data
+and depicting any of the supported transcendental functions via two similar
+scripts.</p>
+<div class="section" id="ansi-c">
+<h2>3.1. ANSI C</h2>
+<ol class="arabic simple">
+<li>Run the following shell script from a Unix/Linux/Cygwin command line in order
+to generate an ASCII graph for each function.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">cd ansic</tt></div>
+<div class="line"><tt class="docutils literal">$ <span class="pre">./plot-ansic-ascii.sh</span></tt></div>
+</div>
+<p>All generated data are also concatenated to <tt class="docutils literal"><span class="pre">testfunc-ascii.txt</span></tt>.</p>
+<ol class="arabic simple" start="2">
+<li>Run the following shell script from a Unix/Linux/Cygwin command line in order
+to generate an ASCII graph for each function.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ <span class="pre">./plot-ansic-pbm.sh</span></tt></div>
+</div>
+<p>All generated data are saved in the form of PBM (monochrome bitmap) image files.
+Such files can be visualized using e.g. the public domain <tt class="docutils literal">Imagine</tt> viewer:
+<a class="reference external" href="http://www.nyam.pe.kr/">http://www.nyam.pe.kr/</a></p>
+</div>
+<div class="section" id="verilog-hdl">
+<h2>3.2. Verilog HDL</h2>
+<ol class="arabic simple">
+<li>Run the following shell script from a Unix/Linux/Cygwin command line in order
+to generate an ASCII graph for each function.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">cd verilog</tt></div>
+<div class="line"><tt class="docutils literal">$ <span class="pre">./plot-verilog-ascii.sh</span></tt></div>
+</div>
+<p>All generated data are also concatenated to <tt class="docutils literal"><span class="pre">testfunc-ascii.txt</span></tt>.</p>
+<ol class="arabic simple" start="2">
+<li>Run the following shell script from a Unix/Linux/Cygwin command line in order
+to generate an ASCII graph for each function.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ <span class="pre">./plot-verilog-pbm.sh</span></tt></div>
+</div>
+<p>All generated data are saved in the form of PBM (monochrome bitmap) image files.</p>
+</div>
+</div>
+<div class="section" id="synthesis">
+<h1>4. Synthesis</h1>
+<p>The implementation code (either ANSI C or Verilog HDL) for the transcendental
+functions has not been tested for high-level or RTL synthesis.</p>
+</div>
+<div class="section" id="prerequisities">
+<h1>5. Prerequisities</h1>
+<ul>
+<li><p class="first">Standard UNIX-based tools (tested with gcc-4.6.2 on MinGW/x86) [optional if
+you use Modelsim].</p>
+<ul class="simple">
+<li>make</li>
+<li>bash (shell)</li>
+</ul>
+<p>For this reason, MinGW (<a class="reference external" href="http://www.mingw.org">http://www.mingw.org</a>) or Cygwin
+(<a class="reference external" href="http://sources.redhat.com/cygwin">http://sources.redhat.com/cygwin</a>) are suggested, since POSIX emulation
+environments of sufficient completeness.</p>
+</li>
+<li><p class="first">Icarus Verilog simulator (<a class="reference external" href="http://iverilog.icarus.com/">http://iverilog.icarus.com/</a>).
+The Windows version can be downloaded from: <a class="reference external" href="http://bleyer.org/icarus/">http://bleyer.org/icarus/</a></p>
+</li>
+<li><p class="first">Alternatively, a commercial simulator like Mentor Modelsim
+(<a class="reference external" href="http://www.mentor.com">http://www.mentor.com</a>) can be used (however this has not been tested).</p>
+</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
