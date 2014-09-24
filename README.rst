@@ -12,11 +12,15 @@
 +-------------------+----------------------------------------------------------+
 | **Website**       | http://www.nkavvadias.com                                |
 +-------------------+----------------------------------------------------------+
-| **Release Date**  | 16 September 2014                                        |
+| **Release Date**  | 24 September 2014                                        |
 +-------------------+----------------------------------------------------------+
-| **Version**       | 1.0.0                                                    |
+| **Version**       | 1.0.1                                                    |
 +-------------------+----------------------------------------------------------+
 | **Rev. history**  |                                                          |
++-------------------+----------------------------------------------------------+
+|        **v1.0.1** | 2014-09-24                                               |
+|                   |                                                          |
+|                   | Minor documentation corrections.                         |
 +-------------------+----------------------------------------------------------+
 |        **v1.0.0** | 2014-09-16                                               |
 |                   |                                                          |
@@ -30,14 +34,14 @@
 
 ``elemapprox`` is an ANSI C code and Verilog HDL collection of modules that 
 provide the capability of evaluating and plotting transcendental functions by
-evaluating them in single precision. The original work supports plotting in 
-ASCII of a subset of the functions; this version provides a more complete list 
+evaluating them in single precision. The original work supports ASCII plotting 
+of a subset of the functions; this version provides a more complete list 
 of functions in addition to bitmap plotting for the transcendental functions as 
-PBM image files. 
+PBM (monochrome) image files. 
 
-``elemapprox`` has been conceived as an extension of Prof. Mark G. Arnold's work 
+``elemapprox`` has been conceived as an extension to Prof. Mark G. Arnold's work 
 as puhlished in HDLCON 2001. Most functions have been prefixed with the letter 
-``k`` in order to avoid function name classes in both ANSI C and Verilog HDL 
+``k`` in order to avoid function name clashes in both ANSI C and Verilog HDL 
 implementations.
 
 The transcendental functions supported include most elementary functions 
@@ -121,7 +125,8 @@ web at the following links:
 2. File listing
 ===============
 
-The ``elemapprox`` library and modules include the following files: 
+The ``elemapprox`` C code implementation and Verilog HDL modules include the 
+following files: 
 
 +-----------------------+------------------------------------------------------+
 | /elemapprox           | Top-level directory                                  |
@@ -168,9 +173,9 @@ The ``elemapprox`` library and modules include the following files:
 | plot-ansic-pbm.sh     | Bash script for plotting the elementary functions    |
 |                       | as PBM images using ``testfunc.exe``.                |
 +-----------------------+------------------------------------------------------+
-| testfunc.c            | Application code for the elementary function         |
-|                       | Options include PBM or ASCII image generation and    |
-|                       | function selection.                                  |
+| testfunc.c            | Application code for testing the elementary          |
+|                       | functions. Options include PBM or ASCII image        |
+|                       | generation and function selection.                   |
 +-----------------------+------------------------------------------------------+
 | test<func>.pbm        | Generated PBM image data for the function <func>.    |
 +-----------------------+------------------------------------------------------+
@@ -243,7 +248,7 @@ scripts.
 1. Run the following shell script from a Unix/Linux/Cygwin command line in order 
    to generate an ASCII graph for each function.
 
-| ``cd ansic``
+| ``$ cd ansic``
 | ``$ ./plot-ansic-ascii.sh``
 
 All generated data are also concatenated to ``testfunc-ascii.txt``.
@@ -263,7 +268,7 @@ http://www.nyam.pe.kr/
 1. Run the following shell script from a Unix/Linux/Cygwin command line in order 
    to generate an ASCII graph for each function.
 
-| ``cd verilog``
+| ``$ cd verilog``
 | ``$ ./plot-verilog-ascii.sh``
 
 All generated data are also concatenated to ``testfunc-ascii.txt``.

@@ -361,13 +361,18 @@ and Verilog HDL)</td>
 <td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
 </tr>
 <tr><td><strong>Release Date</strong></td>
-<td>16 September 2014</td>
+<td>24 September 2014</td>
 </tr>
 <tr><td><strong>Version</strong></td>
-<td>1.0.0</td>
+<td>1.0.1</td>
 </tr>
 <tr><td><strong>Rev. history</strong></td>
 <td>&nbsp;</td>
+</tr>
+<tr><td><strong>v1.0.1</strong></td>
+<td><p class="first">2014-09-24</p>
+<p class="last">Minor documentation corrections.</p>
+</td>
 </tr>
 <tr><td><strong>v1.0.0</strong></td>
 <td><p class="first">2014-09-16</p>
@@ -381,13 +386,13 @@ Mark G. Arnold's Verilog Transcendental Functions paper.</p>
 <h1>1. Introduction</h1>
 <p><tt class="docutils literal">elemapprox</tt> is an ANSI C code and Verilog HDL collection of modules that
 provide the capability of evaluating and plotting transcendental functions by
-evaluating them in single precision. The original work supports plotting in
-ASCII of a subset of the functions; this version provides a more complete list
+evaluating them in single precision. The original work supports ASCII plotting
+of a subset of the functions; this version provides a more complete list
 of functions in addition to bitmap plotting for the transcendental functions as
-PBM image files.</p>
-<p><tt class="docutils literal">elemapprox</tt> has been conceived as an extension of Prof. Mark G. Arnold's work
+PBM (monochrome) image files.</p>
+<p><tt class="docutils literal">elemapprox</tt> has been conceived as an extension to Prof. Mark G. Arnold's work
 as puhlished in HDLCON 2001. Most functions have been prefixed with the letter
-<tt class="docutils literal">k</tt> in order to avoid function name classes in both ANSI C and Verilog HDL
+<tt class="docutils literal">k</tt> in order to avoid function name clashes in both ANSI C and Verilog HDL
 implementations.</p>
 <p>The transcendental functions supported include most elementary functions
 (hence the name <tt class="docutils literal">elemapprox</tt>) and the list is as follows:</p>
@@ -507,7 +512,8 @@ web at the following links:</p>
 </div>
 <div class="section" id="file-listing">
 <h1>2. File listing</h1>
-<p>The <tt class="docutils literal">elemapprox</tt> library and modules include the following files:</p>
+<p>The <tt class="docutils literal">elemapprox</tt> C code implementation and Verilog HDL modules include the
+following files:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="30%" />
@@ -578,9 +584,9 @@ as ASCII graphs using <tt class="docutils literal">testfunc.exe</tt>.</td>
 as PBM images using <tt class="docutils literal">testfunc.exe</tt>.</td>
 </tr>
 <tr><td>testfunc.c</td>
-<td>Application code for the elementary function
-Options include PBM or ASCII image generation and
-function selection.</td>
+<td>Application code for testing the elementary
+functions. Options include PBM or ASCII image
+generation and function selection.</td>
 </tr>
 <tr><td>test&lt;func&gt;.pbm</td>
 <td>Generated PBM image data for the function &lt;func&gt;.</td>
@@ -673,7 +679,7 @@ scripts.</p>
 to generate an ASCII graph for each function.</li>
 </ol>
 <div class="line-block">
-<div class="line"><tt class="docutils literal">cd ansic</tt></div>
+<div class="line"><tt class="docutils literal">$ cd ansic</tt></div>
 <div class="line"><tt class="docutils literal">$ <span class="pre">./plot-ansic-ascii.sh</span></tt></div>
 </div>
 <p>All generated data are also concatenated to <tt class="docutils literal"><span class="pre">testfunc-ascii.txt</span></tt>.</p>
@@ -695,7 +701,7 @@ Such files can be visualized using e.g. the public domain <tt class="docutils li
 to generate an ASCII graph for each function.</li>
 </ol>
 <div class="line-block">
-<div class="line"><tt class="docutils literal">cd verilog</tt></div>
+<div class="line"><tt class="docutils literal">$ cd verilog</tt></div>
 <div class="line"><tt class="docutils literal">$ <span class="pre">./plot-verilog-ascii.sh</span></tt></div>
 </div>
 <p>All generated data are also concatenated to <tt class="docutils literal"><span class="pre">testfunc-ascii.txt</span></tt>.</p>
