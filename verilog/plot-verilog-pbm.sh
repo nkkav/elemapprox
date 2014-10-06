@@ -2,8 +2,8 @@
 
 #export PATH=/c/CompSci/iverilog/bin:$PATH
 
-iverilog -E -o elemapproxpp.v constants.v elemapprox.v
-iverilog -o testfunc.vvp elemapproxpp.v graph.v funcplot.v testfunc.v
+iverilog -g1995 -E -o elemapproxpp.v constants.v elemapprox.v
+iverilog -g1995 -o testfunc.vvp elemapproxpp.v graph.v funcplot.v testfunc.v
 for app in "sin" "cos" "tan" "cot" "sec" "csc" \
   "asin" "acos" "atan" "acot" "asec" "acsc" \
   "sinh" "cosh" "tanh" "coth" "sech" "csch" \
@@ -14,6 +14,9 @@ do
   if [ "${app}" == "cot" ] 
   then
     step=0.02
+  elif [ "${app}" == "acsch" ] 
+  then
+    step=0.05
   else
     step=0.001
   fi
