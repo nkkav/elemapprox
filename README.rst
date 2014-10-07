@@ -4,7 +4,7 @@
 
 +-------------------+----------------------------------------------------------+
 | **Title**         | elemapprox (Elementary functions approximation in ANSI C |
-|                   | and Verilog HDL)                                         |
+|                   | Verilog HDL and VHDL)                                    |
 +-------------------+----------------------------------------------------------+
 | **Author**        | Nikolaos Kavvadias (C) 2013, 2014                        |
 +-------------------+----------------------------------------------------------+
@@ -12,11 +12,16 @@
 +-------------------+----------------------------------------------------------+
 | **Website**       | http://www.nkavvadias.com                                |
 +-------------------+----------------------------------------------------------+
-| **Release Date**  | 24 September 2014                                        |
+| **Release Date**  | 07 October 2014                                          |
 +-------------------+----------------------------------------------------------+
-| **Version**       | 1.0.1                                                    |
+| **Version**       | 1.1.0                                                    |
 +-------------------+----------------------------------------------------------+
 | **Rev. history**  |                                                          |
++-------------------+----------------------------------------------------------+
+|        **v1.1.0** | 2014-10-07                                               |
+|                   |                                                          |
+|                   | Added VHDL version for approximating and plotting the    |
+|                   | elementary functions. Numerous documentation fixes.      |
 +-------------------+----------------------------------------------------------+
 |        **v1.0.1** | 2014-09-24                                               |
 |                   |                                                          |
@@ -32,17 +37,18 @@
 1. Introduction
 ===============
 
-``elemapprox`` is an ANSI C code and Verilog HDL collection of modules that 
-provide the capability of evaluating and plotting transcendental functions by
-evaluating them in single precision. The original work supports ASCII plotting 
-of a subset of the functions; this version provides a more complete list 
-of functions in addition to bitmap plotting for the transcendental functions as 
-PBM (monochrome) image files. 
+``elemapprox`` is an ANSI C code, Verilog HDL and VHDL collection of modules 
+(Verilog HDL) and packages (VHDL) that provide the capability of evaluating and 
+plotting transcendental functions by evaluating them in single precision. The 
+original work supports ASCII plotting of a subset of the functions; this version 
+provides a more complete list of functions in addition to bitmap plotting for 
+the transcendental functions as PBM (monochrome) image files. 
 
 ``elemapprox`` has been conceived as an extension to Prof. Mark G. Arnold's work 
 as puhlished in HDLCON 2001. Most functions have been prefixed with the letter 
 ``k`` in order to avoid function name clashes in both ANSI C and Verilog HDL 
-implementations.
+implementations. Currently, the VHDL version uses unprefixed names (e.g. acos 
+instead of kacos).
 
 The transcendental functions supported include most elementary functions 
 (hence the name ``elemapprox``) and the list is as follows:
@@ -74,7 +80,7 @@ The transcendental functions supported include most elementary functions
 +-----------------------+------------------------------------------------------+
 | ksqrt                 | Square root.                                         |
 +-----------------------+------------------------------------------------------+
-| khypot                | Hypotenuse.                                          |
+| khypot                | Hypotenuse (currently ANSI C only).                  |
 +-----------------------+------------------------------------------------------+
 | katan                 | Arc tangent.                                         |
 +-----------------------+------------------------------------------------------+
@@ -202,8 +208,6 @@ following files:
 +-----------------------+------------------------------------------------------+
 | graph.v               | Collection of ASCII and PBM graphing tasks.          |
 +-----------------------+------------------------------------------------------+
-| Makefile              | GNU Makefile for building ``testfunc.exe``.          |
-+-----------------------+------------------------------------------------------+
 | plot-verilog-ascii.sh | Bash script for plotting the elementary functions    |
 |                       | as ASCII graphs using ``testfunc.v``. The script     |
 |                       | Icarus Verilog' VVP interpreter which is capable of  |
@@ -212,9 +216,55 @@ following files:
 | plot-verilog-pbm.sh   | Bash script for plotting the elementary functions    |
 |                       | as PBM images using ``testfunc.v``.                  |
 +-----------------------+------------------------------------------------------+
-| testfunc.v            | Application code for the elementary function         |
+| testfunc.v            | Application code for the elementary functions.       |
 |                       | Options include PBM or ASCII image generation and    |
 |                       | function selection.                                  |
++-----------------------+------------------------------------------------------+
+| test<func>.pbm        | Generated PBM image data for the function <func>.    |
++-----------------------+------------------------------------------------------+
+| test<func>.txt        | Generated ASCII graph data for the function <func>.  |
++-----------------------+------------------------------------------------------+
+| test<func>-ascii.txt  | Concatenation of the generated ASCII graph data for  |
+|                       | all supported functions.                             |
++-----------------------+------------------------------------------------------+
+| /vhdl                 | VHDL implementation                                  |
++-----------------------+------------------------------------------------------+
+| elemapprox.do         | Modelsim ``.do`` macro file for Modelsim simulation. |
++-----------------------+------------------------------------------------------+
+| elemapprox.mk         | GNU Makefile for running the testbench using GHDL.   |
++-----------------------+------------------------------------------------------+
+| elemapprox.vhd        | VHDL package code for the function approximations and|
+|                       | related mathematical constants.                      |
++-----------------------+------------------------------------------------------+
+| funcplot.vhd          | VHDL package code for creating the plot data for the |
+|                       | elementary functions.                                |
++-----------------------+------------------------------------------------------+
+| graph.vhd             | VHDL package code with a collection of ASCII and PBM |
+|                       | procedures.                                          |
++-----------------------+------------------------------------------------------+
+| plot-ghdl-ascii.sh    | Bash script for plotting the elementary functions    |
+|                       | as ASCII graphs using GHDL. The script generates a   |
+|                       | configuration file (``config.txt``) for controlling  |
+|                       | the simulation.                                      |
++-----------------------+------------------------------------------------------+
+| plot-ghdl-pbm.sh      | Bash script for plotting the elementary functions    |
+|                       | as PBM images using GHDL. The script generates a     |
+|                       | configuration file (``config.txt``) for controlling  |
+|                       | the simulation.                                      |
++-----------------------+------------------------------------------------------+
+| plot-mti-ascii.sh     | Bash script for plotting the elementary functions    |
+|                       | as ASCII graphs using Modelsim. The script generates |
+|                       | a configuration file (``config.txt``) for controlling|
+|                       | the simulation.                                      |
++-----------------------+------------------------------------------------------+
+| plot-mti-pbm.sh       | Bash script for plotting the elementary functions    |
+|                       | as PBM images using Modelsim. The script generates   |
+|                       | a configuration file (``config.txt``) for controlling|
+|                       | the simulation.                                      |
++-----------------------+------------------------------------------------------+
+| testfunc.vhd          | VHDL testbench code for the elementary functions.    |
+|                       | Options include PBM or ASCII image generation and    |
+|                       | function selection through a configuration file.     |
 +-----------------------+------------------------------------------------------+
 | test<func>.pbm        | Generated PBM image data for the function <func>.    |
 +-----------------------+------------------------------------------------------+
@@ -242,8 +292,8 @@ Both the ANSI C and Verilog HDL versions can be used for generating graph data
 and depicting any of the supported transcendental functions via two similar 
 scripts.
 
-3.1. ANSI C
------------
+3.1 ANSI C
+----------
 
 1. Run the following shell script from a Unix/Linux/Cygwin command line in order 
    to generate an ASCII graph for each function.
@@ -254,7 +304,7 @@ scripts.
 All generated data are also concatenated to ``testfunc-ascii.txt``.
 
 2. Run the following shell script from a Unix/Linux/Cygwin command line in order 
-   to generate an ASCII graph for each function.
+   to generate a PBM image for each function.
 
 | ``$ ./plot-ansic-pbm.sh``
 
@@ -262,8 +312,8 @@ All generated data are saved in the form of PBM (monochrome bitmap) image files.
 Such files can be visualized using e.g. the public domain ``Imagine`` viewer: 
 http://www.nyam.pe.kr/
 
-3.2. Verilog HDL
-----------------
+3.2 Verilog HDL
+---------------
 
 1. Run the following shell script from a Unix/Linux/Cygwin command line in order 
    to generate an ASCII graph for each function.
@@ -274,22 +324,64 @@ http://www.nyam.pe.kr/
 All generated data are also concatenated to ``testfunc-ascii.txt``.
 
 2. Run the following shell script from a Unix/Linux/Cygwin command line in order 
-   to generate an ASCII graph for each function.
+   to generate a PBM image for each function.
 
 | ``$ ./plot-verilog-pbm.sh``
 
 All generated data are saved in the form of PBM (monochrome bitmap) image files. 
 
+3.3 VHDL
+--------
+
+The VHDL version of ``elemapprox`` supports both GHDL (http://ghdl.free.fr) and 
+Mentor Modelsim (http://www.model.com). 
+
+3.3.1 GHDL
+~~~~~~~~~~
+
+1. Run the following shell script from a Unix/Linux/Cygwin command line in order 
+   to generate an ASCII graph for each function.
+
+| ``$ cd vhdl``
+| ``$ ./plot-ghdl-ascii.sh``
+
+All generated data are also concatenated to ``testfunc-ascii.txt``.
+
+2. Run the following shell script from a Unix/Linux/Cygwin command line in order 
+   to generate a PBM image for each function.
+
+| ``$ ./plot-ghdl-pbm.sh``
+
+All generated data are saved in the form of PBM (monochrome bitmap) image files. 
+
+3.3.2 Modelsim
+~~~~~~~~~~~~~~
+
+1. Run the following shell script from a Unix/Linux/Cygwin command line in order 
+   to generate an ASCII graph for each function.
+
+| ``$ cd vhdl``
+| ``$ ./plot-mti-ascii.sh``
+
+All generated data are also concatenated to ``testfunc-ascii.txt``.
+
+2. Run the following shell script from a Unix/Linux/Cygwin command line in order 
+   to generate a PBM image for each function.
+
+| ``$ ./plot-mti-pbm.sh``
+
+All generated data are saved in the form of PBM (monochrome bitmap) image files.
+
 
 4. Synthesis
 ============
 
-The implementation code (either ANSI C or Verilog HDL) for the transcendental 
-functions has not been tested for high-level or RTL synthesis.
+The implementation code (either ANSI C, Verilog HDL or VHDL) for the 
+transcendental functions has not been tested for high-level or RTL synthesis.
 
 
-5. Prerequisities
-=================
+5. Prerequisites
+================
 
 - Standard UNIX-based tools (tested with gcc-4.6.2 on MinGW/x86) [optional if 
   you use Modelsim].
@@ -304,5 +396,11 @@ functions has not been tested for high-level or RTL synthesis.
 - Icarus Verilog simulator (http://iverilog.icarus.com/).
   The Windows version can be downloaded from: http://bleyer.org/icarus/
 
+- GHDL simulator (http://ghdl.free.fr) for VHDL. Both Windows and Linux 
+  versions can be downloaded from this site. Updated GHDL releases are 
+  available (again for multiple OSes) from: 
+  http://sourceforge.net/projects/ghdl-updates/
+
 - Alternatively, a commercial simulator like Mentor Modelsim 
-  (http://www.mentor.com) can be used (however this has not been tested).
+  (http://www.model.com) can be used (however this has only been tested for the 
+  VHDL version of ``elemapprox``).

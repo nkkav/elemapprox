@@ -349,7 +349,7 @@ ul.auto-toc {
 <tbody valign="top">
 <tr><td><strong>Title</strong></td>
 <td>elemapprox (Elementary functions approximation in ANSI C
-and Verilog HDL)</td>
+Verilog HDL and VHDL)</td>
 </tr>
 <tr><td><strong>Author</strong></td>
 <td>Nikolaos Kavvadias (C) 2013, 2014</td>
@@ -361,13 +361,19 @@ and Verilog HDL)</td>
 <td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
 </tr>
 <tr><td><strong>Release Date</strong></td>
-<td>24 September 2014</td>
+<td>07 October 2014</td>
 </tr>
 <tr><td><strong>Version</strong></td>
-<td>1.0.1</td>
+<td>1.1.0</td>
 </tr>
 <tr><td><strong>Rev. history</strong></td>
 <td>&nbsp;</td>
+</tr>
+<tr><td><strong>v1.1.0</strong></td>
+<td><p class="first">2014-10-07</p>
+<p class="last">Added VHDL version for approximating and plotting the
+elementary functions. Numerous documentation fixes.</p>
+</td>
 </tr>
 <tr><td><strong>v1.0.1</strong></td>
 <td><p class="first">2014-09-24</p>
@@ -384,16 +390,17 @@ Mark G. Arnold's Verilog Transcendental Functions paper.</p>
 </table>
 <div class="section" id="introduction">
 <h1>1. Introduction</h1>
-<p><tt class="docutils literal">elemapprox</tt> is an ANSI C code and Verilog HDL collection of modules that
-provide the capability of evaluating and plotting transcendental functions by
-evaluating them in single precision. The original work supports ASCII plotting
-of a subset of the functions; this version provides a more complete list
-of functions in addition to bitmap plotting for the transcendental functions as
-PBM (monochrome) image files.</p>
+<p><tt class="docutils literal">elemapprox</tt> is an ANSI C code, Verilog HDL and VHDL collection of modules
+(Verilog HDL) and packages (VHDL) that provide the capability of evaluating and
+plotting transcendental functions by evaluating them in single precision. The
+original work supports ASCII plotting of a subset of the functions; this version
+provides a more complete list of functions in addition to bitmap plotting for
+the transcendental functions as PBM (monochrome) image files.</p>
 <p><tt class="docutils literal">elemapprox</tt> has been conceived as an extension to Prof. Mark G. Arnold's work
 as puhlished in HDLCON 2001. Most functions have been prefixed with the letter
 <tt class="docutils literal">k</tt> in order to avoid function name clashes in both ANSI C and Verilog HDL
-implementations.</p>
+implementations. Currently, the VHDL version uses unprefixed names (e.g. acos
+instead of kacos).</p>
 <p>The transcendental functions supported include most elementary functions
 (hence the name <tt class="docutils literal">elemapprox</tt>) and the list is as follows:</p>
 <table border="1" class="docutils">
@@ -442,7 +449,7 @@ implementations.</p>
 <td>Square root.</td>
 </tr>
 <tr><td>khypot</td>
-<td>Hypotenuse.</td>
+<td>Hypotenuse (currently ANSI C only).</td>
 </tr>
 <tr><td>katan</td>
 <td>Arc tangent.</td>
@@ -623,9 +630,6 @@ functions.</td>
 <tr><td>graph.v</td>
 <td>Collection of ASCII and PBM graphing tasks.</td>
 </tr>
-<tr><td>Makefile</td>
-<td>GNU Makefile for building <tt class="docutils literal">testfunc.exe</tt>.</td>
-</tr>
 <tr><td>plot-verilog-ascii.sh</td>
 <td>Bash script for plotting the elementary functions
 as ASCII graphs using <tt class="docutils literal">testfunc.v</tt>. The script
@@ -637,9 +641,69 @@ parsing command-line options.</td>
 as PBM images using <tt class="docutils literal">testfunc.v</tt>.</td>
 </tr>
 <tr><td>testfunc.v</td>
-<td>Application code for the elementary function
+<td>Application code for the elementary functions.
 Options include PBM or ASCII image generation and
 function selection.</td>
+</tr>
+<tr><td>test&lt;func&gt;.pbm</td>
+<td>Generated PBM image data for the function &lt;func&gt;.</td>
+</tr>
+<tr><td>test&lt;func&gt;.txt</td>
+<td>Generated ASCII graph data for the function &lt;func&gt;.</td>
+</tr>
+<tr><td>test&lt;func&gt;-ascii.txt</td>
+<td>Concatenation of the generated ASCII graph data for
+all supported functions.</td>
+</tr>
+<tr><td>/vhdl</td>
+<td>VHDL implementation</td>
+</tr>
+<tr><td>elemapprox.do</td>
+<td>Modelsim <tt class="docutils literal">.do</tt> macro file for Modelsim simulation.</td>
+</tr>
+<tr><td>elemapprox.mk</td>
+<td>GNU Makefile for running the testbench using GHDL.</td>
+</tr>
+<tr><td>elemapprox.vhd</td>
+<td>VHDL package code for the function approximations and
+related mathematical constants.</td>
+</tr>
+<tr><td>funcplot.vhd</td>
+<td>VHDL package code for creating the plot data for the
+elementary functions.</td>
+</tr>
+<tr><td>graph.vhd</td>
+<td>VHDL package code with a collection of ASCII and PBM
+procedures.</td>
+</tr>
+<tr><td>plot-ghdl-ascii.sh</td>
+<td>Bash script for plotting the elementary functions
+as ASCII graphs using GHDL. The script generates a
+configuration file (<tt class="docutils literal">config.txt</tt>) for controlling
+the simulation.</td>
+</tr>
+<tr><td>plot-ghdl-pbm.sh</td>
+<td>Bash script for plotting the elementary functions
+as PBM images using GHDL. The script generates a
+configuration file (<tt class="docutils literal">config.txt</tt>) for controlling
+the simulation.</td>
+</tr>
+<tr><td>plot-mti-ascii.sh</td>
+<td>Bash script for plotting the elementary functions
+as ASCII graphs using Modelsim. The script generates
+a configuration file (<tt class="docutils literal">config.txt</tt>) for controlling
+the simulation.</td>
+</tr>
+<tr><td>plot-mti-pbm.sh</td>
+<td>Bash script for plotting the elementary functions
+as PBM images using Modelsim. The script generates
+a configuration file (<tt class="docutils literal">config.txt</tt>) for controlling
+the simulation.</td>
+</tr>
+<tr><td>testfunc.vhd</td>
+<td>VHDL testbench code for the elementary functions.
+Options include PBM or ASCII image generation and
+function selection through a configuration file.</td>
 </tr>
 <tr><td>test&lt;func&gt;.pbm</td>
 <td>Generated PBM image data for the function &lt;func&gt;.</td>
@@ -673,7 +737,7 @@ conference, Santa Clara, California, March 1, 2001.</td>
 and depicting any of the supported transcendental functions via two similar
 scripts.</p>
 <div class="section" id="ansi-c">
-<h2>3.1. ANSI C</h2>
+<h2>3.1 ANSI C</h2>
 <ol class="arabic simple">
 <li>Run the following shell script from a Unix/Linux/Cygwin command line in order
 to generate an ASCII graph for each function.</li>
@@ -685,7 +749,7 @@ to generate an ASCII graph for each function.</li>
 <p>All generated data are also concatenated to <tt class="docutils literal"><span class="pre">testfunc-ascii.txt</span></tt>.</p>
 <ol class="arabic simple" start="2">
 <li>Run the following shell script from a Unix/Linux/Cygwin command line in order
-to generate an ASCII graph for each function.</li>
+to generate a PBM image for each function.</li>
 </ol>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">$ <span class="pre">./plot-ansic-pbm.sh</span></tt></div>
@@ -695,7 +759,7 @@ Such files can be visualized using e.g. the public domain <tt class="docutils li
 <a class="reference external" href="http://www.nyam.pe.kr/">http://www.nyam.pe.kr/</a></p>
 </div>
 <div class="section" id="verilog-hdl">
-<h2>3.2. Verilog HDL</h2>
+<h2>3.2 Verilog HDL</h2>
 <ol class="arabic simple">
 <li>Run the following shell script from a Unix/Linux/Cygwin command line in order
 to generate an ASCII graph for each function.</li>
@@ -707,21 +771,66 @@ to generate an ASCII graph for each function.</li>
 <p>All generated data are also concatenated to <tt class="docutils literal"><span class="pre">testfunc-ascii.txt</span></tt>.</p>
 <ol class="arabic simple" start="2">
 <li>Run the following shell script from a Unix/Linux/Cygwin command line in order
-to generate an ASCII graph for each function.</li>
+to generate a PBM image for each function.</li>
 </ol>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">$ <span class="pre">./plot-verilog-pbm.sh</span></tt></div>
 </div>
 <p>All generated data are saved in the form of PBM (monochrome bitmap) image files.</p>
 </div>
+<div class="section" id="vhdl">
+<h2>3.3 VHDL</h2>
+<p>The VHDL version of <tt class="docutils literal">elemapprox</tt> supports both GHDL (<a class="reference external" href="http://ghdl.free.fr">http://ghdl.free.fr</a>) and
+Mentor Modelsim (<a class="reference external" href="http://www.model.com">http://www.model.com</a>).</p>
+<div class="section" id="ghdl">
+<h3>3.3.1 GHDL</h3>
+<ol class="arabic simple">
+<li>Run the following shell script from a Unix/Linux/Cygwin command line in order
+to generate an ASCII graph for each function.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ cd vhdl</tt></div>
+<div class="line"><tt class="docutils literal">$ <span class="pre">./plot-ghdl-ascii.sh</span></tt></div>
+</div>
+<p>All generated data are also concatenated to <tt class="docutils literal"><span class="pre">testfunc-ascii.txt</span></tt>.</p>
+<ol class="arabic simple" start="2">
+<li>Run the following shell script from a Unix/Linux/Cygwin command line in order
+to generate a PBM image for each function.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ <span class="pre">./plot-ghdl-pbm.sh</span></tt></div>
+</div>
+<p>All generated data are saved in the form of PBM (monochrome bitmap) image files.</p>
+</div>
+<div class="section" id="modelsim">
+<h3>3.3.2 Modelsim</h3>
+<ol class="arabic simple">
+<li>Run the following shell script from a Unix/Linux/Cygwin command line in order
+to generate an ASCII graph for each function.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ cd vhdl</tt></div>
+<div class="line"><tt class="docutils literal">$ <span class="pre">./plot-mti-ascii.sh</span></tt></div>
+</div>
+<p>All generated data are also concatenated to <tt class="docutils literal"><span class="pre">testfunc-ascii.txt</span></tt>.</p>
+<ol class="arabic simple" start="2">
+<li>Run the following shell script from a Unix/Linux/Cygwin command line in order
+to generate a PBM image for each function.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ <span class="pre">./plot-mti-pbm.sh</span></tt></div>
+</div>
+<p>All generated data are saved in the form of PBM (monochrome bitmap) image files.</p>
+</div>
+</div>
 </div>
 <div class="section" id="synthesis">
 <h1>4. Synthesis</h1>
-<p>The implementation code (either ANSI C or Verilog HDL) for the transcendental
-functions has not been tested for high-level or RTL synthesis.</p>
+<p>The implementation code (either ANSI C, Verilog HDL or VHDL) for the
+transcendental functions has not been tested for high-level or RTL synthesis.</p>
 </div>
-<div class="section" id="prerequisities">
-<h1>5. Prerequisities</h1>
+<div class="section" id="prerequisites">
+<h1>5. Prerequisites</h1>
 <ul>
 <li><p class="first">Standard UNIX-based tools (tested with gcc-4.6.2 on MinGW/x86) [optional if
 you use Modelsim].</p>
@@ -736,8 +845,14 @@ environments of sufficient completeness.</p>
 <li><p class="first">Icarus Verilog simulator (<a class="reference external" href="http://iverilog.icarus.com/">http://iverilog.icarus.com/</a>).
 The Windows version can be downloaded from: <a class="reference external" href="http://bleyer.org/icarus/">http://bleyer.org/icarus/</a></p>
 </li>
+<li><p class="first">GHDL simulator (<a class="reference external" href="http://ghdl.free.fr">http://ghdl.free.fr</a>) for VHDL. Both Windows and Linux
+versions can be downloaded from this site. Updated GHDL releases are
+available (again for multiple OSes) from:
+<a class="reference external" href="http://sourceforge.net/projects/ghdl-updates/">http://sourceforge.net/projects/ghdl-updates/</a></p>
+</li>
 <li><p class="first">Alternatively, a commercial simulator like Mentor Modelsim
-(<a class="reference external" href="http://www.mentor.com">http://www.mentor.com</a>) can be used (however this has not been tested).</p>
+(<a class="reference external" href="http://www.model.com">http://www.model.com</a>) can be used (however this has only been tested for the
+VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 </li>
 </ul>
 </div>
