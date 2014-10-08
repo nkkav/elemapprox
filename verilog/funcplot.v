@@ -61,10 +61,10 @@ module funcplot;
     y = 0.0;
     while (x <= 5.0)
     begin
-	  if ((x < -1.0) || (x > 1.0)) 
-	  begin
+      if ((x < -1.0) || (x > 1.0)) 
+      begin
         y = elemapprox.acoth(x);
-	  end
+      end
       graph.plot(x, y, testfunc.x_dim, testfunc.y_dim);
       x = x + step;
     end
@@ -274,13 +274,18 @@ module funcplot;
     input step;
     real step;
     real x, y;
+    real epsilon;
   begin
     graph.init(-2.0, -10.0, 2.0, 10.0, testfunc.y_dim);
     x = -10.0;
     y = 0.0;
+    epsilon = 0.00001;
     while (x <= 10.0)
     begin
-      y = elemapprox.coth(x);
+      if ((x < -epsilon) || (x > epsilon))
+      begin
+        y = elemapprox.coth(x);
+      end
       graph.plot(x, y, testfunc.x_dim, testfunc.y_dim);
       x = x + step;
     end
@@ -308,13 +313,18 @@ module funcplot;
     input step;
     real step;
     real x, y;
+    real epsilon;
   begin
     graph.init(-5.0, -10.0, 5.0, 10.0, testfunc.y_dim);
     x = -10.0;
     y = 0.0;
+    epsilon = 0.00001;
     while (x <= 10.0)
     begin
-      y = elemapprox.csch(x);
+      if ((x < -epsilon) || (x > epsilon))
+      begin     
+        y = elemapprox.csch(x);
+      end        
       graph.plot(x, y, testfunc.x_dim, testfunc.y_dim);
       x = x + step;
     end

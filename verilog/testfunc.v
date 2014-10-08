@@ -125,6 +125,8 @@ module testfunc;
 	  funcplot.plot_cosh(step);
 	else if (elem_func_name == "cot")
 	  funcplot.plot_cot(step);
+	else if (elem_func_name == "coth")
+	  funcplot.plot_coth(step);
 	else if (elem_func_name == "csc")
 	  funcplot.plot_csc(step);
 	else if (elem_func_name == "csch")
