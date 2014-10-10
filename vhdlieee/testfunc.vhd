@@ -138,7 +138,8 @@ begin
         (func(1 to 5) = "kcsch") or 
         (func(1 to 5) = "ksech") or 
         (func(1 to 5) = "ksinh") or 
-        (func(1 to 5) = "ktanh")) then
+        (func(1 to 5) = "ktanh") or
+        (func(1 to 5) = "ksqrt")) then
       lim := 5;
     elsif ((func(1 to 4) = "kcos") or 
         (func(1 to 4) = "kcot") or 
@@ -222,6 +223,8 @@ begin
       plot_kcsc(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "kexp") then
       plot_kexp(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "ksqrt") then
+      plot_ksqrt(step, x_dim, y_dim, arr);
     elsif (func(1 to 5) = "ksech") then
       plot_ksech(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "ksec") then

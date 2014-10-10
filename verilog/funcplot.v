@@ -348,6 +348,23 @@ module funcplot;
   end
   endtask  
 
+  task plot_sqrt;
+    input step;
+    real step;
+    real x, y;
+  begin
+    graph.init(0.0, 0.0, 200.0, 20.0, testfunc.y_dim);
+    x = 0.0;
+    y = 0.0;
+    while (x <= 200.0)
+    begin
+      y = elemapprox.sqrt(x);
+      graph.plot(x, y, testfunc.x_dim, testfunc.y_dim);
+      x = x + step;
+    end
+  end
+  endtask  
+
   task plot_sec;
     input step;
     real step;

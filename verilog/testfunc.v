@@ -133,6 +133,8 @@ module testfunc;
 	  funcplot.plot_csch(step);
 	else if (elem_func_name == "exp")
 	  funcplot.plot_exp(step);
+	else if (elem_func_name == "sqrt")
+	  funcplot.plot_sqrt(step);
 	else if (elem_func_name == "sec")
 	  funcplot.plot_sec(step);
 	else if (elem_func_name == "sech")

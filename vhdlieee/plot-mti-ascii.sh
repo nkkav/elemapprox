@@ -15,7 +15,7 @@ for app in "ksin" "kcos" "ktan" "kcot" "ksec" "kcsc" \
   "kasin" "kacos" "katan" "kacot" "kasec" "kacsc" \
   "ksinh" "kcosh" "ktanh" "kcoth" "ksech" "kcsch" \
   "kasinh" "kacosh" "katanh" "kacoth" "kasech" "kacsch" \
-  "kexp"
+  "kexp" "ksqrt"
 do
   echo "Plotting elementary function: ${app} as ASCII text"
   echo "Plotting elementary function: ${app} as ASCII text" >> testfunc-ascii.txt
@@ -54,5 +54,5 @@ else
 fi
 echo "This script has been running $SECONDS $units."
 
-echo "Ran plot-vhdl-ascii on all tests."
+echo "Ran plot-mti-ascii on all tests."
 exit 0

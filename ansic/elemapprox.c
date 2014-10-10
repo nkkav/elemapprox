@@ -230,11 +230,17 @@ double kpow(double x, double y)
 double ksqrt(double x)
 {
   double sqrtval;
+  double epsilon;
+  epsilon = 0.00001;
   if (x < 0.0) {
     printf("sqrt illegal argument: %lf", x);
     exit(1);
   }
-  sqrtval = kexp(0.5 * klog(x));
+  if (x < epsilon) {
+    sqrtval = 0.0;
+  } else {
+    sqrtval = kexp(0.5 * klog(x));
+  }
   return (sqrtval);
 }
 

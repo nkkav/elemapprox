@@ -228,13 +228,22 @@ endfunction
 function real sqrt;
   input x;
   real x;
+  real epsilon;
 begin
+  epsilon = 0.00001;
   if (x < 0.0)
   begin
     $display("sqrt illegal argument:",x);
     $stop;
   end
-  sqrt = exp(0.5*log(x));
+  if (x < epsilon) 
+  begin
+    sqrt = 0.0;
+  end
+  else
+  begin
+    sqrt = exp(0.5*log(x));
+  end
 end
 endfunction
 

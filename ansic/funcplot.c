@@ -243,6 +243,18 @@ void plot_exp(void)
   }
 }
 
+void plot_sqrt(void)
+{
+  double x, y=0.0;
+  graph_init(0.0, 0.0, 200.0, 20.0);
+  x = 0.0;
+  while (x <= 200.0) {
+    y = ksqrt(x);
+    graph_plot(x, y);
+    x = x + step;
+  }
+}
+
 void plot_sec(void)
 {
   double x, y=0.0;

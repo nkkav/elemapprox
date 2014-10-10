@@ -134,7 +134,8 @@ begin
         (func(1 to 4) = "csch") or 
         (func(1 to 4) = "sech") or 
         (func(1 to 4) = "sinh") or 
-        (func(1 to 4) = "tanh")) then
+        (func(1 to 4) = "tanh") or
+        (func(1 to 4) = "sqrt")) then
       lim := 4;
     elsif ((func(1 to 3) = "cos") or 
         (func(1 to 3) = "cot") or 
@@ -218,6 +219,8 @@ begin
       plot_csc(step, x_dim, y_dim, arr);
     elsif (func(1 to 3) = "exp") then
       plot_exp(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "sqrt") then
+      plot_sqrt(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "sech") then
       plot_sech(step, x_dim, y_dim, arr);
     elsif (func(1 to 3) = "sec") then

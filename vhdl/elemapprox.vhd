@@ -299,13 +299,19 @@ package body elemapprox_pkg is
 
   function sqrt (x : in real) return real is
     variable t_sqrt : real;
+    variable epsilon : real;
   begin
+    epsilon := 0.00001;
     if (x < 0.0) then
       assert false 
         report "sqrt illegal argument:" & real'IMAGE(x) 
         severity failure;    
     end if;
-    t_sqrt := exp(0.5*log(x));
+    if (x < epsilon) then
+      t_sqrt := 0.0;
+    else
+      t_sqrt := exp(0.5*log(x));
+    end if;
     return t_sqrt;
   end sqrt;
 
