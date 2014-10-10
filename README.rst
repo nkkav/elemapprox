@@ -12,11 +12,16 @@
 +-------------------+----------------------------------------------------------+
 | **Website**       | http://www.nkavvadias.com                                |
 +-------------------+----------------------------------------------------------+
-| **Release Date**  | 07 October 2014                                          |
+| **Release Date**  | 10 October 2014                                          |
 +-------------------+----------------------------------------------------------+
-| **Version**       | 1.1.0                                                    |
+| **Version**       | 1.2.0                                                    |
 +-------------------+----------------------------------------------------------+
 | **Rev. history**  |                                                          |
++-------------------+----------------------------------------------------------+
+|        **v1.2.0** | 2014-10-10                                               |
+|                   |                                                          |
+|                   | Added ``vhdlieee`` version which is compatible to the    |
+|                   | IEEE ``math_real`` package. Documentation updated.       |
 +-------------------+----------------------------------------------------------+
 |        **v1.1.0** | 2014-10-07                                               |
 |                   |                                                          |
@@ -47,8 +52,9 @@ the transcendental functions as PBM (monochrome) image files.
 ``elemapprox`` has been conceived as an extension to Prof. Mark G. Arnold's work 
 as puhlished in HDLCON 2001. Most functions have been prefixed with the letter 
 ``k`` in order to avoid function name clashes in both ANSI C and Verilog HDL 
-implementations. Currently, the VHDL version uses unprefixed names (e.g. acos 
-instead of kacos).
+implementations. Currently, the plain VHDL version uses unprefixed names (e.g. 
+acos instead of kacos). An alternative VHDL version named ``vhdlieee`` is 
+compatible to the ``IEEE.math_real`` package and features prefixed names.
 
 The transcendental functions supported include most elementary functions 
 (hence the name ``elemapprox``) and the list is as follows:
@@ -66,11 +72,11 @@ The transcendental functions supported include most elementary functions
 +-----------------------+------------------------------------------------------+
 | kcot                  | Cotangent.                                           |
 +-----------------------+------------------------------------------------------+
-| ksec                  | Secant.                                              |
+| ksec                  | Secant (named ``secant`` in the plain VHDL port).    |
 +-----------------------+------------------------------------------------------+
 | kcsc                  | Cosecant.                                            |
 +-----------------------+------------------------------------------------------+
-| rootof2               | Calculate root-of-2.                                 |
+| rootof2               | Calculate root-of-2 (not in ``vhdlieee``).           |
 +-----------------------+------------------------------------------------------+
 | kexp                  | Exponential.                                         |
 +-----------------------+------------------------------------------------------+
@@ -273,6 +279,52 @@ following files:
 | test<func>-ascii.txt  | Concatenation of the generated ASCII graph data for  |
 |                       | all supported functions.                             |
 +-----------------------+------------------------------------------------------+
+| /vhdlieee             | VHDL implementation compatible to ``IEEE.math_real`` |
++-----------------------+------------------------------------------------------+
+| elemapprox.do         | Modelsim ``.do`` macro file for Modelsim simulation. |
++-----------------------+------------------------------------------------------+
+| elemapprox.mk         | GNU Makefile for running the testbench using GHDL.   |
++-----------------------+------------------------------------------------------+
+| elemapprox.vhd        | VHDL package code for the function approximations and|
+|                       | related mathematical constants.                      |
++-----------------------+------------------------------------------------------+
+| funcplot.vhd          | VHDL package code for creating the plot data for the |
+|                       | elementary functions.                                |
++-----------------------+------------------------------------------------------+
+| graph.vhd             | VHDL package code with a collection of ASCII and PBM |
+|                       | procedures.                                          |
++-----------------------+------------------------------------------------------+
+| plot-ghdl-ascii.sh    | Bash script for plotting the elementary functions    |
+|                       | as ASCII graphs using GHDL. The script generates a   |
+|                       | configuration file (``config.txt``) for controlling  |
+|                       | the simulation.                                      |
++-----------------------+------------------------------------------------------+
+| plot-ghdl-pbm.sh      | Bash script for plotting the elementary functions    |
+|                       | as PBM images using GHDL. The script generates a     |
+|                       | configuration file (``config.txt``) for controlling  |
+|                       | the simulation.                                      |
++-----------------------+------------------------------------------------------+
+| plot-mti-ascii.sh     | Bash script for plotting the elementary functions    |
+|                       | as ASCII graphs using Modelsim. The script generates |
+|                       | a configuration file (``config.txt``) for controlling|
+|                       | the simulation.                                      |
++-----------------------+------------------------------------------------------+
+| plot-mti-pbm.sh       | Bash script for plotting the elementary functions    |
+|                       | as PBM images using Modelsim. The script generates   |
+|                       | a configuration file (``config.txt``) for controlling|
+|                       | the simulation.                                      |
++-----------------------+------------------------------------------------------+
+| testfunc.vhd          | VHDL testbench code for the elementary functions.    |
+|                       | Options include PBM or ASCII image generation and    |
+|                       | function selection through a configuration file.     |
++-----------------------+------------------------------------------------------+
+| test<func>.pbm        | Generated PBM image data for the function <func>.    |
++-----------------------+------------------------------------------------------+
+| test<func>.txt        | Generated ASCII graph data for the function <func>.  |
++-----------------------+------------------------------------------------------+
+| test<func>-ascii.txt  | Concatenation of the generated ASCII graph data for  |
+|                       | all supported functions.                             |
++-----------------------+------------------------------------------------------+
 | /refs                 | Reference documentation                              |
 +-----------------------+------------------------------------------------------+
 | sanjose_hdlcon.doc    | MS Word document for the manuscript:                 |
@@ -343,6 +395,13 @@ Mentor Modelsim (http://www.model.com).
    to generate an ASCII graph for each function.
 
 | ``$ cd vhdl``
+
+or 
+
+| ``$ cd vhdlieee``
+
+followed by
+
 | ``$ ./plot-ghdl-ascii.sh``
 
 All generated data are also concatenated to ``testfunc-ascii.txt``.
@@ -361,6 +420,13 @@ All generated data are saved in the form of PBM (monochrome bitmap) image files.
    to generate an ASCII graph for each function.
 
 | ``$ cd vhdl``
+
+or 
+
+| ``$ cd vhdlieee``
+
+followed by 
+
 | ``$ ./plot-mti-ascii.sh``
 
 All generated data are also concatenated to ``testfunc-ascii.txt``.
