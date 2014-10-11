@@ -147,7 +147,8 @@ begin
         (func(1 to 4) = "ksec") or 
         (func(1 to 4) = "ksin") or 
         (func(1 to 4) = "ktan") or
-        (func(1 to 4) = "kexp")) then
+        (func(1 to 4) = "kexp") or
+        (func(1 to 4) = "klog")) then
       lim := 4;
     else
     assert false
@@ -223,6 +224,8 @@ begin
       plot_kcsc(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "kexp") then
       plot_kexp(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "klog") then
+      plot_klog(step, x_dim, y_dim, arr);
     elsif (func(1 to 5) = "ksqrt") then
       plot_ksqrt(step, x_dim, y_dim, arr);
     elsif (func(1 to 5) = "ksech") then

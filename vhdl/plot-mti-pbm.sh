@@ -12,7 +12,7 @@ for app in "sin" "cos" "tan" "cot" "sec" "csc" \
   "asin" "acos" "atan" "acot" "asec" "acsc" \
   "sinh" "cosh" "tanh" "coth" "sech" "csch" \
   "asinh" "acosh" "atanh" "acoth" "asech" "acsch" \
-  "exp" "sqrt"
+  "exp" "log" "sqrt"
 do
   echo "Plotting elementary function: ${app} as PBM image"
   ######################################################################
@@ -52,5 +52,5 @@ else
 fi
 echo "This script has been running $SECONDS $units."
 
-echo "Ran plot-mti-ascii on all tests."
+echo "Ran plot-mti-pbm on all tests."
 exit 0

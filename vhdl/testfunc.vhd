@@ -143,7 +143,8 @@ begin
         (func(1 to 3) = "sec") or 
         (func(1 to 3) = "sin") or 
         (func(1 to 3) = "tan") or
-        (func(1 to 3) = "exp")) then
+        (func(1 to 3) = "exp") or
+        (func(1 to 3) = "log")) then
       lim := 3;
     else
     assert false
@@ -219,6 +220,8 @@ begin
       plot_csc(step, x_dim, y_dim, arr);
     elsif (func(1 to 3) = "exp") then
       plot_exp(step, x_dim, y_dim, arr);
+    elsif (func(1 to 3) = "log") then
+      plot_log(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "sqrt") then
       plot_sqrt(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "sech") then

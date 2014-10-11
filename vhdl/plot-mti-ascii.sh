@@ -15,7 +15,7 @@ for app in "sin" "cos" "tan" "cot" "secant" "csc" \
   "asin" "acos" "atan" "acot" "asec" "acsc" \
   "sinh" "cosh" "tanh" "coth" "sech" "csch" \
   "asinh" "acosh" "atanh" "acoth" "asech" "acsch" \
-  "exp" "sqrt"
+  "exp" "log" "sqrt"
 do
   echo "Plotting elementary function: ${app} as ASCII text"
   echo "Plotting elementary function: ${app} as ASCII text" >> testfunc-ascii.txt
