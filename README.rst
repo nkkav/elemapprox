@@ -12,11 +12,17 @@
 +-------------------+----------------------------------------------------------+
 | **Website**       | http://www.nkavvadias.com                                |
 +-------------------+----------------------------------------------------------+
-| **Release Date**  | 10 October 2014                                          |
+| **Release Date**  | 12 October 2014                                          |
 +-------------------+----------------------------------------------------------+
-| **Version**       | 1.2.0                                                    |
+| **Version**       | 1.3.0                                                    |
 +-------------------+----------------------------------------------------------+
 | **Rev. history**  |                                                          |
++-------------------+----------------------------------------------------------+
+|        **v1.3.0** | 2014-10-12                                               |
+|                   |                                                          |
+|                   | Added ``ansicstd`` version which is an alternative C port|
+|                   | that calls the standard C library mathematical functions |
+|                   | as defined in ``math.h``. Documentation updated.         |
 +-------------------+----------------------------------------------------------+
 |        **v1.2.0** | 2014-10-10                                               |
 |                   |                                                          |
@@ -157,7 +163,46 @@ following files:
 +-----------------------+------------------------------------------------------+
 | VERSION               | Current version.                                     |
 +-----------------------+------------------------------------------------------+
-| /ansic                | ANSI C implementation                                |
+| /ansic                | ANSI C implementation (standalone)                   |
++-----------------------+------------------------------------------------------+
+| clean-math-ansic.sh   | Bash script for cleaning up the generated            |
+|                       | executables.                                         |
++-----------------------+------------------------------------------------------+
+| elemapprox.c          | C code for the function approximations.              |
++-----------------------+------------------------------------------------------+
+| elemapprox.h          | C header file for the above. Defines certain         |
+|                       | mathematical constants and declares function         |
+|                       | prototypes.                                          |
++-----------------------+------------------------------------------------------+
+| funcplot.c            | Reference code for creating the plot data for the    |
+|                       | functions.                                           |
++-----------------------+------------------------------------------------------+
+| funcplot.h            | C header file for the above.                         |
++-----------------------+------------------------------------------------------+
+| graph.c               | Collection of ASCII and PBM graphing functions.      |
++-----------------------+------------------------------------------------------+
+| graph.h               | C header file for the above.                         |
++-----------------------+------------------------------------------------------+
+| Makefile              | GNU Makefile for building ``testfunc.exe``.          |
++-----------------------+------------------------------------------------------+
+| plot-ansic-ascii.sh   | Bash script for plotting the elementary functions    |
+|                       | as ASCII graphs using ``testfunc.exe``.              |
++-----------------------+------------------------------------------------------+
+| plot-ansic-pbm.sh     | Bash script for plotting the elementary functions    |
+|                       | as PBM images using ``testfunc.exe``.                |
++-----------------------+------------------------------------------------------+
+| testfunc.c            | Application code for testing the elementary          |
+|                       | functions. Options include PBM or ASCII image        |
+|                       | generation and function selection.                   |
++-----------------------+------------------------------------------------------+
+| test<func>.pbm        | Generated PBM image data for the function <func>.    |
++-----------------------+------------------------------------------------------+
+| test<func>.txt        | Generated ASCII graph data for the function <func>.  |
++-----------------------+------------------------------------------------------+
+| test<func>-ascii.txt  | Concatenation of the generated ASCII graph data for  |
+|                       | all supported functions.                             |
++-----------------------+------------------------------------------------------+
+| /ansicstd             | ANSI C implementation (based on ``math.h``)          |
 +-----------------------+------------------------------------------------------+
 | clean-math-ansic.sh   | Bash script for cleaning up the generated            |
 |                       | executables.                                         |
@@ -351,6 +396,13 @@ scripts.
    to generate an ASCII graph for each function.
 
 | ``$ cd ansic``
+
+or 
+
+| ``$ cd ansicstd``
+
+followed by
+
 | ``$ ./plot-ansic-ascii.sh``
 
 All generated data are also concatenated to ``testfunc-ascii.txt``.

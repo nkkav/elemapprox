@@ -361,13 +361,20 @@ Verilog HDL and VHDL)</td>
 <td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
 </tr>
 <tr><td><strong>Release Date</strong></td>
-<td>10 October 2014</td>
+<td>12 October 2014</td>
 </tr>
 <tr><td><strong>Version</strong></td>
-<td>1.2.0</td>
+<td>1.3.0</td>
 </tr>
 <tr><td><strong>Rev. history</strong></td>
 <td>&nbsp;</td>
+</tr>
+<tr><td><strong>v1.3.0</strong></td>
+<td><p class="first">2014-10-12</p>
+<p class="last">Added <tt class="docutils literal">ansicstd</tt> version which is an alternative C port
+that calls the standard C library mathematical functions
+as defined in <tt class="docutils literal">math.h</tt>. Documentation updated.</p>
+</td>
 </tr>
 <tr><td><strong>v1.2.0</strong></td>
 <td><p class="first">2014-10-10</p>
@@ -559,7 +566,61 @@ following files:</p>
 <td>Current version.</td>
 </tr>
 <tr><td>/ansic</td>
-<td>ANSI C implementation</td>
+<td>ANSI C implementation (standalone)</td>
+</tr>
+<tr><td>clean-math-ansic.sh</td>
+<td>Bash script for cleaning up the generated
+executables.</td>
+</tr>
+<tr><td>elemapprox.c</td>
+<td>C code for the function approximations.</td>
+</tr>
+<tr><td>elemapprox.h</td>
+<td>C header file for the above. Defines certain
+mathematical constants and declares function
+prototypes.</td>
+</tr>
+<tr><td>funcplot.c</td>
+<td>Reference code for creating the plot data for the
+functions.</td>
+</tr>
+<tr><td>funcplot.h</td>
+<td>C header file for the above.</td>
+</tr>
+<tr><td>graph.c</td>
+<td>Collection of ASCII and PBM graphing functions.</td>
+</tr>
+<tr><td>graph.h</td>
+<td>C header file for the above.</td>
+</tr>
+<tr><td>Makefile</td>
+<td>GNU Makefile for building <tt class="docutils literal">testfunc.exe</tt>.</td>
+</tr>
+<tr><td>plot-ansic-ascii.sh</td>
+<td>Bash script for plotting the elementary functions
+as ASCII graphs using <tt class="docutils literal">testfunc.exe</tt>.</td>
+</tr>
+<tr><td>plot-ansic-pbm.sh</td>
+<td>Bash script for plotting the elementary functions
+as PBM images using <tt class="docutils literal">testfunc.exe</tt>.</td>
+</tr>
+<tr><td>testfunc.c</td>
+<td>Application code for testing the elementary
+functions. Options include PBM or ASCII image
+generation and function selection.</td>
+</tr>
+<tr><td>test&lt;func&gt;.pbm</td>
+<td>Generated PBM image data for the function &lt;func&gt;.</td>
+</tr>
+<tr><td>test&lt;func&gt;.txt</td>
+<td>Generated ASCII graph data for the function &lt;func&gt;.</td>
+</tr>
+<tr><td>test&lt;func&gt;-ascii.txt</td>
+<td>Concatenation of the generated ASCII graph data for
+all supported functions.</td>
+</tr>
+<tr><td>/ansicstd</td>
+<td>ANSI C implementation (based on <tt class="docutils literal">math.h</tt>)</td>
 </tr>
 <tr><td>clean-math-ansic.sh</td>
 <td>Bash script for cleaning up the generated
@@ -811,6 +872,13 @@ to generate an ASCII graph for each function.</li>
 </ol>
 <div class="line-block">
 <div class="line"><tt class="docutils literal">$ cd ansic</tt></div>
+</div>
+<p>or</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ cd ansicstd</tt></div>
+</div>
+<p>followed by</p>
+<div class="line-block">
 <div class="line"><tt class="docutils literal">$ <span class="pre">./plot-ansic-ascii.sh</span></tt></div>
 </div>
 <p>All generated data are also concatenated to <tt class="docutils literal"><span class="pre">testfunc-ascii.txt</span></tt>.</p>
