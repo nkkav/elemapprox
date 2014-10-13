@@ -292,6 +292,14 @@ begin
 end
 endfunction
 
+function real hypot;
+  input x, y;
+  real x, y;
+begin
+  hypot = sqrt(x*x + y*y);
+end
+endfunction
+
 function real atan;
   input x;
   real x;

@@ -63,6 +63,7 @@ package elemapprox_pkg is
   function log    (x : in real) return real;
   function pow    (x : in real; y : in real) return real;
   function sqrt   (x : in real) return real;
+  function hypot  (x : in real; y : in real) return real;
   function atan   (x : in real) return real;
   function atan2  (y : in real; x : in real) return real;
   function asin   (x : in real) return real;
@@ -315,6 +316,13 @@ package body elemapprox_pkg is
     return t_sqrt;
   end sqrt;
 
+  function hypot (x : in real; y : in real) return real is
+    variable t_hypot : real;
+  begin
+    t_hypot := sqrt(x*x + y*y);
+    return t_hypot;
+  end hypot;
+  
   function atan (x : in real) return real is
     variable x1, x2, sign, bias : real;
     variable d3, s3 : real;
