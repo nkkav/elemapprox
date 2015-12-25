@@ -6,17 +6,21 @@
 | **Title**         | elemapprox (Elementary functions approximation in ANSI C |
 |                   | Verilog HDL and VHDL)                                    |
 +-------------------+----------------------------------------------------------+
-| **Author**        | Nikolaos Kavvadias (C) 2013, 2014                        |
+| **Author**        | Nikolaos Kavvadias (C) 2013, 2014, 2015                  |
 +-------------------+----------------------------------------------------------+
 | **Contact**       | nikos@nkavvadias.com                                     |
 +-------------------+----------------------------------------------------------+
 | **Website**       | http://www.nkavvadias.com                                |
 +-------------------+----------------------------------------------------------+
-| **Release Date**  | 12 October 2014                                          |
+| **Release Date**  | 25 December 2015                                         |
 +-------------------+----------------------------------------------------------+
-| **Version**       | 1.3.0                                                    |
+| **Version**       | 1.3.1                                                    |
 +-------------------+----------------------------------------------------------+
 | **Rev. history**  |                                                          |
++-------------------+----------------------------------------------------------+
+|        **v1.3.1** | 2015-12-25                                               |
+|                   |                                                          |
+|                   | Documentation updated with function plot examples.       |
 +-------------------+----------------------------------------------------------+
 |        **v1.3.0** | 2014-10-12                                               |
 |                   |                                                          |
@@ -70,67 +74,67 @@ The transcendental functions supported include most elementary functions
 +-----------------------+------------------------------------------------------+
 | kfabs                 | Floating-point absolute value (helper function).     |
 +-----------------------+------------------------------------------------------+
-| ksin                  | Sine.                                                |
-+-----------------------+------------------------------------------------------+
-| kcos                  | Cosine.                                              |
-+-----------------------+------------------------------------------------------+
-| ktan                  | Tangent.                                             |
-+-----------------------+------------------------------------------------------+
-| kcot                  | Cotangent.                                           |
-+-----------------------+------------------------------------------------------+
-| ksec                  | Secant (named ``secant`` in the plain VHDL port).    |
-+-----------------------+------------------------------------------------------+
-| kcsc                  | Cosecant.                                            |
-+-----------------------+------------------------------------------------------+
 | rootof2               | Calculate root-of-2 (not in ``vhdlieee``).           |
 +-----------------------+------------------------------------------------------+
-| kexp                  | Exponential.                                         |
+| kacos                 | Arc cosine.                                          |
 +-----------------------+------------------------------------------------------+
-| klog                  | Natural logarithm.                                   |
+| kacosh                | Inverse hyperbolic cosine.                           |
 +-----------------------+------------------------------------------------------+
-| kpow                  | Powering function.                                   |
+| kacot                 | Arc cotangent.                                       |
 +-----------------------+------------------------------------------------------+
-| ksqrt                 | Square root.                                         |
+| kacoth                | Inverse hyperbolic cotangent.                        |
 +-----------------------+------------------------------------------------------+
-| khypot                | Hypotenuse (currently ANSI C only).                  |
+| kacsc                 | Arc cosecant.                                        |
++-----------------------+------------------------------------------------------+
+| kacsch                | Inverse hyperbolic cosecant.                         |
++-----------------------+------------------------------------------------------+
+| kasec                 | Arc secant.                                          |
++-----------------------+------------------------------------------------------+
+| kasech                | Inverse hyperbolic secant.                           |
++-----------------------+------------------------------------------------------+
+| kasin                 | Arc sine.                                            |
++-----------------------+------------------------------------------------------+
+| kasinh                | Inverse hyperbolic sine.                             |
 +-----------------------+------------------------------------------------------+
 | katan                 | Arc tangent.                                         |
 +-----------------------+------------------------------------------------------+
 | katan2                | Two-argument (x/y) arc tangent.                      |
 +-----------------------+------------------------------------------------------+
-| kasin                 | Arc sine.                                            |
+| katanh                | Inverse hyperbolic tangent.                          |
 +-----------------------+------------------------------------------------------+
-| kacos                 | Arc cosine.                                          |
-+-----------------------+------------------------------------------------------+
-| kacot                 | Arc cotangent.                                       |
-+-----------------------+------------------------------------------------------+
-| kasec                 | Arc secant.                                          |
-+-----------------------+------------------------------------------------------+
-| kcsc                  | Arc cosecant.                                        |
-+-----------------------+------------------------------------------------------+
-| ksinh                 | Hyperbolic sine.                                     |
+| kcos                  | Cosine.                                              |
 +-----------------------+------------------------------------------------------+
 | kcosh                 | Hyperbolic cosine.                                   |
 +-----------------------+------------------------------------------------------+
-| ktanh                 | Hyperbolic tangent.                                  |
+| kcot                  | Cotangent.                                           |
 +-----------------------+------------------------------------------------------+
 | kcoth                 | Hyperbolic cotangent.                                |
 +-----------------------+------------------------------------------------------+
-| ksech                 | Hyperbolic secant.                                   |
+| kcsc                  | Cosecant.                                            |
 +-----------------------+------------------------------------------------------+
 | kcsch                 | Hyperbolic cosecant.                                 |
 +-----------------------+------------------------------------------------------+
-| kasinh                | Inverse hyperbolic sine.                             |
+| kexp                  | Exponential.                                         |
 +-----------------------+------------------------------------------------------+
-| kacosh                | Inverse hyperbolic cosine.                           |
+| khypot                | Hypotenuse (currently ANSI C only).                  |
 +-----------------------+------------------------------------------------------+
-| katanh                | Inverse hyperbolic tangent.                          |
+| klog                  | Natural logarithm.                                   |
 +-----------------------+------------------------------------------------------+
-| kacoth                | Inverse hyperbolic cotangent.                        |
+| kpow                  | Powering function.                                   |
 +-----------------------+------------------------------------------------------+
-| kasech                | Inverse hyperbolic secant.                           |
+| ksec                  | Secant (named ``secant`` in the plain VHDL port).    |
 +-----------------------+------------------------------------------------------+
-| kacsch                | Inverse hyperbolic cosecant.                         |
+| ksech                 | Hyperbolic secant.                                   |
++-----------------------+------------------------------------------------------+
+| ksin                  | Sine.                                                |
++-----------------------+------------------------------------------------------+
+| ksinh                 | Hyperbolic sine.                                     |
++-----------------------+------------------------------------------------------+
+| ksqrt                 | Square root.                                         |
++-----------------------+------------------------------------------------------+
+| ktan                  | Tangent.                                             |
++-----------------------+------------------------------------------------------+
+| ktanh                 | Hyperbolic tangent.                                  |
 +-----------------------+------------------------------------------------------+
 
 The reference paper and the corresponding presentation are available from the 
@@ -522,3 +526,362 @@ transcendental functions has not been tested for high-level or RTL synthesis.
 - Alternatively, a commercial simulator like Mentor Modelsim 
   (http://www.model.com) can be used (however this has only been tested for the 
   VHDL version of ``elemapprox``).
+
+
+A. Function plot examples
+=========================
+
+This appendix provides sample function plot visualization as raster graphics 
+(PNG) and ASCII for the elementary functions with provided implementations.
+
+A.1. Arc cosine (acos)
+----------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testacos.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testacos.png
+   :alt: Bitmap rendering for ```acos```.
+
+A.2. Inverse hyperbolic cosine (acosh)
+--------------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testacosh.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testacosh.png
+   :alt: Bitmap rendering for ```acosh```.
+
+A.3. Arc cotangent (acot)
+-------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testacot.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testacot.png
+   :alt: Bitmap rendering for ```acot```.
+
+A.4. Inverse hyperbolic cotangent (acoth)
+-----------------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testacoth.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testacoth.png
+   :alt: Bitmap rendering for ```acoth```.
+
+A.5. Arc cosecant (acsc)
+------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testacsc.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testacsc.png
+   :alt: Bitmap rendering for ```acsc```.
+
+A.6. Inverse hyperbolic cosecant (acsch)
+----------------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testacsch.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testacsch.png
+   :alt: Bitmap rendering for ```acsch```.
+
+A.7. Arc secant (asec)
+----------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testasec.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testasec.png
+   :alt: Bitmap rendering for ```asec```.
+
+A.8. Inverse hyperbolic secant (asech)
+--------------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testasech.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testasech.png
+   :alt: Bitmap rendering for ```asech```.
+
+A.9. Arc sine (asin)
+--------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testasin.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testasin.png
+   :alt: Bitmap rendering for ```asin```.
+
+A.10. Inverse hyperbolic sine (asinh)
+-------------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testasinh.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testasinh.png
+   :alt: Bitmap rendering for ```asinh```.
+
+A.11. Arc tangent (atan)
+------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testatan.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testatan.png
+   :alt: Bitmap rendering for ```atan```.
+
+A.12. Inverse hyperbolic tangent (atanh)
+----------------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testatanh.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testatanh.png
+   :alt: Bitmap rendering for ```atanh```.
+
+A.13. Cosine (cos)
+------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testcos.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testcos.png
+   :alt: Bitmap rendering for ```cos```.
+
+A.14. Hyperbolic cosine (cosh)
+------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testcosh.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testcosh.png
+   :alt: Bitmap rendering for ```cosh```.
+
+A.15. Cotangent (cot)
+---------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testcot.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testcot.png
+   :alt: Bitmap rendering for ```cot```.
+
+A.16. Hyperbolic cotangent (coth)
+---------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testcoth.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testcoth.png
+   :alt: Bitmap rendering for ```coth```.
+
+A.17. Cosecant (csc)
+--------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testcsc.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testcsc.png
+   :alt: Bitmap rendering for ```csc```.
+
+A.18. Hyperbolic cosecant (csch)
+--------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testcsch.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testcsch.png
+   :alt: Bitmap rendering for ```csch```.
+
+A.19. Exponential (exp)
+-----------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testexp.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testexp.png
+   :alt: Bitmap rendering for ```exp```.
+
+A.20. Natural logarithm (log)
+-----------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testlog.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testlog.png
+   :alt: Bitmap rendering for ```log```.
+
+A.21. Secant (sec)
+------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testsec.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testsec.png
+   :alt: Bitmap rendering for ```sec```.
+
+A.22. Hyperbolic secant (sech)
+------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testsech.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testsech.png
+   :alt: Bitmap rendering for ```sech```.
+
+A.23. Sine (sin)
+----------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testsin.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testsin.png
+   :alt: Bitmap rendering for ```sin```.
+
+A.24. Hyperbolic sine (sinh)
+----------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testsinh.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testsinh.png
+   :alt: Bitmap rendering for ```sinh```.
+
+A.25. Square root (sqrt)
+------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testsqrt.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testsqrt.png
+   :alt: Bitmap rendering for ```sqrt```.
+
+A.26. Tangent (tan)
+-------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testtan.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testtan.png
+   :alt: Bitmap rendering for ```tan```.
+
+A.27. Hyperbolic tangent (tanh)
+-------------------------------
+
+ASCII rendering.
+
+  .. include:: ./ansic/testtanh.txt
+     :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testtanh.png
+   :alt: Bitmap rendering for ```tanh```.
+
