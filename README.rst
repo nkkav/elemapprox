@@ -6,17 +6,22 @@
 | **Title**         | elemapprox (Elementary functions approximation in ANSI C |
 |                   | Verilog HDL and VHDL)                                    |
 +-------------------+----------------------------------------------------------+
-| **Author**        | Nikolaos Kavvadias (C) 2013, 2014, 2015                  |
+| **Author**        | Nikolaos Kavvadias (C) 2013, 2014, 2015, 2016            |
 +-------------------+----------------------------------------------------------+
 | **Contact**       | nikos@nkavvadias.com                                     |
 +-------------------+----------------------------------------------------------+
 | **Website**       | http://www.nkavvadias.com                                |
 +-------------------+----------------------------------------------------------+
-| **Release Date**  | 25 December 2015                                         |
+| **Release Date**  | 27 February 2016                                         |
 +-------------------+----------------------------------------------------------+
-| **Version**       | 1.3.1                                                    |
+| **Version**       | 1.3.2                                                    |
 +-------------------+----------------------------------------------------------+
 | **Rev. history**  |                                                          |
++-------------------+----------------------------------------------------------+
+|        **v1.3.2** | 2016-02-27                                               |
+|                   |                                                          |
+|                   | Fix ASCII rendering of function plots in the             |
+|                   | documentation.                                           |
 +-------------------+----------------------------------------------------------+
 |        **v1.3.1** | 2015-12-25                                               |
 |                   |                                                          |
@@ -539,8 +544,8 @@ A.1. Arc cosine (acos)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testacos.txt
-     :literal:
+.. include:: ./ansic/testacos.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -552,8 +557,8 @@ A.2. Inverse hyperbolic cosine (acosh)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testacosh.txt
-     :literal:
+.. include:: ./ansic/testacosh.txt
+   :literal:
 
 Bitmap rendering.
 
@@ -565,8 +570,8 @@ A.3. Arc cotangent (acot)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testacot.txt
-     :literal:
+.. include:: ./ansic/testacot.txt
+   :literal:
 
 Bitmap rendering.
 
@@ -578,8 +583,8 @@ A.4. Inverse hyperbolic cotangent (acoth)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testacoth.txt
-     :literal:
+.. include:: ./ansic/testacoth.txt
+   :literal:
 
 Bitmap rendering.
 
@@ -591,8 +596,8 @@ A.5. Arc cosecant (acsc)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testacsc.txt
-     :literal:
+.. include:: ./ansic/testacsc.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -604,8 +609,8 @@ A.6. Inverse hyperbolic cosecant (acsch)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testacsch.txt
-     :literal:
+.. include:: ./ansic/testacsch.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -617,8 +622,8 @@ A.7. Arc secant (asec)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testasec.txt
-     :literal:
+.. include:: ./ansic/testasec.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -630,8 +635,8 @@ A.8. Inverse hyperbolic secant (asech)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testasech.txt
-     :literal:
+.. include:: ./ansic/testasech.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -643,8 +648,8 @@ A.9. Arc sine (asin)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testasin.txt
-     :literal:
+.. include:: ./ansic/testasin.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -656,8 +661,8 @@ A.10. Inverse hyperbolic sine (asinh)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testasinh.txt
-     :literal:
+.. include:: ./ansic/testasinh.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -669,8 +674,8 @@ A.11. Arc tangent (atan)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testatan.txt
-     :literal:
+.. include:: ./ansic/testatan.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -682,8 +687,8 @@ A.12. Inverse hyperbolic tangent (atanh)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testatanh.txt
-     :literal:
+.. include:: ./ansic/testatanh.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -695,8 +700,8 @@ A.13. Cosine (cos)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testcos.txt
-     :literal:
+.. include:: ./ansic/testcos.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -708,8 +713,8 @@ A.14. Hyperbolic cosine (cosh)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testcosh.txt
-     :literal:
+.. include:: ./ansic/testcosh.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -721,8 +726,8 @@ A.15. Cotangent (cot)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testcot.txt
-     :literal:
+.. include:: ./ansic/testcot.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -734,8 +739,8 @@ A.16. Hyperbolic cotangent (coth)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testcoth.txt
-     :literal:
+.. include:: ./ansic/testcoth.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -747,8 +752,8 @@ A.17. Cosecant (csc)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testcsc.txt
-     :literal:
+.. include:: ./ansic/testcsc.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -760,8 +765,8 @@ A.18. Hyperbolic cosecant (csch)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testcsch.txt
-     :literal:
+.. include:: ./ansic/testcsch.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -773,8 +778,8 @@ A.19. Exponential (exp)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testexp.txt
-     :literal:
+.. include:: ./ansic/testexp.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -786,8 +791,8 @@ A.20. Natural logarithm (log)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testlog.txt
-     :literal:
+.. include:: ./ansic/testlog.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -799,8 +804,8 @@ A.21. Secant (sec)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testsec.txt
-     :literal:
+.. include:: ./ansic/testsec.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -812,8 +817,8 @@ A.22. Hyperbolic secant (sech)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testsech.txt
-     :literal:
+.. include:: ./ansic/testsech.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -825,8 +830,8 @@ A.23. Sine (sin)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testsin.txt
-     :literal:
+.. include:: ./ansic/testsin.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -838,8 +843,8 @@ A.24. Hyperbolic sine (sinh)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testsinh.txt
-     :literal:
+.. include:: ./ansic/testsinh.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -851,8 +856,8 @@ A.25. Square root (sqrt)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testsqrt.txt
-     :literal:
+.. include:: ./ansic/testsqrt.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -864,8 +869,8 @@ A.26. Tangent (tan)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testtan.txt
-     :literal:
+.. include:: ./ansic/testtan.txt
+    :literal:
 
 Bitmap rendering.
 
@@ -877,8 +882,8 @@ A.27. Hyperbolic tangent (tanh)
 
 ASCII rendering.
 
-  .. include:: ./ansic/testtanh.txt
-     :literal:
+.. include:: ./ansic/testtanh.txt
+    :literal:
 
 Bitmap rendering.
 
