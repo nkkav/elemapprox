@@ -3,8 +3,8 @@
 ========================
 
 +-------------------+----------------------------------------------------------+
-| **Title**         | elemapprox (Elementary functions approximation in ANSI C |
-|                   | Verilog HDL and VHDL)                                    |
+| **Title**         | elemapprox (Elementary functions approximation in ANSI   |
+|                   | C, Verilog HDL and VHDL)                                 |
 +-------------------+----------------------------------------------------------+
 | **Author**        | Nikolaos Kavvadias (C) 2013, 2014, 2015, 2016            |
 +-------------------+----------------------------------------------------------+
