@@ -428,9 +428,9 @@ the transcendental functions as PBM (monochrome) image files.</p>
 <p><tt class="docutils literal">elemapprox</tt> has been conceived as an extension to Prof. Mark G. Arnold's work
 as puhlished in HDLCON 2001. Most functions have been prefixed with the letter
 <tt class="docutils literal">k</tt> in order to avoid function name clashes in both ANSI C and Verilog HDL
-implementations. Currently, the plain VHDL version uses unprefixed names (e.g.
-acos instead of kacos). An alternative VHDL version named <tt class="docutils literal">vhdlieee</tt> is
-compatible to the <tt class="docutils literal">IEEE.math_real</tt> package and features prefixed names.</p>
+implementations. Currently, the plain VHDL version uses unprefixed names (e.g.,
+<tt class="docutils literal">acos</tt> instead of <tt class="docutils literal">kacos</tt>). An alternative VHDL version named <tt class="docutils literal">vhdlieee</tt>
+is compatible to the <tt class="docutils literal">IEEE.math_real</tt> package and features prefixed names.</p>
 <p>The transcendental functions supported include most elementary functions
 (hence the name <tt class="docutils literal">elemapprox</tt>) and the list is as follows:</p>
 <table border="1" class="docutils">
@@ -445,11 +445,14 @@ compatible to the <tt class="docutils literal">IEEE.math_real</tt> package and f
 <tr><td><tt class="docutils literal">kfabs(x)</tt></td>
 <td>Floating-point absolute value (helper function).</td>
 </tr>
+<tr><td><tt class="docutils literal">kfmax(x,y)</tt></td>
+<td>Floating-point maximum value (helper function).</td>
+</tr>
 <tr><td><tt class="docutils literal">kfmin(x,y)</tt></td>
 <td>Floating-point minimum value (helper function).</td>
 </tr>
-<tr><td><tt class="docutils literal">kfmax(x,y)</tt></td>
-<td>Floating-point maximum value (helper function).</td>
+<tr><td><tt class="docutils literal">kfmod(x,y)</tt></td>
+<td>Floating-point modulo.</td>
 </tr>
 <tr><td><tt class="docutils literal">rootof2(x)</tt></td>
 <td>Calculate root-of-2 (not in <tt class="docutils literal">vhdlieee</tt>).</td>

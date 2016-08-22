@@ -71,9 +71,9 @@ the transcendental functions as PBM (monochrome) image files.
 ``elemapprox`` has been conceived as an extension to Prof. Mark G. Arnold's work 
 as puhlished in HDLCON 2001. Most functions have been prefixed with the letter 
 ``k`` in order to avoid function name clashes in both ANSI C and Verilog HDL 
-implementations. Currently, the plain VHDL version uses unprefixed names (e.g. 
-acos instead of kacos). An alternative VHDL version named ``vhdlieee`` is 
-compatible to the ``IEEE.math_real`` package and features prefixed names.
+implementations. Currently, the plain VHDL version uses unprefixed names (e.g., 
+``acos`` instead of ``kacos``). An alternative VHDL version named ``vhdlieee`` 
+is compatible to the ``IEEE.math_real`` package and features prefixed names.
 
 The transcendental functions supported include most elementary functions 
 (hence the name ``elemapprox``) and the list is as follows:
@@ -83,9 +83,11 @@ The transcendental functions supported include most elementary functions
 +-----------------------+------------------------------------------------------+
 | ``kfabs(x)``          | Floating-point absolute value (helper function).     |
 +-----------------------+------------------------------------------------------+
+| ``kfmax(x,y)``        | Floating-point maximum value (helper function).      |
++-----------------------+------------------------------------------------------+
 | ``kfmin(x,y)``        | Floating-point minimum value (helper function).      |
 +-----------------------+------------------------------------------------------+
-| ``kfmax(x,y)``        | Floating-point maximum value (helper function).      |
+| ``kfmod(x,y)``        | Floating-point modulo.                               |
 +-----------------------+------------------------------------------------------+
 | ``rootof2(x)``        | Calculate root-of-2 (not in ``vhdlieee``).           |
 +-----------------------+------------------------------------------------------+
