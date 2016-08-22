@@ -15,6 +15,9 @@ testfunc.o : testfunc.c graph.h funcplot.h
     
 testfunc$(EXE) : elemapprox.o graph.o funcplot.o testfunc.o
 	$(CC) $(CFLAGS) -o testfunc$(EXE) elemapprox.o graph.o funcplot.o testfunc.o    
+
+tidy :
+	rm -rf *.o
     
 clean :
 	rm -rf *.o test*$(EXE)
