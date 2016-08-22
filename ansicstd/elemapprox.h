@@ -19,6 +19,7 @@
 
 /* Function prototypes. */
 double kfabs(double n);
+double kfmod(double a, double b);
 double ksin(double x);
 double kcos(double x);
 double ktan(double x);
