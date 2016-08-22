@@ -361,13 +361,18 @@ C, Verilog HDL, and VHDL)</td>
 <td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
 </tr>
 <tr><td><strong>Release Date</strong></td>
-<td>27 February 2016</td>
+<td>22 August 2016</td>
 </tr>
 <tr><td><strong>Version</strong></td>
-<td>1.3.2</td>
+<td>1.3.3</td>
 </tr>
 <tr><td><strong>Rev. history</strong></td>
 <td>&nbsp;</td>
+</tr>
+<tr><td><strong>v1.3.3</strong></td>
+<td><p class="first">2016-08-22</p>
+<p class="last">Add <tt class="docutils literal">fmin</tt>, <tt class="docutils literal">fmax</tt> for C, Verilog, and VHDL.</p>
+</td>
 </tr>
 <tr><td><strong>v1.3.2</strong></td>
 <td><p class="first">2016-02-27</p>
@@ -437,100 +442,106 @@ compatible to the <tt class="docutils literal">IEEE.math_real</tt> package and f
 <tr><td>Function</td>
 <td>Description</td>
 </tr>
-<tr><td>kfabs</td>
+<tr><td><tt class="docutils literal">kfabs(x)</tt></td>
 <td>Floating-point absolute value (helper function).</td>
 </tr>
-<tr><td>rootof2</td>
+<tr><td><tt class="docutils literal">kfmin(x,y)</tt></td>
+<td>Floating-point minimum value (helper function).</td>
+</tr>
+<tr><td><tt class="docutils literal">kfmax(x,y)</tt></td>
+<td>Floating-point maximum value (helper function).</td>
+</tr>
+<tr><td><tt class="docutils literal">rootof2(x)</tt></td>
 <td>Calculate root-of-2 (not in <tt class="docutils literal">vhdlieee</tt>).</td>
 </tr>
-<tr><td>kacos</td>
+<tr><td><tt class="docutils literal">kacos(x)</tt></td>
 <td>Arc cosine.</td>
 </tr>
-<tr><td>kacosh</td>
+<tr><td><tt class="docutils literal">kacosh(x)</tt></td>
 <td>Inverse hyperbolic cosine.</td>
 </tr>
-<tr><td>kacot</td>
+<tr><td><tt class="docutils literal">kacot(x)</tt></td>
 <td>Arc cotangent.</td>
 </tr>
-<tr><td>kacoth</td>
+<tr><td><tt class="docutils literal">kacoth(x)</tt></td>
 <td>Inverse hyperbolic cotangent.</td>
 </tr>
-<tr><td>kacsc</td>
+<tr><td><tt class="docutils literal">kacsc(x)</tt></td>
 <td>Arc cosecant.</td>
 </tr>
-<tr><td>kacsch</td>
+<tr><td><tt class="docutils literal">kacsch(x)</tt></td>
 <td>Inverse hyperbolic cosecant.</td>
 </tr>
-<tr><td>kasec</td>
+<tr><td><tt class="docutils literal">kasec(x)</tt></td>
 <td>Arc secant.</td>
 </tr>
-<tr><td>kasech</td>
+<tr><td><tt class="docutils literal">kasech(x)</tt></td>
 <td>Inverse hyperbolic secant.</td>
 </tr>
-<tr><td>kasin</td>
+<tr><td><tt class="docutils literal">kasin(x)</tt></td>
 <td>Arc sine.</td>
 </tr>
-<tr><td>kasinh</td>
+<tr><td><tt class="docutils literal">kasinh(x)</tt></td>
 <td>Inverse hyperbolic sine.</td>
 </tr>
-<tr><td>katan</td>
+<tr><td><tt class="docutils literal">katan(x)</tt></td>
 <td>Arc tangent.</td>
 </tr>
-<tr><td>katan2</td>
+<tr><td><tt class="docutils literal">katan2(y,x)</tt></td>
 <td>Two-argument (x/y) arc tangent.</td>
 </tr>
-<tr><td>katanh</td>
+<tr><td><tt class="docutils literal">katanh(x)</tt></td>
 <td>Inverse hyperbolic tangent.</td>
 </tr>
-<tr><td>kcos</td>
+<tr><td><tt class="docutils literal">kcos(x)</tt></td>
 <td>Cosine.</td>
 </tr>
-<tr><td>kcosh</td>
+<tr><td><tt class="docutils literal">kcosh(x)</tt></td>
 <td>Hyperbolic cosine.</td>
 </tr>
-<tr><td>kcot</td>
+<tr><td><tt class="docutils literal">kcot(x)</tt></td>
 <td>Cotangent.</td>
 </tr>
-<tr><td>kcoth</td>
+<tr><td><tt class="docutils literal">kcoth(x)</tt></td>
 <td>Hyperbolic cotangent.</td>
 </tr>
-<tr><td>kcsc</td>
+<tr><td><tt class="docutils literal">kcsc(x)</tt></td>
 <td>Cosecant.</td>
 </tr>
-<tr><td>kcsch</td>
+<tr><td><tt class="docutils literal">kcsch(x)</tt></td>
 <td>Hyperbolic cosecant.</td>
 </tr>
-<tr><td>kexp</td>
+<tr><td><tt class="docutils literal">kexp(x)</tt></td>
 <td>Exponential.</td>
 </tr>
-<tr><td>khypot</td>
-<td>Hypotenuse (currently ANSI C only).</td>
+<tr><td><tt class="docutils literal">khypot(x,y)</tt></td>
+<td>Hypotenuse.</td>
 </tr>
-<tr><td>klog</td>
+<tr><td><tt class="docutils literal">klog(x)</tt></td>
 <td>Natural logarithm.</td>
 </tr>
-<tr><td>kpow</td>
+<tr><td><tt class="docutils literal">kpow(x,y)</tt></td>
 <td>Powering function.</td>
 </tr>
-<tr><td>ksec</td>
+<tr><td><tt class="docutils literal">ksec(x)</tt></td>
 <td>Secant (named <tt class="docutils literal">secant</tt> in the plain VHDL port).</td>
 </tr>
-<tr><td>ksech</td>
+<tr><td><tt class="docutils literal">ksech(x)</tt></td>
 <td>Hyperbolic secant.</td>
 </tr>
-<tr><td>ksin</td>
+<tr><td><tt class="docutils literal">ksin(x)</tt></td>
 <td>Sine.</td>
 </tr>
-<tr><td>ksinh</td>
+<tr><td><tt class="docutils literal">ksinh(x)</tt></td>
 <td>Hyperbolic sine.</td>
 </tr>
-<tr><td>ksqrt</td>
+<tr><td><tt class="docutils literal">ksqrt(x)</tt></td>
 <td>Square root.</td>
 </tr>
-<tr><td>ktan</td>
+<tr><td><tt class="docutils literal">ktan(x)</tt></td>
 <td>Tangent.</td>
 </tr>
-<tr><td>ktanh</td>
+<tr><td><tt class="docutils literal">ktanh(x)</tt></td>
 <td>Hyperbolic tangent.</td>
 </tr>
 </tbody>
@@ -901,8 +912,9 @@ to generate a PBM image for each function.</li>
 <div class="line"><tt class="docutils literal">$ <span class="pre">./plot-ansic-pbm.sh</span></tt></div>
 </div>
 <p>All generated data are saved in the form of PBM (monochrome bitmap) image files.
-Such files can be visualized using e.g. the public domain <tt class="docutils literal">Imagine</tt> viewer:
-<a class="reference external" href="http://www.nyam.pe.kr/">http://www.nyam.pe.kr/</a></p>
+Such files can be visualized using, e.g., the public domain <tt class="docutils literal">Imagine</tt> viewer:
+<a class="reference external" href="http://www.nyam.pe.kr/">http://www.nyam.pe.kr/</a> on Windows or <tt class="docutils literal">eog</tt> (Eye of Gnome) on Debian-based
+Linux distributions (for instance, Ubuntu).</p>
 </div>
 <div class="section" id="verilog-hdl">
 <h2>3.2 Verilog HDL</h2>
@@ -1047,7 +1059,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```acos```." src="./figures/testacos.png" />
+<img alt="Bitmap rendering for ``acos``." src="./figures/testacos.png" />
 </div>
 <div class="section" id="a-2-inverse-hyperbolic-cosine-acosh">
 <h2>A.2. Inverse hyperbolic cosine (acosh)</h2>
@@ -1076,7 +1088,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```acosh```." src="./figures/testacosh.png" />
+<img alt="Bitmap rendering for ``acosh``." src="./figures/testacosh.png" />
 </div>
 <div class="section" id="a-3-arc-cotangent-acot">
 <h2>A.3. Arc cotangent (acot)</h2>
@@ -1105,7 +1117,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```acot```." src="./figures/testacot.png" />
+<img alt="Bitmap rendering for ``acot``." src="./figures/testacot.png" />
 </div>
 <div class="section" id="a-4-inverse-hyperbolic-cotangent-acoth">
 <h2>A.4. Inverse hyperbolic cotangent (acoth)</h2>
@@ -1134,7 +1146,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```acoth```." src="./figures/testacoth.png" />
+<img alt="Bitmap rendering for ``acoth``." src="./figures/testacoth.png" />
 </div>
 <div class="section" id="a-5-arc-cosecant-acsc">
 <h2>A.5. Arc cosecant (acsc)</h2>
@@ -1163,7 +1175,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```acsc```." src="./figures/testacsc.png" />
+<img alt="Bitmap rendering for ``acsc``." src="./figures/testacsc.png" />
 </div>
 <div class="section" id="a-6-inverse-hyperbolic-cosecant-acsch">
 <h2>A.6. Inverse hyperbolic cosecant (acsch)</h2>
@@ -1192,7 +1204,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```acsch```." src="./figures/testacsch.png" />
+<img alt="Bitmap rendering for ``acsch``." src="./figures/testacsch.png" />
 </div>
 <div class="section" id="a-7-arc-secant-asec">
 <h2>A.7. Arc secant (asec)</h2>
@@ -1221,7 +1233,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```asec```." src="./figures/testasec.png" />
+<img alt="Bitmap rendering for ``asec``." src="./figures/testasec.png" />
 </div>
 <div class="section" id="a-8-inverse-hyperbolic-secant-asech">
 <h2>A.8. Inverse hyperbolic secant (asech)</h2>
@@ -1250,7 +1262,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```asech```." src="./figures/testasech.png" />
+<img alt="Bitmap rendering for ``asech``." src="./figures/testasech.png" />
 </div>
 <div class="section" id="a-9-arc-sine-asin">
 <h2>A.9. Arc sine (asin)</h2>
@@ -1279,7 +1291,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```asin```." src="./figures/testasin.png" />
+<img alt="Bitmap rendering for ``asin``." src="./figures/testasin.png" />
 </div>
 <div class="section" id="a-10-inverse-hyperbolic-sine-asinh">
 <h2>A.10. Inverse hyperbolic sine (asinh)</h2>
@@ -1308,7 +1320,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```asinh```." src="./figures/testasinh.png" />
+<img alt="Bitmap rendering for ``asinh``." src="./figures/testasinh.png" />
 </div>
 <div class="section" id="a-11-arc-tangent-atan">
 <h2>A.11. Arc tangent (atan)</h2>
@@ -1337,7 +1349,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```atan```." src="./figures/testatan.png" />
+<img alt="Bitmap rendering for ``atan``." src="./figures/testatan.png" />
 </div>
 <div class="section" id="a-12-inverse-hyperbolic-tangent-atanh">
 <h2>A.12. Inverse hyperbolic tangent (atanh)</h2>
@@ -1366,7 +1378,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```atanh```." src="./figures/testatanh.png" />
+<img alt="Bitmap rendering for ``atanh``." src="./figures/testatanh.png" />
 </div>
 <div class="section" id="a-13-cosine-cos">
 <h2>A.13. Cosine (cos)</h2>
@@ -1395,7 +1407,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```cos```." src="./figures/testcos.png" />
+<img alt="Bitmap rendering for ``cos``." src="./figures/testcos.png" />
 </div>
 <div class="section" id="a-14-hyperbolic-cosine-cosh">
 <h2>A.14. Hyperbolic cosine (cosh)</h2>
@@ -1424,7 +1436,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```cosh```." src="./figures/testcosh.png" />
+<img alt="Bitmap rendering for ``cosh``." src="./figures/testcosh.png" />
 </div>
 <div class="section" id="a-15-cotangent-cot">
 <h2>A.15. Cotangent (cot)</h2>
@@ -1453,7 +1465,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```cot```." src="./figures/testcot.png" />
+<img alt="Bitmap rendering for ``cot``." src="./figures/testcot.png" />
 </div>
 <div class="section" id="a-16-hyperbolic-cotangent-coth">
 <h2>A.16. Hyperbolic cotangent (coth)</h2>
@@ -1482,7 +1494,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```coth```." src="./figures/testcoth.png" />
+<img alt="Bitmap rendering for ``coth``." src="./figures/testcoth.png" />
 </div>
 <div class="section" id="a-17-cosecant-csc">
 <h2>A.17. Cosecant (csc)</h2>
@@ -1511,7 +1523,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```csc```." src="./figures/testcsc.png" />
+<img alt="Bitmap rendering for ``csc``." src="./figures/testcsc.png" />
 </div>
 <div class="section" id="a-18-hyperbolic-cosecant-csch">
 <h2>A.18. Hyperbolic cosecant (csch)</h2>
@@ -1540,7 +1552,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```csch```." src="./figures/testcsch.png" />
+<img alt="Bitmap rendering for ``csch``." src="./figures/testcsch.png" />
 </div>
 <div class="section" id="a-19-exponential-exp">
 <h2>A.19. Exponential (exp)</h2>
@@ -1569,7 +1581,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```exp```." src="./figures/testexp.png" />
+<img alt="Bitmap rendering for ``exp``." src="./figures/testexp.png" />
 </div>
 <div class="section" id="a-20-natural-logarithm-log">
 <h2>A.20. Natural logarithm (log)</h2>
@@ -1598,7 +1610,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```log```." src="./figures/testlog.png" />
+<img alt="Bitmap rendering for ``log``." src="./figures/testlog.png" />
 </div>
 <div class="section" id="a-21-secant-sec">
 <h2>A.21. Secant (sec)</h2>
@@ -1627,7 +1639,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```sec```." src="./figures/testsec.png" />
+<img alt="Bitmap rendering for ``sec``." src="./figures/testsec.png" />
 </div>
 <div class="section" id="a-22-hyperbolic-secant-sech">
 <h2>A.22. Hyperbolic secant (sech)</h2>
@@ -1656,7 +1668,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```sech```." src="./figures/testsech.png" />
+<img alt="Bitmap rendering for ``sech``." src="./figures/testsech.png" />
 </div>
 <div class="section" id="a-23-sine-sin">
 <h2>A.23. Sine (sin)</h2>
@@ -1685,7 +1697,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```sin```." src="./figures/testsin.png" />
+<img alt="Bitmap rendering for ``sin``." src="./figures/testsin.png" />
 </div>
 <div class="section" id="a-24-hyperbolic-sine-sinh">
 <h2>A.24. Hyperbolic sine (sinh)</h2>
@@ -1714,7 +1726,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```sinh```." src="./figures/testsinh.png" />
+<img alt="Bitmap rendering for ``sinh``." src="./figures/testsinh.png" />
 </div>
 <div class="section" id="a-25-square-root-sqrt">
 <h2>A.25. Square root (sqrt)</h2>
@@ -1743,7 +1755,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```sqrt```." src="./figures/testsqrt.png" />
+<img alt="Bitmap rendering for ``sqrt``." src="./figures/testsqrt.png" />
 </div>
 <div class="section" id="a-26-tangent-tan">
 <h2>A.26. Tangent (tan)</h2>
@@ -1772,7 +1784,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```tan```." src="./figures/testtan.png" />
+<img alt="Bitmap rendering for ``tan``." src="./figures/testtan.png" />
 </div>
 <div class="section" id="a-27-hyperbolic-tangent-tanh">
 <h2>A.27. Hyperbolic tangent (tanh)</h2>
@@ -1801,7 +1813,7 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 
 </pre>
 <p>Bitmap rendering.</p>
-<img alt="Bitmap rendering for ```tanh```." src="./figures/testtanh.png" />
+<img alt="Bitmap rendering for ``tanh``." src="./figures/testtanh.png" />
 </div>
 </div>
 </div>
