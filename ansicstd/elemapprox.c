@@ -3,8 +3,6 @@
 #include <math.h>
 #include "elemapprox.h"
 
-#define FLOOR(x)          ((int) (x))
-
 double kfabs(double n)
 {
   double f;
@@ -258,3 +256,24 @@ double kacsch(double x)
   }
   return (acschval);
 }
+
+double kfmin(double x, double y)
+{
+  double f;
+  if (x < y)
+    f = x;
+  else
+    f = y;
+  return f;
+}
+
+double kfmax(double x, double y)
+{
+  double f;
+  if (x > y)
+    f = x;
+  else
+    f = y;
+  return f;
+}
+

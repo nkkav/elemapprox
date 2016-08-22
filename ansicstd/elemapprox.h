@@ -50,5 +50,7 @@ double katanh(double x);
 double kacoth(double x);
 double kasech(double x);
 double kacsch(double x);
+double kfmin(double x, double y);
+double kfmax(double x, double y);
 
 #endif /* ELEMAPPROX_H */

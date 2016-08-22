@@ -83,6 +83,8 @@ package elemapprox_pkg is
   function acoth  (x : in real) return real;
   function asech  (x : in real) return real;
   function acsch  (x : in real) return real;
+  function min    (x : in real; y : in real) return real; 
+  function max    (x : in real; y : in real) return real;
 
 end package elemapprox_pkg;
 
@@ -580,5 +582,27 @@ package body elemapprox_pkg is
     end if;
     return t_acsch;
   end acsch;
+
+  function min (x : in real; y : in real) return real is
+    variable t_min : real;
+  begin
+    if (x < y) then
+      t_min := x;
+    else
+      t_min := y;
+    end if;
+    return t_min;
+  end min;
+
+  function max (x : in real; y : in real) return real is
+    variable t_max : real;
+  begin
+    if (x > y) then
+      t_max := x;
+    else
+      t_max := y;
+    end if;
+    return t_max;
+  end max;
 
 end package body elemapprox_pkg;

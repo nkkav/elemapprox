@@ -85,6 +85,8 @@ package elemapprox_pkg is
   function kacoth  (x : in real) return real;
   function kasech  (x : in real) return real;
   function kacsch  (x : in real) return real;
+  function kmin    (x : in real; y : in real) return real;
+  function kmax    (x : in real; y : in real) return real;
 
 end package elemapprox_pkg;
 
@@ -338,5 +340,27 @@ package body elemapprox_pkg is
     end if;
     return t_acsch;
   end kacsch;
+
+  function kmin (x : in real; y : in real) return real is
+    variable t_min : real;
+  begin
+    if (x < y) then
+      t_min := x;
+    else
+      t_min := y;
+    end if;
+    return t_min;
+  end kmin;
+
+  function kmax (x : in real; y : in real) return real is
+    variable t_max : real;
+  begin
+    if (x > y) then
+      t_max := x;
+    else
+      t_max := y;
+    end if;
+    return t_max;
+  end kmax;
 
 end package body elemapprox_pkg;

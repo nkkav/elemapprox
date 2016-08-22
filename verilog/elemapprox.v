@@ -525,4 +525,26 @@ begin
 end
 endfunction
 
+function real min;
+  input x, y;
+  real x, y;
+begin
+  if (x < y)
+    min = x;
+  else
+    min = y;
+end
+endfunction
+
+function real max;
+  input x, y;
+  real x, y;
+begin
+  if (x > y)
+    max = x;
+  else
+    max = y;
+end
+endfunction
+
 endmodule
