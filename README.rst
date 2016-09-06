@@ -155,8 +155,10 @@ The transcendental functions supported include most elementary functions
 The reference paper and the corresponding presentation are available from the 
 web at the following links:
 
-- http://www.cse.lehigh.edu/~caar/marnold/papers/sanjose_hdlcon.doc
-- http://www.cse.lehigh.edu/~caar/marnold/presentations/freeddy.ppt
+- https://web.archive.org/web/20100515000000*/http://www.cse.lehigh.edu/~caar/marnold/papers/sanjose_hdlcon.doc
+- https://web.archive.org/web/20100415000000*/http://www.cse.lehigh.edu/~caar/marnold/presentations/freeddy.ppt
+
+Since the original links have been removed, the files are now only accessible from the Internet Archive.
 
    
 2. File listing
