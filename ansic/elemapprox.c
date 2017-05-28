@@ -81,9 +81,8 @@ double kceil(double x)
 //
 double kcos(double x)
 {
-  int quad;                       // What quadrant are we in?
-  double x1 = x;
-  x1 = kfmod(x, MATH_TWO_PI);     // Get rid of values > 2*pi
+  int quad;                          // What quadrant are we in?
+  double x1 = kfmod(x, MATH_TWO_PI); // Get rid of values > 2*pi
   if (x1 < 0.0) {
     x1 = -x1;                       // cos(-x) = cos(x)
   }
@@ -146,7 +145,7 @@ double rootof2(int n)
     power = 2.0;
     i = 0;
   }
-  for (i = i; i < n; i = i + 1) {
+  for (; i < n; i = i + 1) {
     power = power * power;
   }
   return (power);
