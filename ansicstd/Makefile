@@ -11,7 +11,7 @@ funcplot.o : ../common/ansic/funcplot.c ../common/ansic/funcplot.h
 	$(CC) $(CFLAGS) -c ../common/ansic/funcplot.c
 
 elemapprox.o : elemapprox.c ../common/ansic/elemapprox.h
-	$(CC) $(CFLAGS) -c elemapprox.c
+	$(CC) $(CFLAGS) -I../common/ansic/ -c elemapprox.c
 
 testfunc.o : ../common/ansic/testfunc.c ../common/ansic/graph.h ../common/ansic/funcplot.h
 	$(CC) $(CFLAGS) -c ../common/ansic/testfunc.c     
