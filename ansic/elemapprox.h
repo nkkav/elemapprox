@@ -36,6 +36,8 @@
 
 /* Function prototypes. */
 double kfabs(double n);
+double kfloor(double x);
+double kceil(double x);
 double kfmod(double a, double b);
 double ksin(double x);
 double kcos(double x);

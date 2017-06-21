@@ -28,5 +28,7 @@ void plot_sin(void);
 void plot_sinh(void);
 void plot_tan(void);
 void plot_tanh(void);
+void plot_floor(void);
+void plot_ceil(void);
 
 #endif /* FUNCPLOT_H */

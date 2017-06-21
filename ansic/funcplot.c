@@ -342,3 +342,28 @@ void plot_tanh(void)
     x = x + step;
   }
 }
+
+void plot_floor(void)
+{
+  double x, y=0.0;
+  graph_init(-10.0, -10.0, 10.0, 10.0);
+  x = -10.0;
+  while (x <= 10.0) {
+    y = kfloor(x);
+    graph_plot(x, y);
+    x = x + step;
+  }
+}
+
+void plot_ceil(void)
+{
+  double x, y=0.0;
+  graph_init(-10.0, -10.0, 10.0, 10.0);
+  x = -10.0;
+  while (x <= 10.0) {
+    y = kceil(x);
+    graph_plot(x, y);
+    x = x + step;
+  }
+}
+
