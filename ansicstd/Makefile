@@ -14,7 +14,7 @@ testfunc.o : testfunc.c graph.h funcplot.h
 	$(CC) $(CFLAGS) -c testfunc.c     
     
 testfunc$(EXE) : elemapprox.o graph.o funcplot.o testfunc.o
-	$(CC) $(CFLAGS) -o testfunc$(EXE) elemapprox.o graph.o funcplot.o testfunc.o    
+	$(CC) $(CFLAGS) -o testfunc$(EXE) elemapprox.o graph.o funcplot.o testfunc.o -lm    
 
 tidy :
 	rm -rf *.o
