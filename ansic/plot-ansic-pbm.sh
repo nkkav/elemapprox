@@ -5,7 +5,7 @@ for app in "sin" "cos" "tan" "cot" "sec" "csc" \
   "sinh" "cosh" "tanh" "coth" "sech" "csch" \
   "asinh" "acosh" "atanh" "acoth" "asech" "acsch" \
   "exp" "log" "sqrt" \
-  "floor" "ceil"
+  "floor" "ceil" "fabs"
 do
   echo "Plotting elementary function: ${app}"
 #  ./test${app}.exe
