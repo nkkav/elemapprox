@@ -125,7 +125,8 @@ begin
         (func(1 to 6) = "kacsch") or 
         (func(1 to 6) = "kasech") or 
         (func(1 to 6) = "kasinh") or 
-        (func(1 to 6) = "katanh")) then
+        (func(1 to 6) = "katanh") or
+        (func(1 to 6) = "kfloor")) then
       lim := 6;
     elsif ((func(1 to 5) = "kacos") or 
         (func(1 to 5) = "kacot") or 
@@ -139,7 +140,9 @@ begin
         (func(1 to 5) = "ksech") or 
         (func(1 to 5) = "ksinh") or 
         (func(1 to 5) = "ktanh") or
-        (func(1 to 5) = "ksqrt")) then
+        (func(1 to 5) = "ksqrt") or
+        (func(1 to 5) = "kceil") or
+        (func(1 to 5) = "kfabs")) then
       lim := 5;
     elsif ((func(1 to 4) = "kcos") or 
         (func(1 to 4) = "kcot") or 
@@ -240,6 +243,12 @@ begin
       plot_ktanh(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "ktan") then
       plot_ktan(step, x_dim, y_dim, arr);
+    elsif (func(1 to 6) = "kfloor") then
+      plot_kfloor(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "kceil") then
+      plot_kceil(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "kfabs") then
+      plot_kfabs(step, x_dim, y_dim, arr);
     else
     assert false
       report "Unsupported function!" 

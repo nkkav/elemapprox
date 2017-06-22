@@ -53,6 +53,7 @@ package elemapprox_pkg is
   -- Interface for the implemented elementary functions.
   function kfabs   (n : in real) return real;
   function kfloor  (x : in real) return real;
+  function kceil   (x : in real) return real;
   function kfrac   (x : in real) return real;
   function kfmod   (a : in real; b : in real) return real;
   function ksin    (x : in real) return real;
@@ -108,6 +109,11 @@ package body elemapprox_pkg is
   begin
     return floor(x);
   end kfloor;
+
+  function kceil (x : in real) return real is
+  begin
+    return ceil(x);
+  end kceil;
 
   function kfrac (x : in real) return real is
     variable t_frac : real;
