@@ -4,7 +4,8 @@ for app in "sin" "cos" "tan" "cot" "sec" "csc" \
   "asin" "acos" "atan" "acot" "asec" "acsc" \
   "sinh" "cosh" "tanh" "coth" "sech" "csch" \
   "asinh" "acosh" "atanh" "acoth" "asech" "acsch" \
-  "exp" "log" "sqrt"
+  "exp" "log" "sqrt" \
+  "floor" "ceil" "fabs"
 do
   rm -rf test${app}
 done

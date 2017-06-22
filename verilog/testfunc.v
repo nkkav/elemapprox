@@ -149,6 +149,12 @@ module testfunc;
 	  funcplot.plot_tan(step);
 	else if (elem_func_name == "tanh")
 	  funcplot.plot_tanh(step);
+	else if (elem_func_name == "floor")
+	  funcplot.plot_floor(step);
+	else if (elem_func_name == "ceil")
+	  funcplot.plot_ceil(step);
+	else if (elem_func_name == "fabs")
+	  funcplot.plot_fabs(step);
 	////////////////////////////////////////////////////////////////////
 	#100;
     if (enable_ascii == 1) 

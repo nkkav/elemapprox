@@ -68,6 +68,19 @@ begin
 end
 endfunction
 
+function real ceil;
+  input x;
+  real x;
+  integer temp;
+begin
+  temp = x;
+  if (temp == x)
+    ceil = temp;
+  else
+    ceil = temp + 1;
+end
+endfunction
+
 function real frac;
   input x;
   real x;
@@ -567,6 +580,28 @@ begin
     acsch = log((1.0 + sqrt(x*x + 1.0))/x);
   else if (x < 0.0)
     acsch = log((1.0 - sqrt(x*x + 1.0))/x);    
+end
+endfunction
+
+function real min;
+  input x, y;
+  real x, y;
+begin
+  if (x < y)
+    min = x;
+  else
+    min = y;
+end
+endfunction
+
+function real max;
+  input x, y;
+  real x, y;
+begin
+  if (x > y)
+    max = x;
+  else
+    max = y;
 end
 endfunction
 

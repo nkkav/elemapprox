@@ -23,6 +23,19 @@ begin
 end
 endfunction
 
+function real ceil;
+  input x;
+  real x;
+  integer temp;
+begin
+  temp = x;
+  if (temp == x)
+    ceil = temp;
+  else
+    ceil = temp + 1;
+end
+endfunction
+
 function real frac;
   input x;
   real x;
