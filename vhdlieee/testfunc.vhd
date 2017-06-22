@@ -142,6 +142,7 @@ begin
         (func(1 to 5) = "ksinh") or 
         (func(1 to 5) = "ktanh") or
         (func(1 to 5) = "ksqrt") or
+        (func(1 to 5) = "kcbrt") or
         (func(1 to 5) = "kceil") or
         (func(1 to 5) = "kfabs")) then
       lim := 5;
@@ -232,6 +233,8 @@ begin
       plot_klog(step, x_dim, y_dim, arr);
     elsif (func(1 to 5) = "ksqrt") then
       plot_ksqrt(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "kcbrt") then
+      plot_kcbrt(step, x_dim, y_dim, arr);
     elsif (func(1 to 5) = "ksech") then
       plot_ksech(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "ksec") then

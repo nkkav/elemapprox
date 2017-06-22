@@ -69,6 +69,7 @@ package elemapprox_pkg is
   function klog    (x : in real) return real;
   function kpow    (x : in real; y : in real) return real;
   function ksqrt   (x : in real) return real;
+  function kcbrt   (x : in real) return real;
   function khypot  (x : in real ; y : in real) return real;
   function katan   (x : in real) return real;
   function katan2  (y : in real; x : in real) return real;
@@ -197,6 +198,11 @@ package body elemapprox_pkg is
   begin
     return sqrt(x);
   end ksqrt;
+
+  function kcbrt (x : in real) return real is
+  begin
+    return cbrt(x);
+  end kcbrt;
 
   function khypot (x : in real; y : in real) return real is
     variable t_hypot : real;
