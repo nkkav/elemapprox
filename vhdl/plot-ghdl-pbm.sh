@@ -39,10 +39,6 @@ ${y_dim}
 ${step}
 EOF
   ######################################################################    
-  # Create test<func>.txt for saving as an ASCII plot.
-  rm -rf test${app}.txt
-  touch test${app}.txt
-  ######################################################################    
   # Invoke VHDL simulation using GHDL.
   make -f elemapprox.mk clean
   make -f elemapprox.mk init
