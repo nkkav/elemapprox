@@ -51,6 +51,7 @@ package elemapprox_pkg is
   -- Interface for the implemented elementary functions.
   function fabs   (n : in real) return real;
   function floor  (x : in real) return real;
+  function ceil   (x : in real) return real;
   function fmod   (a : in real; b : in real) return real;
   function sin    (x : in real) return real;
   function cos    (x : in real) return real;
@@ -110,6 +111,21 @@ package body elemapprox_pkg is
     t_floor := real(temp);
     return t_floor;
   end floor;
+
+  function ceil (x : in real) return real is
+    variable temp   : integer;
+    variable r_temp : real;
+    variable t_ceil : real;
+  begin
+    temp := integer(x);
+    r_temp := real(temp);
+    if (r_temp = x) then
+      t_ceil := r_temp;
+    else
+      t_ceil := r_temp + 1.0;
+    end if;
+    return t_ceil;
+  end ceil;
 
   function frac (x : in real) return real is
     variable t_frac : real;

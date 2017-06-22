@@ -121,7 +121,8 @@ begin
         (func(1 to 5) = "acsch") or 
         (func(1 to 5) = "asech") or 
         (func(1 to 5) = "asinh") or 
-        (func(1 to 5) = "atanh")) then
+        (func(1 to 5) = "atanh") or
+        (func(1 to 5) = "floor")) then
       lim := 5;
     elsif ((func(1 to 4) = "acos") or 
         (func(1 to 4) = "acot") or 
@@ -135,7 +136,9 @@ begin
         (func(1 to 4) = "sech") or 
         (func(1 to 4) = "sinh") or 
         (func(1 to 4) = "tanh") or
-        (func(1 to 4) = "sqrt")) then
+        (func(1 to 4) = "sqrt") or
+        (func(1 to 4) = "ceil") or
+        (func(1 to 4) = "fabs")) then
       lim := 4;
     elsif ((func(1 to 3) = "cos") or 
         (func(1 to 3) = "cot") or 
@@ -236,6 +239,12 @@ begin
       plot_tanh(step, x_dim, y_dim, arr);
     elsif (func(1 to 3) = "tan") then
       plot_tan(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "floor") then
+      plot_floor(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "ceil") then
+      plot_ceil(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "fabs") then
+      plot_fabs(step, x_dim, y_dim, arr);
     else
     assert false
       report "Unsupported function!" 
