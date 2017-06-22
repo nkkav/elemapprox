@@ -122,7 +122,8 @@ begin
         (func(1 to 5) = "asech") or 
         (func(1 to 5) = "asinh") or 
         (func(1 to 5) = "atanh") or
-        (func(1 to 5) = "floor")) then
+        (func(1 to 5) = "floor") or 
+        (func(1 to 5) = "round")) then
       lim := 5;
     elsif ((func(1 to 4) = "acos") or 
         (func(1 to 4) = "acot") or 
@@ -245,6 +246,8 @@ begin
       plot_ceil(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "fabs") then
       plot_fabs(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "round") then
+      plot_round(step, x_dim, y_dim, arr);
     else
     assert false
       report "Unsupported function!" 
