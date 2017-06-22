@@ -1,9 +1,11 @@
 --------------------------------------------------------------------------------
 -- Filename: elemapprox.vhd
 -- Purpose : Single-precision elementary functions approximation package.
--- Author  : Nikolaos Kavvadias (C) 2014
+-- Author  : Nikolaos Kavvadias (C) 2014, 2015, 2016, 2017
 -- Date    : 10-Oct-2014
--- Revision: 0.1.0 (14/10/10)
+-- Revision: 0.2.0 (17/06/22)
+--           Plot floor, ceil, fabs and add round.
+--           0.1.0 (14/10/10)
 --           "VHDLIEEE" port of the plain VHDL version using IEEE.math_real.
 --           0.0.0 (14/10/06)
 --           Initial version hand-translated and adapted from the Verilog HDL 
@@ -55,6 +57,7 @@ package elemapprox_pkg is
   function kfloor  (x : in real) return real;
   function kceil   (x : in real) return real;
   function kfrac   (x : in real) return real;
+  function kround  (x : in real) return real;
   function kfmod   (a : in real; b : in real) return real;
   function ksin    (x : in real) return real;
   function kcos    (x : in real) return real;
@@ -121,6 +124,13 @@ package body elemapprox_pkg is
     t_frac := x - kfloor(x);
     return t_frac;
   end kfrac;
+
+  function kround (x : in real) return real is
+    variable t_round : real;
+  begin
+    t_round := round(x);
+    return t_round;
+  end kround;
 
   function kfmod (a : in real; b : in real) return real is
   begin

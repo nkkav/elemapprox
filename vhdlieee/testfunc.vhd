@@ -126,7 +126,8 @@ begin
         (func(1 to 6) = "kasech") or 
         (func(1 to 6) = "kasinh") or 
         (func(1 to 6) = "katanh") or
-        (func(1 to 6) = "kfloor")) then
+        (func(1 to 6) = "kfloor") or
+        (func(1 to 6) = "kround")) then
       lim := 6;
     elsif ((func(1 to 5) = "kacos") or 
         (func(1 to 5) = "kacot") or 
@@ -249,6 +250,8 @@ begin
       plot_kceil(step, x_dim, y_dim, arr);
     elsif (func(1 to 5) = "kfabs") then
       plot_kfabs(step, x_dim, y_dim, arr);
+    elsif (func(1 to 6) = "kround") then
+      plot_kround(step, x_dim, y_dim, arr);
     else
     assert false
       report "Unsupported function!" 

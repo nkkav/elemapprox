@@ -13,7 +13,7 @@ for app in "ksin" "kcos" "ktan" "kcot" "ksec" "kcsc" \
   "ksinh" "kcosh" "ktanh" "kcoth" "ksech" "kcsch" \
   "kasinh" "kacosh" "katanh" "kacoth" "kasech" "kacsch" \
   "kexp" "klog" "ksqrt" \
-  "kfloor" "kceil" "kfabs"
+  "kfloor" "kceil" "kfabs" "kround"
 do
   echo "Plotting elementary function: ${app} as PBM image"
   ######################################################################
