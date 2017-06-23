@@ -172,6 +172,11 @@ package funcplot_pkg is
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
+  procedure plot_trunc (
+    step  : in real; 
+    x_dim : in integer; 
+    y_dim : in integer;
+    a     : inout pixel_arr);
 end package funcplot_pkg;
 
 
@@ -786,5 +791,24 @@ package body funcplot_pkg is
       x := x + step;
     end loop;
   end plot_round;
+
+  procedure plot_trunc (
+    step  : in real; 
+    x_dim : in integer; 
+    y_dim : in integer;
+    a     : inout pixel_arr
+  ) is
+    variable x, y : real;
+    variable xmin, ymin, xmax, ymax : real;
+  begin
+    graph_init(-10.0, -10.0, 10.0, 10.0, y_dim, a, xmin, ymin, xmax, ymax);
+    x := -10.0;
+    y := 0.0;
+    while (x <= 10.0) loop
+      y := trunc(x);
+      graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
+      x := x + step;
+    end loop;
+  end plot_trunc;
 
 end package body funcplot_pkg;

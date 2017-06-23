@@ -123,7 +123,8 @@ begin
         (func(1 to 5) = "asinh") or 
         (func(1 to 5) = "atanh") or
         (func(1 to 5) = "floor") or 
-        (func(1 to 5) = "round")) then
+        (func(1 to 5) = "round") or
+        (func(1 to 5) = "trunc")) then
       lim := 5;
     elsif ((func(1 to 4) = "acos") or 
         (func(1 to 4) = "acot") or 
@@ -248,6 +249,8 @@ begin
       plot_fabs(step, x_dim, y_dim, arr);
     elsif (func(1 to 5) = "round") then
       plot_round(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "trunc") then
+      plot_trunc(step, x_dim, y_dim, arr);
     else
     assert false
       report "Unsupported function!" 

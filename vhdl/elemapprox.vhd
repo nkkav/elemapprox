@@ -54,6 +54,7 @@ package elemapprox_pkg is
   function ceil   (x : in real) return real;
   function frac   (x : in real) return real;
   function round  (x : in real) return real;
+  function trunc  (x : in real) return real;
   function fmod   (a : in real; b : in real) return real;
   function sin    (x : in real) return real;
   function cos    (x : in real) return real;
@@ -109,7 +110,7 @@ package body elemapprox_pkg is
     variable temp    : integer;
     variable t_floor : real;
   begin
-    temp := integer(x);
+    temp := integer(x - 0.5) - (integer(x - 0.5) mod 1);
     t_floor := real(temp);
     return t_floor;
   end floor;
@@ -119,13 +120,7 @@ package body elemapprox_pkg is
     variable r_temp : real;
     variable t_ceil : real;
   begin
-    temp := integer(x);
-    r_temp := real(temp);
-    if (r_temp = x) then
-      t_ceil := r_temp;
-    else
-      t_ceil := r_temp + 1.0;
-    end if;
+    t_ceil := -floor(-x);
     return t_ceil;
   end ceil;
 
@@ -148,6 +143,19 @@ package body elemapprox_pkg is
     end if;
     return t_round;
   end round;
+
+  function trunc (x : in real) return real is
+    variable t_trunc : real;
+  begin
+    if (x > 0.0) then
+      t_trunc := floor(x);
+    else--if (x < 0.0) then
+      t_trunc := ceil(x);
+--    else
+--      t_trunc := 0.0;
+    end if;
+    return t_trunc;
+  end trunc;
 
   function fmod (a : in real; b : in real) return real is
     variable c      : real;
