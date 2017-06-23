@@ -58,6 +58,7 @@ package elemapprox_pkg is
   function kceil   (x : in real) return real;
   function kfrac   (x : in real) return real;
   function kround  (x : in real) return real;
+  function ktrunc  (x : in real) return real;
   function kfmod   (a : in real; b : in real) return real;
   function ksin    (x : in real) return real;
   function kcos    (x : in real) return real;
@@ -132,6 +133,13 @@ package body elemapprox_pkg is
     t_round := round(x);
     return t_round;
   end kround;
+
+  function ktrunc (x : in real) return real is
+    variable t_trunc : real;
+  begin
+    t_trunc := trunc(x);
+    return t_trunc;
+  end ktrunc;
 
   function kfmod (a : in real; b : in real) return real is
   begin
