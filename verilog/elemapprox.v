@@ -18,21 +18,16 @@ function real floor;
   real x;
   integer temp;
 begin
-  temp = x;
-  floor = temp;
+  temp = x - 0.5;
+  floor = temp - (temp % 1);
 end
 endfunction
 
 function real ceil;
   input x;
   real x;
-  integer temp;
 begin
-  temp = x;
-  if (temp == x)
-    ceil = temp;
-  else
-    ceil = temp + 1;
+  ceil = -floor(-x);
 end
 endfunction
 
@@ -42,6 +37,30 @@ function real frac;
 begin
   frac = x - floor(x);
 end 
+endfunction
+
+function real round;
+  input x;
+  real x;
+begin
+  if (x > 0.0)
+    round = floor(x + 0.5);
+  else if (x < 0.0)
+    round = ceil(x - 0.5);
+  else
+    round = 0.0;
+end
+endfunction
+
+function real trunc;
+  input x;
+  real x;
+begin
+  if (x > 0.0)
+    trunc = floor(x);
+  else
+    trunc = ceil(x);
+end
 endfunction
 
 function real fmod;

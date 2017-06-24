@@ -539,5 +539,39 @@ module funcplot;
     end
   end
   endtask  
-  
+
+  task plot_round;
+    input step;
+    real step;
+    real x, y;
+  begin
+    graph.init(-10.0, -10.0, 10.0, 10.0, testfunc.y_dim);
+    x = -10.0;
+    y = 0.0;
+    while (x <= 10.0)
+    begin
+      y = elemapprox.round(x);
+      graph.plot(x, y, testfunc.x_dim, testfunc.y_dim);
+      x = x + step;
+    end
+  end
+  endtask
+
+  task plot_trunc;
+    input step;
+    real step;
+    real x, y;
+  begin
+    graph.init(-10.0, -10.0, 10.0, 10.0, testfunc.y_dim);
+    x = -10.0;
+    y = 0.0;
+    while (x <= 10.0)
+    begin
+      y = elemapprox.trunc(x);
+      graph.plot(x, y, testfunc.x_dim, testfunc.y_dim);
+      x = x + step;
+    end
+  end
+  endtask
+
 endmodule

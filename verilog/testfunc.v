@@ -155,6 +155,10 @@ module testfunc;
 	  funcplot.plot_ceil(step);
 	else if (elem_func_name == "fabs")
 	  funcplot.plot_fabs(step);
+	else if (elem_func_name == "round")
+	  funcplot.plot_round(step);
+	else if (elem_func_name == "trunc")
+	  funcplot.plot_trunc(step);
 	////////////////////////////////////////////////////////////////////
 	#100;
     if (enable_ascii == 1) 
