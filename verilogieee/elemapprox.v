@@ -1,5 +1,3 @@
-`include "constants.v"
-
 module elemapprox;
 
 function real fabs;
