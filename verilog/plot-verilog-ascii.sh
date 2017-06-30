@@ -5,7 +5,8 @@
 rm -rf testfunc-ascii.txt
 touch testfunc-ascii.txt
 iverilog -g1995 -E -o elemapproxpp.v constants.v elemapprox.v
-iverilog -g1995 -o testfunc.vvp elemapproxpp.v graph.v funcplot.v testfunc.v
+iverilog -g1995 -o testfunc.vvp elemapproxpp.v ../common/verilog/graph.v \
+  ../common/verilog/funcplot.v ../common/verilog/testfunc.v
 for app in "sin" "cos" "tan" "cot" "sec" "csc" \
   "asin" "acos" "atan" "acot" "asec" "acsc" \
   "sinh" "cosh" "tanh" "coth" "sech" "csch" \
