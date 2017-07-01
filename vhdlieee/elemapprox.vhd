@@ -68,6 +68,7 @@ package elemapprox_pkg is
   function kcsc    (x : in real) return real;
   function kexp    (x : in real) return real;
   function klog    (x : in real) return real;
+  function klog10  (x : in real) return real;
   function kpow    (x : in real; y : in real) return real;
   function ksqrt   (x : in real) return real;
   function kcbrt   (x : in real) return real;
@@ -194,6 +195,11 @@ package body elemapprox_pkg is
   begin
     return log(x);
   end klog;
+
+  function klog10 (x : in real) return real is
+  begin
+    return log10(x);
+  end klog10;
 
   function kpow (x : in real; y : in real) return real is
     variable t_pow : real;

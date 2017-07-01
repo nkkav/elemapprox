@@ -124,7 +124,8 @@ begin
         (func(1 to 5) = "atanh") or
         (func(1 to 5) = "floor") or 
         (func(1 to 5) = "round") or
-        (func(1 to 5) = "trunc")) then
+        (func(1 to 5) = "trunc") or
+        (func(1 to 5) = "log10")) then
       lim := 5;
     elsif ((func(1 to 4) = "acos") or 
         (func(1 to 4) = "acot") or 
@@ -227,6 +228,8 @@ begin
       plot_exp(step, x_dim, y_dim, arr);
     elsif (func(1 to 3) = "log") then
       plot_log(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "log10") then
+      plot_log10(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "sqrt") then
       plot_sqrt(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "sech") then

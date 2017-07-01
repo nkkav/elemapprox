@@ -65,6 +65,7 @@ package elemapprox_pkg is
   function rootof2(n : in integer) return real;
   function exp    (x : in real) return real;
   function log    (x : in real) return real;
+  function log10  (x : in real) return real;
   function pow    (x : in real; y : in real) return real;
   function sqrt   (x : in real) return real;
   function hypot  (x : in real; y : in real) return real;
@@ -326,6 +327,15 @@ package body elemapprox_pkg is
     end if;
     return t_log;
   end log;
+
+  function log10 (x : in real) return real is
+    variable i : integer;
+    variable re,t_log2 : real;
+    variable t_log10 : real;
+  begin
+    t_log10 := log(x) / MATH_LN10;
+    return t_log10;
+  end log10;
 
   function pow (x : in real; y : in real) return real is
     variable t_pow : real;

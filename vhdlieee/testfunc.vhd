@@ -128,7 +128,8 @@ begin
         (func(1 to 6) = "katanh") or
         (func(1 to 6) = "kfloor") or
         (func(1 to 6) = "kround") or 
-        (func(1 to 6) = "ktrunc")) then
+        (func(1 to 6) = "ktrunc") or
+        (func(1 to 6) = "klog10")) then
       lim := 6;
     elsif ((func(1 to 5) = "kacos") or 
         (func(1 to 5) = "kacot") or 
@@ -232,6 +233,8 @@ begin
       plot_kexp(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "klog") then
       plot_klog(step, x_dim, y_dim, arr);
+    elsif (func(1 to 6) = "klog10") then
+      plot_klog10(step, x_dim, y_dim, arr);
     elsif (func(1 to 5) = "ksqrt") then
       plot_ksqrt(step, x_dim, y_dim, arr);
     elsif (func(1 to 5) = "kcbrt") then

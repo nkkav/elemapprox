@@ -15,7 +15,7 @@ for app in "ksin" "kcos" "ktan" "kcot" "ksec" "kcsc" \
   "kasin" "kacos" "katan" "kacot" "kasec" "kacsc" \
   "ksinh" "kcosh" "ktanh" "kcoth" "ksech" "kcsch" \
   "kasinh" "kacosh" "katanh" "kacoth" "kasech" "kacsch" \
-  "kexp" "klog" "ksqrt" "kcbrt" \
+  "kexp" "klog" "klog10" "ksqrt" "kcbrt" \
   "kfloor" "kceil" "kfabs" "kround" "ktrunc"
 do
   echo "Plotting elementary function: ${app} as ASCII text"
