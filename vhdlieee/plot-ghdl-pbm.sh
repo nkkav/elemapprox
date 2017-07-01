@@ -8,12 +8,12 @@ x_dim=256
 y_dim=256
 step=0.001
 
-for app in "ksin" "kcos" "ktan" "kcot" "ksec" "kcsc" \
-  "kasin" "kacos" "katan" "kacot" "kasec" "kacsc" \
-  "ksinh" "kcosh" "ktanh" "kcoth" "ksech" "kcsch" \
-  "kasinh" "kacosh" "katanh" "kacoth" "kasech" "kacsch" \
-  "kexp" "klog" "klog10" "ksqrt" "kcbrt" \
-  "kfloor" "kceil" "kfabs" "kround" "ktrunc"
+for app in "sin" "cos" "tan" "cot" "sec" "csc" \
+  "asin" "acos" "atan" "acot" "asec" "acsc" \
+  "sinh" "cosh" "tanh" "coth" "sech" "csch" \
+  "asinh" "acosh" "atanh" "acoth" "asech" "acsch" \
+  "exp" "log" "log10" "sqrt" "cbrt" \
+  "floor" "ceil" "fabs" "round" "trunc"
 do
   echo "Plotting elementary function: ${app} as PBM image"
   ######################################################################

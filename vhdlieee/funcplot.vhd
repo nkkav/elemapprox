@@ -1,9 +1,11 @@
 --------------------------------------------------------------------------------
 -- Filename: funcplot.vhd
 -- Purpose : Routines for plotting the elementary function approximations.
--- Author  : Nikolaos Kavvadias (C) 2014
--- Date    : 10-Oct-2014
--- Revision: 0.1.0 (14/10/10)
+-- Author  : Nikolaos Kavvadias (C) 2014, 2015, 2016, 2017
+-- Date    : 01-Jul-2017
+-- Revision: 0.2.0 (17/07/01)
+--           Simplify the naming convention by removing the "k" prefix.
+--           0.1.0 (14/10/10)
 --           Changed procedure names accordingly for prefixed elementary 
 --           function names (by "k"). This version is IEEE.math_real 
 --           compatible.
@@ -22,172 +24,172 @@ use WORK.elemapprox_pkg.all;
 package funcplot_pkg is
     
   -- Interface for the implemented elementary functions.
-  procedure plot_kacos (
+  procedure plot_acos (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kacosh (
+  procedure plot_acosh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kacot (
+  procedure plot_acot (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kacoth (
+  procedure plot_acoth (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr); 
-  procedure plot_kacsc (
+  procedure plot_acsc (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kacsch (
+  procedure plot_acsch (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kasec (
+  procedure plot_asec (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kasech (
+  procedure plot_asech (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kasin (
+  procedure plot_asin (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kasinh (
+  procedure plot_asinh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_katan (
+  procedure plot_atan (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_katanh (
+  procedure plot_atanh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kcos (
+  procedure plot_cos (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kcosh (
+  procedure plot_cosh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kcot (
+  procedure plot_cot (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr); 
-  procedure plot_kcoth (
+  procedure plot_coth (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kcsc (
+  procedure plot_csc (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kcsch (
+  procedure plot_csch (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kexp (
+  procedure plot_exp (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_klog (
+  procedure plot_log (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_klog10 (
+  procedure plot_log10 (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_ksqrt (
+  procedure plot_sqrt (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kcbrt (
+  procedure plot_cbrt (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_ksec (
+  procedure plot_sec (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_ksech (
+  procedure plot_sech (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_ksin (
+  procedure plot_sin (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr); 
-  procedure plot_ksinh (
+  procedure plot_sinh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_ktan (
+  procedure plot_tan (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_ktanh (
+  procedure plot_tanh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kfloor (
+  procedure plot_floor (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kceil (
+  procedure plot_ceil (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kfabs (
+  procedure plot_fabs (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_kround (
+  procedure plot_round (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
     a     : inout pixel_arr);
-  procedure plot_ktrunc (
+  procedure plot_trunc (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -198,7 +200,7 @@ end package funcplot_pkg;
 
 package body funcplot_pkg is
 
-  procedure plot_kacos (
+  procedure plot_acos (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -216,9 +218,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kacos;
+  end plot_acos;
 
-  procedure plot_kacosh (
+  procedure plot_acosh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -235,9 +237,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kacosh;  
+  end plot_acosh;  
 
-  procedure plot_kacot (
+  procedure plot_acot (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -254,9 +256,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kacot;  
+  end plot_acot;  
  
-  procedure plot_kacoth (
+  procedure plot_acoth (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -275,9 +277,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kacoth;  
+  end plot_acoth;  
   
-  procedure plot_kacsc (
+  procedure plot_acsc (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -296,9 +298,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kacsc;  
+  end plot_acsc;  
 
-  procedure plot_kacsch (
+  procedure plot_acsch (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -317,9 +319,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kacsch;  
+  end plot_acsch;  
 
-  procedure plot_kasec (
+  procedure plot_asec (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -338,9 +340,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kasec;  
+  end plot_asec;  
 
-  procedure plot_kasech (
+  procedure plot_asech (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -359,9 +361,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kasech;    
+  end plot_asech;    
 
-  procedure plot_kasin (
+  procedure plot_asin (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -378,9 +380,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kasin;    
+  end plot_asin;    
 
-  procedure plot_kasinh (
+  procedure plot_asinh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -397,9 +399,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kasinh;
+  end plot_asinh;
   
-  procedure plot_katan (
+  procedure plot_atan (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -416,9 +418,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_katan;
+  end plot_atan;
 
-  procedure plot_katanh (
+  procedure plot_atanh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -435,9 +437,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_katanh;
+  end plot_atanh;
 
-  procedure plot_kcos (
+  procedure plot_cos (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -454,9 +456,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kcos;
+  end plot_cos;
 
-  procedure plot_kcosh (
+  procedure plot_cosh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -473,9 +475,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kcosh;
+  end plot_cosh;
 
-  procedure plot_kcot (
+  procedure plot_cot (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -492,9 +494,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kcot;
+  end plot_cot;
  
-  procedure plot_kcoth (
+  procedure plot_coth (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -514,9 +516,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kcoth;
+  end plot_coth;
 
-  procedure plot_kcsc (
+  procedure plot_csc (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -533,9 +535,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kcsc;
+  end plot_csc;
  
-  procedure plot_kcsch (
+  procedure plot_csch (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -555,9 +557,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kcsch;
+  end plot_csch;
  
-  procedure plot_kexp (
+  procedure plot_exp (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -574,9 +576,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kexp;
+  end plot_exp;
 
-  procedure plot_klog (
+  procedure plot_log (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -597,9 +599,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_klog;
+  end plot_log;
 
-  procedure plot_klog10 (
+  procedure plot_log10 (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -620,9 +622,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_klog10;
+  end plot_log10;
   
-  procedure plot_ksqrt (
+  procedure plot_sqrt (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -639,9 +641,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_ksqrt;
+  end plot_sqrt;
 
-  procedure plot_kcbrt (
+  procedure plot_cbrt (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -658,9 +660,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kcbrt;
+  end plot_cbrt;
 
-  procedure plot_ksec (
+  procedure plot_sec (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -677,9 +679,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_ksec;
+  end plot_sec;
 
-  procedure plot_ksech (
+  procedure plot_sech (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -696,9 +698,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_ksech;
+  end plot_sech;
 
-  procedure plot_ksin (
+  procedure plot_sin (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -715,9 +717,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_ksin;
+  end plot_sin;
   
-  procedure plot_ksinh (
+  procedure plot_sinh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -734,9 +736,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_ksinh;
+  end plot_sinh;
 
-  procedure plot_ktan (
+  procedure plot_tan (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -753,9 +755,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_ktan;
+  end plot_tan;
 
-  procedure plot_ktanh (
+  procedure plot_tanh (
     step  : in real; 
     x_dim : in integer; 
     y_dim : in integer;
@@ -772,9 +774,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_ktanh;
+  end plot_tanh;
 
-  procedure plot_kfloor (
+  procedure plot_floor (
     step  : in real; 
     x_dim : in integer; 
 
@@ -792,9 +794,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kfloor;
+  end plot_floor;
 
-  procedure plot_kceil (
+  procedure plot_ceil (
     step  : in real; 
     x_dim : in integer; 
 
@@ -812,9 +814,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kceil;
+  end plot_ceil;
 
-  procedure plot_kfabs (
+  procedure plot_fabs (
     step  : in real; 
     x_dim : in integer; 
 
@@ -832,9 +834,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kfabs;
+  end plot_fabs;
 
-  procedure plot_kround (
+  procedure plot_round (
     step  : in real; 
     x_dim : in integer; 
 
@@ -852,9 +854,9 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_kround;
+  end plot_round;
 
-  procedure plot_ktrunc (
+  procedure plot_trunc (
     step  : in real; 
     x_dim : in integer; 
 
@@ -872,6 +874,6 @@ package body funcplot_pkg is
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;
     end loop;
-  end plot_ktrunc;
+  end plot_trunc;
 
 end package body funcplot_pkg;

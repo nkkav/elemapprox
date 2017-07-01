@@ -2,9 +2,11 @@
 -- Filename: testfunc.vhd
 -- Purpose : Testbench entity/architecture for plotting the elementary function 
 --           approximations in either ASCII or PBM (bitmap) formats.
--- Author  : Nikolaos Kavvadias (C) 2014
--- Date    : 10-Oct-2014
--- Revision: 0.1.0 (14/10/10)
+-- Author  : Nikolaos Kavvadias (C) 2014, 2015, 2016, 2017
+-- Date    : 01-Jul-2017
+-- Revision: 0.2.0 (17/07/01)
+--           Simplify naming convention by removing the "k" prefix.
+--           0.1.0 (14/10/10)
 --           Changed procedure names accordingly for prefixed elementary 
 --           function names (by "k"). This version is IEEE.math_real 
 --           compatible.
@@ -120,43 +122,43 @@ begin
     -- VHDL has brain-dead handling of variable strings. This is a 
     -- quick workaround for forming a proper output file name (oname)
     -- by the means of concatenations.
-    if ((func(1 to 6) = "kacosh") or 
-        (func(1 to 6) = "kacoth") or 
-        (func(1 to 6) = "kacsch") or 
-        (func(1 to 6) = "kasech") or 
-        (func(1 to 6) = "kasinh") or 
-        (func(1 to 6) = "katanh") or
-        (func(1 to 6) = "kfloor") or
-        (func(1 to 6) = "kround") or 
-        (func(1 to 6) = "ktrunc") or
-        (func(1 to 6) = "klog10")) then
-      lim := 6;
-    elsif ((func(1 to 5) = "kacos") or 
-        (func(1 to 5) = "kacot") or 
-        (func(1 to 5) = "kacsc") or 
-        (func(1 to 5) = "kasec") or 
-        (func(1 to 5) = "kasin") or 
-        (func(1 to 5) = "katan") or
-        (func(1 to 5) = "kcosh") or 
-        (func(1 to 5) = "kcoth") or 
-        (func(1 to 5) = "kcsch") or 
-        (func(1 to 5) = "ksech") or 
-        (func(1 to 5) = "ksinh") or 
-        (func(1 to 5) = "ktanh") or
-        (func(1 to 5) = "ksqrt") or
-        (func(1 to 5) = "kcbrt") or
-        (func(1 to 5) = "kceil") or
-        (func(1 to 5) = "kfabs")) then
+    if ((func(1 to 5) = "acosh") or 
+        (func(1 to 5) = "acoth") or 
+        (func(1 to 5) = "acsch") or 
+        (func(1 to 5) = "asech") or 
+        (func(1 to 5) = "asinh") or 
+        (func(1 to 5) = "atanh") or
+        (func(1 to 5) = "floor") or
+        (func(1 to 5) = "round") or 
+        (func(1 to 5) = "trunc") or
+        (func(1 to 5) = "log10")) then
       lim := 5;
-    elsif ((func(1 to 4) = "kcos") or 
-        (func(1 to 4) = "kcot") or 
-        (func(1 to 4) = "kcsc") or 
-        (func(1 to 4) = "ksec") or 
-        (func(1 to 4) = "ksin") or 
-        (func(1 to 4) = "ktan") or
-        (func(1 to 4) = "kexp") or
-        (func(1 to 4) = "klog")) then
+    elsif ((func(1 to 4) = "acos") or 
+        (func(1 to 4) = "acot") or 
+        (func(1 to 4) = "acsc") or 
+        (func(1 to 4) = "asec") or 
+        (func(1 to 4) = "asin") or 
+        (func(1 to 4) = "atan") or
+        (func(1 to 4) = "cosh") or 
+        (func(1 to 4) = "coth") or 
+        (func(1 to 4) = "csch") or 
+        (func(1 to 4) = "sech") or 
+        (func(1 to 4) = "sinh") or 
+        (func(1 to 4) = "tanh") or
+        (func(1 to 4) = "sqrt") or
+        (func(1 to 4) = "cbrt") or
+        (func(1 to 4) = "ceil") or
+        (func(1 to 4) = "fabs")) then
       lim := 4;
+    elsif ((func(1 to 3) = "cos") or 
+        (func(1 to 3) = "cot") or 
+        (func(1 to 3) = "csc") or 
+        (func(1 to 3) = "sec") or 
+        (func(1 to 3) = "sin") or 
+        (func(1 to 3) = "tan") or
+        (func(1 to 3) = "exp") or
+        (func(1 to 3) = "log")) then
+      lim := 3;
     else
     assert false
       report "Unsupported function!" 
@@ -193,74 +195,74 @@ begin
     deallocate(l);
     -- 
     -- Plot the requested function <func> and save it to file "test<func>.[pbm|txt]".    
-    if (func(1 to 6) = "kacosh") then
-      plot_kacosh(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kacos") then
-      plot_kacos(step, x_dim, y_dim, arr);
-    elsif (func(1 to 6) = "kacoth") then
-      plot_kacoth(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kacot") then
-      plot_kacot(step, x_dim, y_dim, arr);
-    elsif (func(1 to 6) = "kacsch") then
-      plot_kacsch(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kacsc") then
-      plot_kacsc(step, x_dim, y_dim, arr);
-    elsif (func(1 to 6) = "kasech") then
-      plot_kasech(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kasec") then
-      plot_kasec(step, x_dim, y_dim, arr);
-    elsif (func(1 to 6) = "kasinh") then
-      plot_kasinh(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kasin") then
-      plot_kasin(step, x_dim, y_dim, arr);
-    elsif (func(1 to 6) = "katanh") then
-      plot_katanh(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "katan") then
-      plot_katan(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kcosh") then
-      plot_kcosh(step, x_dim, y_dim, arr);
-    elsif (func(1 to 4) = "kcos") then
-      plot_kcos(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kcoth") then
-      plot_kcoth(step, x_dim, y_dim, arr);
-    elsif (func(1 to 4) = "kcot") then
-      plot_kcot(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kcsch") then
-      plot_kcsch(step, x_dim, y_dim, arr);
-    elsif (func(1 to 4) = "kcsc") then
-      plot_kcsc(step, x_dim, y_dim, arr);
-    elsif (func(1 to 4) = "kexp") then
-      plot_kexp(step, x_dim, y_dim, arr);
-    elsif (func(1 to 4) = "klog") then
-      plot_klog(step, x_dim, y_dim, arr);
-    elsif (func(1 to 6) = "klog10") then
-      plot_klog10(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "ksqrt") then
-      plot_ksqrt(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kcbrt") then
-      plot_kcbrt(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "ksech") then
-      plot_ksech(step, x_dim, y_dim, arr);
-    elsif (func(1 to 4) = "ksec") then
-      plot_ksec(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "ksinh") then
-      plot_ksinh(step, x_dim, y_dim, arr);
-    elsif (func(1 to 4) = "ksin") then
-      plot_ksin(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "ktanh") then
-      plot_ktanh(step, x_dim, y_dim, arr);
-    elsif (func(1 to 4) = "ktan") then
-      plot_ktan(step, x_dim, y_dim, arr);
-    elsif (func(1 to 6) = "kfloor") then
-      plot_kfloor(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kceil") then
-      plot_kceil(step, x_dim, y_dim, arr);
-    elsif (func(1 to 5) = "kfabs") then
-      plot_kfabs(step, x_dim, y_dim, arr);
-    elsif (func(1 to 6) = "kround") then
-      plot_kround(step, x_dim, y_dim, arr);
-    elsif (func(1 to 6) = "ktrunc") then
-      plot_ktrunc(step, x_dim, y_dim, arr);
+    if (func(1 to 5) = "acosh") then
+      plot_acosh(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "acos") then
+      plot_acos(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "acoth") then
+      plot_acoth(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "acot") then
+      plot_acot(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "acsch") then
+      plot_acsch(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "acsc") then
+      plot_acsc(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "asech") then
+      plot_asech(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "asec") then
+      plot_asec(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "asinh") then
+      plot_asinh(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "asin") then
+      plot_asin(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "atanh") then
+      plot_atanh(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "atan") then
+      plot_atan(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "cosh") then
+      plot_cosh(step, x_dim, y_dim, arr);
+    elsif (func(1 to 3) = "cos") then
+      plot_cos(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "coth") then
+      plot_coth(step, x_dim, y_dim, arr);
+    elsif (func(1 to 3) = "cot") then
+      plot_cot(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "csch") then
+      plot_csch(step, x_dim, y_dim, arr);
+    elsif (func(1 to 3) = "csc") then
+      plot_csc(step, x_dim, y_dim, arr);
+    elsif (func(1 to 3) = "exp") then
+      plot_exp(step, x_dim, y_dim, arr);
+    elsif (func(1 to 3) = "log") then
+      plot_log(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "log10") then
+      plot_log10(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "sqrt") then
+      plot_sqrt(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "cbrt") then
+      plot_cbrt(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "sech") then
+      plot_sech(step, x_dim, y_dim, arr);
+    elsif (func(1 to 3) = "sec") then
+      plot_sec(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "sinh") then
+      plot_sinh(step, x_dim, y_dim, arr);
+    elsif (func(1 to 3) = "sin") then
+      plot_sin(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "tanh") then
+      plot_tanh(step, x_dim, y_dim, arr);
+    elsif (func(1 to 3) = "tan") then
+      plot_tan(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "floor") then
+      plot_floor(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "ceil") then
+      plot_ceil(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "fabs") then
+      plot_fabs(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "round") then
+      plot_round(step, x_dim, y_dim, arr);
+    elsif (func(1 to 5) = "trunc") then
+      plot_trunc(step, x_dim, y_dim, arr);
     else
     assert false
       report "Unsupported function!" 
