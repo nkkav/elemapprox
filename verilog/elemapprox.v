@@ -244,6 +244,14 @@ begin
 end
 endfunction
 
+function real log10;
+  input x;
+  real x;
+begin
+  log10 = log(x) / `MATH_LN10;
+end
+endfunction
+
 function real pow;
   input x,y;
   real x,y;

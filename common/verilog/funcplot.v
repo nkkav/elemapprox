@@ -369,6 +369,28 @@ module funcplot;
     end
   end
   endtask  
+
+  task plot_log10;
+    input step;
+    real step;
+    real x, y;
+    real epsilon;
+  begin
+    graph.init(0.0, 0.0, 2000.0, 4.0, testfunc.y_dim);
+    x = 0.0;
+    y = 0.0;
+    epsilon = 0.0001;
+    while (x <= 2000.0)
+    begin
+      if (x > epsilon)
+      begin
+        y = elemapprox.log10(x);
+      end        
+      graph.plot(x, y, testfunc.x_dim, testfunc.y_dim);
+      x = x + step;
+    end
+  end
+  endtask  
   
   task plot_sqrt;
     input step;

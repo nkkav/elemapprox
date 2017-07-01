@@ -8,7 +8,7 @@ for app in "sin" "cos" "tan" "cot" "sec" "csc" \
   "asin" "acos" "atan" "acot" "asec" "acsc" \
   "sinh" "cosh" "tanh" "coth" "sech" "csch" \
   "asinh" "acosh" "atanh" "acoth" "asech" "acsch" \
-  "exp" "log" "sqrt" \
+  "exp" "log" "log10" "sqrt" \
   "floor" "ceil" "fabs" "round" "trunc"
 do
   echo "Plotting elementary function: ${app} as PBM image"
