@@ -50,6 +50,7 @@ double kcsc(double x);
 double rootof2(int n);
 double kexp(double x);
 double klog(double x);
+double klog10(double x);
 double kpow(double x, double y);
 double ksqrt(double x);
 double khypot(double x, double y);

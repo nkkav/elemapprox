@@ -124,6 +124,8 @@ int main(int argc, char **argv)
     plot_csch();
   } else if (strcmp(elem_func_name, "exp") == 0) {
     plot_exp();
+  } else if (strcmp(elem_func_name, "log10") == 0) {
+    plot_log10();
   } else if (strcmp(elem_func_name, "log") == 0) {
     plot_log();
   } else if (strcmp(elem_func_name, "sqrt") == 0) {

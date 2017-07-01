@@ -21,6 +21,7 @@ void plot_csc(void);
 void plot_csch(void);
 void plot_exp(void);
 void plot_log(void);
+void plot_log10(void);
 void plot_sqrt(void);
 void plot_sec(void);
 void plot_sech(void);

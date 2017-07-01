@@ -259,6 +259,22 @@ void plot_log(void)
   }
 }
 
+void plot_log10(void)
+{
+  double x, y=0.0;
+  double epsilon;
+  graph_init(0.0, 0.0, 2000.0, 4.0);
+  x = 0.0;
+  epsilon=0.0001;
+  while (x <= 2000.0) {
+    if (x > epsilon) {
+      y = klog10(x);
+    }
+    graph_plot(x, y);
+    x = x + step;
+  }
+}
+
 void plot_sqrt(void)
 {
   double x, y=0.0;

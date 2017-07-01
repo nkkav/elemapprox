@@ -93,6 +93,11 @@ double klog(double x)
   return log(x);
 }
 
+double klog10(double x)
+{
+  return log(x) / MATH_LN10;
+}
+
 double kpow(double x, double y)
 {
   return pow(x, y);

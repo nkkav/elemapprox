@@ -871,7 +871,20 @@ Bitmap rendering.
 .. image:: ./figures/testlog.png
    :alt: Bitmap rendering for ``log``.
 
-A.21. Secant (sec)
+A.21. Base-10 logarithm (log10)
+-----------------------------
+
+ASCII rendering.
+
+.. include:: ./ansicstd/testlog10.txt
+    :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testlog10.png
+   :alt: Bitmap rendering for ``log10``.
+
+A.22. Secant (sec)
 ------------------
 
 ASCII rendering.
@@ -884,7 +897,7 @@ Bitmap rendering.
 .. image:: ./figures/testsec.png
    :alt: Bitmap rendering for ``sec``.
 
-A.22. Hyperbolic secant (sech)
+A.23. Hyperbolic secant (sech)
 ------------------------------
 
 ASCII rendering.
@@ -897,7 +910,7 @@ Bitmap rendering.
 .. image:: ./figures/testsech.png
    :alt: Bitmap rendering for ``sech``.
 
-A.23. Sine (sin)
+A.24. Sine (sin)
 ----------------
 
 ASCII rendering.
@@ -910,7 +923,7 @@ Bitmap rendering.
 .. image:: ./figures/testsin.png
    :alt: Bitmap rendering for ``sin``.
 
-A.24. Hyperbolic sine (sinh)
+A.25. Hyperbolic sine (sinh)
 ----------------------------
 
 ASCII rendering.
@@ -923,7 +936,7 @@ Bitmap rendering.
 .. image:: ./figures/testsinh.png
    :alt: Bitmap rendering for ``sinh``.
 
-A.25. Square root (sqrt)
+A.26. Square root (sqrt)
 ------------------------
 
 ASCII rendering.
@@ -936,7 +949,7 @@ Bitmap rendering.
 .. image:: ./figures/testsqrt.png
    :alt: Bitmap rendering for ``sqrt``.
 
-A.26. Tangent (tan)
+A.27. Tangent (tan)
 -------------------
 
 ASCII rendering.
@@ -949,7 +962,7 @@ Bitmap rendering.
 .. image:: ./figures/testtan.png
    :alt: Bitmap rendering for ``tan``.
 
-A.27. Hyperbolic tangent (tanh)
+A.28. Hyperbolic tangent (tanh)
 -------------------------------
 
 ASCII rendering.
@@ -962,7 +975,7 @@ Bitmap rendering.
 .. image:: ./figures/testtanh.png
    :alt: Bitmap rendering for ``tanh``.
 
-A.28. Floor (floor)
+A.29. Floor (floor)
 -------------------
 
 ASCII rendering.
@@ -975,7 +988,7 @@ Bitmap rendering.
 .. image:: ./figures/testfloor.png
    :alt: Bitmap rendering for ``floor``.
 
-A.29. Ceiling (ceil)
+A.30. Ceiling (ceil)
 --------------------
 
 ASCII rendering.
@@ -988,7 +1001,7 @@ Bitmap rendering.
 .. image:: ./figures/testceil.png
    :alt: Bitmap rendering for ``ceil``.
 
-A.30. Round-to-nearest (round)
+A.31. Round-to-nearest (round)
 ------------------------------
 
 ASCII rendering.
@@ -1001,7 +1014,7 @@ Bitmap rendering.
 .. image:: ./figures/testround.png
    :alt: Bitmap rendering for ``round``.
 
-A.31. Truncation (trunc)
+A.32. Truncation (trunc)
 ------------------------
 
 ASCII rendering.
