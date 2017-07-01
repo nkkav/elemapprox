@@ -34,6 +34,16 @@ double kceil(double x)
   return ceil(x);
 }
 
+double kround(double x)
+{
+  return round(x);
+}
+
+double ktrunc(double x)
+{
+  return trunc(x);
+}
+
 double kcos(double x)
 {
   return cos(x);

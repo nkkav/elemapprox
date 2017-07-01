@@ -53,7 +53,8 @@ double kcos_internal(double x)
 
 double kfloor(double x)
 {
-  return ((int) (x));
+  int temp = x - 0.5;
+  return (temp - (temp % 1));
 }
 
 double kfrac(double x)
@@ -72,6 +73,26 @@ double kfmod(double a, double b)
 double kceil(double x)
 {
   return -kfloor(-x);
+}
+
+double kround(double x)
+{
+  double tround = 0.0;
+  if (x > 0.0)
+    tround = kfloor(x + 0.5);
+  else if (x < 0.0)
+    tround = kceil(x - 0.5);
+  return tround;
+}
+
+double ktrunc(double x)
+{
+  double ttrunc;
+  if (x > 0.0)
+    ttrunc = kfloor(x);
+  else
+    ttrunc = kceil(x);
+  return ttrunc;
 }
 
 // This is the main cosine approximation "driver"

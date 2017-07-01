@@ -367,6 +367,30 @@ void plot_ceil(void)
   }
 }
 
+void plot_round(void)
+{
+  double x, y=0.0;
+  graph_init(-10.0, -10.0, 10.0, 10.0);
+  x = -10.0;
+  while (x <= 10.0) {
+    y = kround(x);
+    graph_plot(x, y);
+    x = x + step;
+  }
+}
+
+void plot_trunc(void)
+{
+  double x, y=0.0;
+  graph_init(-10.0, -10.0, 10.0, 10.0);
+  x = -10.0;
+  while (x <= 10.0) {
+    y = ktrunc(x);
+    graph_plot(x, y);
+    x = x + step;
+  }
+}
+
 void plot_fabs(void)
 {
   double x, y=0.0;

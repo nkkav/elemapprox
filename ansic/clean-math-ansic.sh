@@ -5,7 +5,7 @@ for app in "sin" "cos" "tan" "cot" "sec" "csc" \
   "sinh" "cosh" "tanh" "coth" "sech" "csch" \
   "asinh" "acosh" "atanh" "acoth" "asech" "acsch" \
   "exp" "sqrt" \
-  "floor" "ceil" "fabs"
+  "floor" "ceil" "round" "trunc" "fabs"
 do
   rm -rf test${app}.exe
 done

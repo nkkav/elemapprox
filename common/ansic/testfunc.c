@@ -144,6 +144,10 @@ int main(int argc, char **argv)
     plot_floor();
   } else if (strcmp(elem_func_name, "ceil") == 0) {
     plot_ceil();
+  } else if (strcmp(elem_func_name, "round") == 0) {
+    plot_floor();
+  } else if (strcmp(elem_func_name, "trunc") == 0) {
+    plot_ceil();
   } else if (strcmp(elem_func_name, "fabs") == 0) {
     plot_fabs();
   }  

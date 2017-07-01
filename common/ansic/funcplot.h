@@ -30,6 +30,8 @@ void plot_tan(void);
 void plot_tanh(void);
 void plot_floor(void);
 void plot_ceil(void);
+void plot_round(void);
+void plot_trunc(void);
 void plot_fabs(void);
 
 #endif /* FUNCPLOT_H */
