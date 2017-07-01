@@ -4,7 +4,7 @@
 
 vlib work
 vcom elemapprox.vhd
-vcom graph.vhd
+vcom ../common/vhdl/graph.vhd
 vcom funcplot.vhd
 vcom testfunc.vhd
 vsim testfunc

@@ -18,7 +18,7 @@ run: force
 init: force
 	mkdir work
 	$(GHDL) -a $(GHDLFLAGS) elemapprox.vhd
-	$(GHDL) -a $(GHDLFLAGS) graph.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../common/vhdl/graph.vhd
 	$(GHDL) -a $(GHDLFLAGS) funcplot.vhd
 	$(GHDL) -a $(GHDLFLAGS) testfunc.vhd
 
