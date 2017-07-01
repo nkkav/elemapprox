@@ -6,17 +6,22 @@
 | **Title**         | elemapprox (Elementary functions approximation in ANSI   |
 |                   | C, Verilog HDL, and VHDL)                                |
 +-------------------+----------------------------------------------------------+
-| **Author**        | Nikolaos Kavvadias (C) 2013, 2014, 2015, 2016            |
+| **Author**        | Nikolaos Kavvadias (C) 2013, 2014, 2015, 2016, 2017      |
 +-------------------+----------------------------------------------------------+
-| **Contact**       | nikos@nkavvadias.com                                     |
+| **Contact**       | nikolaos.kavvadias@gmail.com                             |
 +-------------------+----------------------------------------------------------+
 | **Website**       | http://www.nkavvadias.com                                |
 +-------------------+----------------------------------------------------------+
-| **Release Date**  | 22 August 2016                                           |
+| **Release Date**  | 01 July 2017                                             |
 +-------------------+----------------------------------------------------------+
-| **Version**       | 1.3.3                                                    |
+| **Version**       | 1.4.0                                                    |
 +-------------------+----------------------------------------------------------+
 | **Rev. history**  |                                                          |
++-------------------+----------------------------------------------------------+
+|        **v1.4.0** | 2017-07-01                                               |
+|                   |                                                          |
+|                   | Add ``verilogieee`` (Verilog-2005) version. Add          |
+|                   | ``common`` directories for Verilog and C.                |
 +-------------------+----------------------------------------------------------+
 |        **v1.3.3** | 2016-08-22                                               |
 |                   |                                                          |
@@ -70,10 +75,36 @@ the transcendental functions as PBM (monochrome) image files.
 
 ``elemapprox`` has been conceived as an extension to Prof. Mark G. Arnold's work 
 as puhlished in HDLCON 2001. Most functions have been prefixed with the letter 
-``k`` in order to avoid function name clashes in both ANSI C and Verilog HDL 
-implementations. Currently, the plain VHDL version uses unprefixed names (e.g., 
-``acos`` instead of ``kacos``). An alternative VHDL version named ``vhdlieee`` 
+``k`` in order to avoid function name clashes in both ANSI C and VHDL standard-
+based implementations. Currently, the plain VHDL version, ``vhdl`` uses unprefixed 
+names (e.g., ``acos`` instead of ``kacos``). The ``vhdlieee`` version 
 is compatible to the ``IEEE.math_real`` package and features prefixed names.
+
+1.1 Implementations
+-------------------
+
+The following table summarizes the implemented versions in C, VHDL and Verilog 
+HDL.
+
++-----------------------+------------------------------------------------------+
+| Implementation        | Description                                          |
++-----------------------+------------------------------------------------------+
+| ``ansic``             | ANSI C version with custom approximations            |
++-----------------------+------------------------------------------------------+
+| ``ansicstd``          | ANSI C version using ``math.h``                      |
++-----------------------+------------------------------------------------------+
+| ``verilog``           | Verilog version with custom approximations           |
++-----------------------+------------------------------------------------------+
+| ``verilogieee``       | Verilog 2005 version with the new arithmetic         |
+|                       | system functions                                     |
++-----------------------+------------------------------------------------------+
+| ``vhdl``              | VHDL version with custom approximations              |
++-----------------------+------------------------------------------------------+
+| ``vhdlieee``          | VHDL version using ``IEEE.math_real``                |
++-----------------------+------------------------------------------------------+
+
+1.2 Implemented functions
+------------------------- 
 
 The transcendental functions supported include most elementary functions 
 (hence the name ``elemapprox``) and the list is as follows:
@@ -87,9 +118,18 @@ The transcendental functions supported include most elementary functions
 +-----------------------+------------------------------------------------------+
 | ``kfmin(x,y)``        | Floating-point minimum value (helper function).      |
 +-----------------------+------------------------------------------------------+
+| ``kfloor(x)``         | Floating-point floor (helper function).              |
++-----------------------+------------------------------------------------------+
+| ``kceil(x)``          | Floating-point ceiling (helper function).            |
++-----------------------+------------------------------------------------------+
+| ``kround(x)``         | Floating-point round-to-nearest (helper function).   |
++-----------------------+------------------------------------------------------+
+| ``ktrunc(x)``         | Floating-point truncation (helper function).         |
++-----------------------+------------------------------------------------------+
 | ``kfmod(x,y)``        | Floating-point modulo.                               |
 +-----------------------+------------------------------------------------------+
-| ``rootof2(x)``        | Calculate root-of-2 (not in ``vhdlieee``).           |
+| ``rootof2(x)``        | Calculate root-of-2 (not in ``vhdlieee``,            |
+|                       | ``verilogieee`` and ``ansicstd``).                   |
 +-----------------------+------------------------------------------------------+
 | ``kacos(x)``          | Arc cosine.                                          |
 +-----------------------+------------------------------------------------------+
@@ -156,6 +196,7 @@ The reference paper and the corresponding presentation are available from the
 web at the following links:
 
 - https://web.archive.org/web/20100515000000*/http://www.cse.lehigh.edu/~caar/marnold/papers/sanjose_hdlcon.doc
+
 - https://web.archive.org/web/20100415000000*/http://www.cse.lehigh.edu/~caar/marnold/presentations/freeddy.ppt
 
 Since the original links have been removed, the files are now only accessible from the Internet Archive.
@@ -191,19 +232,6 @@ following files:
 +-----------------------+------------------------------------------------------+
 | elemapprox.c          | C code for the function approximations.              |
 +-----------------------+------------------------------------------------------+
-| elemapprox.h          | C header file for the above. Defines certain         |
-|                       | mathematical constants and declares function         |
-|                       | prototypes.                                          |
-+-----------------------+------------------------------------------------------+
-| funcplot.c            | Reference code for creating the plot data for the    |
-|                       | functions.                                           |
-+-----------------------+------------------------------------------------------+
-| funcplot.h            | C header file for the above.                         |
-+-----------------------+------------------------------------------------------+
-| graph.c               | Collection of ASCII and PBM graphing functions.      |
-+-----------------------+------------------------------------------------------+
-| graph.h               | C header file for the above.                         |
-+-----------------------+------------------------------------------------------+
 | Makefile              | GNU Makefile for building ``testfunc.exe``.          |
 +-----------------------+------------------------------------------------------+
 | plot-ansic-ascii.sh   | Bash script for plotting the elementary functions    |
@@ -211,10 +239,6 @@ following files:
 +-----------------------+------------------------------------------------------+
 | plot-ansic-pbm.sh     | Bash script for plotting the elementary functions    |
 |                       | as PBM images using ``testfunc.exe``.                |
-+-----------------------+------------------------------------------------------+
-| testfunc.c            | Application code for testing the elementary          |
-|                       | functions. Options include PBM or ASCII image        |
-|                       | generation and function selection.                   |
 +-----------------------+------------------------------------------------------+
 | test<func>.pbm        | Generated PBM image data for the function <func>.    |
 +-----------------------+------------------------------------------------------+
@@ -230,6 +254,25 @@ following files:
 +-----------------------+------------------------------------------------------+
 | elemapprox.c          | C code for the function approximations.              |
 +-----------------------+------------------------------------------------------+
+| Makefile              | GNU Makefile for building ``testfunc.exe``.          |
++-----------------------+------------------------------------------------------+
+| plot-ansic-ascii.sh   | Bash script for plotting the elementary functions    |
+|                       | as ASCII graphs using ``testfunc.exe``.              |
++-----------------------+------------------------------------------------------+
+| plot-ansic-pbm.sh     | Bash script for plotting the elementary functions    |
+|                       | as PBM images using ``testfunc.exe``.                |
++-----------------------+------------------------------------------------------+
+| test<func>.pbm        | Generated PBM image data for the function <func>.    |
++-----------------------+------------------------------------------------------+
+| test<func>.txt        | Generated ASCII graph data for the function <func>.  |
++-----------------------+------------------------------------------------------+
+| test<func>-ascii.txt  | Concatenation of the generated ASCII graph data for  |
+|                       | all supported functions.                             |
++-----------------------+------------------------------------------------------+
+| /common               | Common files                                         |
++-----------------------+------------------------------------------------------+
+| /common/ansic         | Common files for the C implementations               |
++-----------------------+------------------------------------------------------+
 | elemapprox.h          | C header file for the above. Defines certain         |
 |                       | mathematical constants and declares function         |
 |                       | prototypes.                                          |
@@ -243,24 +286,24 @@ following files:
 +-----------------------+------------------------------------------------------+
 | graph.h               | C header file for the above.                         |
 +-----------------------+------------------------------------------------------+
-| Makefile              | GNU Makefile for building ``testfunc.exe``.          |
+| /common/scripts       | Scripts for common use                               |
 +-----------------------+------------------------------------------------------+
-| plot-ansic-ascii.sh   | Bash script for plotting the elementary functions    |
-|                       | as ASCII graphs using ``testfunc.exe``.              |
+| diff-ascii.sh         | Compare the results from ASCII plots between two     |
+|                       | different implementations (directories)              |
 +-----------------------+------------------------------------------------------+
-| plot-ansic-pbm.sh     | Bash script for plotting the elementary functions    |
-|                       | as PBM images using ``testfunc.exe``.                |
+| pbm2png.sh            | Convert PBM to PNG images with ImageMagick's         |
+|                       | ``convert``.                                         |
 +-----------------------+------------------------------------------------------+
-| testfunc.c            | Application code for testing the elementary          |
-|                       | functions. Options include PBM or ASCII image        |
-|                       | generation and function selection.                   |
+| /common/verilog       | Common files for the Verilog implementations         |
 +-----------------------+------------------------------------------------------+
-| test<func>.pbm        | Generated PBM image data for the function <func>.    |
+| funcplot.v            | Reference code for creating the plot data for the    |
+|                       | functions.                                           |
 +-----------------------+------------------------------------------------------+
-| test<func>.txt        | Generated ASCII graph data for the function <func>.  |
+| graph.v               | Collection of ASCII and PBM graphing tasks.          |
 +-----------------------+------------------------------------------------------+
-| test<func>-ascii.txt  | Concatenation of the generated ASCII graph data for  |
-|                       | all supported functions.                             |
+| testfunc.v            | Application code for the elementary functions.       |
+|                       | Options include PBM or ASCII image generation and    |
+|                       | function selection.                                  |
 +-----------------------+------------------------------------------------------+
 | /verilog              | Verilog HDL implementation                           |
 +-----------------------+------------------------------------------------------+
@@ -271,15 +314,6 @@ following files:
 +-----------------------+------------------------------------------------------+
 | elemapprox.v          | Verilog HDL code for the function approximations.    |
 +-----------------------+------------------------------------------------------+
-| elemapproxpp.v        | Preprocessed version of the above, directly including|
-|                       | the mathematical constants from ``constants.v`` and  |
-|                       | expanding all macro-definitions.                     |
-+-----------------------+------------------------------------------------------+
-| funcplot.v            | Reference code for creating the plot data for the    |
-|                       | functions.                                           |
-+-----------------------+------------------------------------------------------+
-| graph.v               | Collection of ASCII and PBM graphing tasks.          |
-+-----------------------+------------------------------------------------------+
 | plot-verilog-ascii.sh | Bash script for plotting the elementary functions    |
 |                       | as ASCII graphs using ``testfunc.v``. The script     |
 |                       | Icarus Verilog' VVP interpreter which is capable of  |
@@ -288,9 +322,27 @@ following files:
 | plot-verilog-pbm.sh   | Bash script for plotting the elementary functions    |
 |                       | as PBM images using ``testfunc.v``.                  |
 +-----------------------+------------------------------------------------------+
-| testfunc.v            | Application code for the elementary functions.       |
-|                       | Options include PBM or ASCII image generation and    |
-|                       | function selection.                                  |
+| test<func>.pbm        | Generated PBM image data for the function <func>.    |
++-----------------------+------------------------------------------------------+
+| test<func>.txt        | Generated ASCII graph data for the function <func>.  |
++-----------------------+------------------------------------------------------+
+| test<func>-ascii.txt  | Concatenation of the generated ASCII graph data for  |
+|                       | all supported functions.                             |
++-----------------------+------------------------------------------------------+
+| /verilogieee          | Verilog 2005 implementation                          |
++-----------------------+------------------------------------------------------+
+| clean-math-verilog.sh | Bash script for cleaning up the generated            |
+|                       | interpreted intermediate code (for Icarus Verilog).  |
++-----------------------+------------------------------------------------------+
+| elemapprox.v          | Verilog HDL code for the function approximations.    |
++-----------------------+------------------------------------------------------+
+| plot-verilog-ascii.sh | Bash script for plotting the elementary functions    |
+|                       | as ASCII graphs using ``testfunc.v``. The script     |
+|                       | Icarus Verilog' VVP interpreter which is capable of  |
+|                       | parsing command-line options.                        |
++-----------------------+------------------------------------------------------+
+| plot-verilog-pbm.sh   | Bash script for plotting the elementary functions    |
+|                       | as PBM images using ``testfunc.v``.                  |
 +-----------------------+------------------------------------------------------+
 | test<func>.pbm        | Generated PBM image data for the function <func>.    |
 +-----------------------+------------------------------------------------------+
@@ -445,6 +497,13 @@ Linux distributions (for instance, Ubuntu).
    to generate an ASCII graph for each function.
 
 | ``$ cd verilog``
+
+or 
+
+| ``$ cd verilogieee``
+
+followed by
+
 | ``$ ./plot-verilog-ascii.sh``
 
 All generated data are also concatenated to ``testfunc-ascii.txt``.
@@ -557,7 +616,7 @@ A.1. Arc cosine (acos)
 
 ASCII rendering.
 
-.. include:: ./ansic/testacos.txt
+.. include:: ./ansicstd/testacos.txt
     :literal:
 
 Bitmap rendering.
@@ -570,7 +629,7 @@ A.2. Inverse hyperbolic cosine (acosh)
 
 ASCII rendering.
 
-.. include:: ./ansic/testacosh.txt
+.. include:: ./ansicstd/testacosh.txt
    :literal:
 
 Bitmap rendering.
@@ -583,7 +642,7 @@ A.3. Arc cotangent (acot)
 
 ASCII rendering.
 
-.. include:: ./ansic/testacot.txt
+.. include:: ./ansicstd/testacot.txt
    :literal:
 
 Bitmap rendering.
@@ -596,7 +655,7 @@ A.4. Inverse hyperbolic cotangent (acoth)
 
 ASCII rendering.
 
-.. include:: ./ansic/testacoth.txt
+.. include:: ./ansicstd/testacoth.txt
    :literal:
 
 Bitmap rendering.
@@ -609,7 +668,7 @@ A.5. Arc cosecant (acsc)
 
 ASCII rendering.
 
-.. include:: ./ansic/testacsc.txt
+.. include:: ./ansicstd/testacsc.txt
     :literal:
 
 Bitmap rendering.
@@ -622,7 +681,7 @@ A.6. Inverse hyperbolic cosecant (acsch)
 
 ASCII rendering.
 
-.. include:: ./ansic/testacsch.txt
+.. include:: ./ansicstd/testacsch.txt
     :literal:
 
 Bitmap rendering.
@@ -635,7 +694,7 @@ A.7. Arc secant (asec)
 
 ASCII rendering.
 
-.. include:: ./ansic/testasec.txt
+.. include:: ./ansicstd/testasec.txt
     :literal:
 
 Bitmap rendering.
@@ -648,7 +707,7 @@ A.8. Inverse hyperbolic secant (asech)
 
 ASCII rendering.
 
-.. include:: ./ansic/testasech.txt
+.. include:: ./ansicstd/testasech.txt
     :literal:
 
 Bitmap rendering.
@@ -661,7 +720,7 @@ A.9. Arc sine (asin)
 
 ASCII rendering.
 
-.. include:: ./ansic/testasin.txt
+.. include:: ./ansicstd/testasin.txt
     :literal:
 
 Bitmap rendering.
@@ -674,7 +733,7 @@ A.10. Inverse hyperbolic sine (asinh)
 
 ASCII rendering.
 
-.. include:: ./ansic/testasinh.txt
+.. include:: ./ansicstd/testasinh.txt
     :literal:
 
 Bitmap rendering.
@@ -687,7 +746,7 @@ A.11. Arc tangent (atan)
 
 ASCII rendering.
 
-.. include:: ./ansic/testatan.txt
+.. include:: ./ansicstd/testatan.txt
     :literal:
 
 Bitmap rendering.
@@ -700,7 +759,7 @@ A.12. Inverse hyperbolic tangent (atanh)
 
 ASCII rendering.
 
-.. include:: ./ansic/testatanh.txt
+.. include:: ./ansicstd/testatanh.txt
     :literal:
 
 Bitmap rendering.
@@ -713,7 +772,7 @@ A.13. Cosine (cos)
 
 ASCII rendering.
 
-.. include:: ./ansic/testcos.txt
+.. include:: ./ansicstd/testcos.txt
     :literal:
 
 Bitmap rendering.
@@ -726,7 +785,7 @@ A.14. Hyperbolic cosine (cosh)
 
 ASCII rendering.
 
-.. include:: ./ansic/testcosh.txt
+.. include:: ./ansicstd/testcosh.txt
     :literal:
 
 Bitmap rendering.
@@ -739,7 +798,7 @@ A.15. Cotangent (cot)
 
 ASCII rendering.
 
-.. include:: ./ansic/testcot.txt
+.. include:: ./ansicstd/testcot.txt
     :literal:
 
 Bitmap rendering.
@@ -752,7 +811,7 @@ A.16. Hyperbolic cotangent (coth)
 
 ASCII rendering.
 
-.. include:: ./ansic/testcoth.txt
+.. include:: ./ansicstd/testcoth.txt
     :literal:
 
 Bitmap rendering.
@@ -765,7 +824,7 @@ A.17. Cosecant (csc)
 
 ASCII rendering.
 
-.. include:: ./ansic/testcsc.txt
+.. include:: ./ansicstd/testcsc.txt
     :literal:
 
 Bitmap rendering.
@@ -778,7 +837,7 @@ A.18. Hyperbolic cosecant (csch)
 
 ASCII rendering.
 
-.. include:: ./ansic/testcsch.txt
+.. include:: ./ansicstd/testcsch.txt
     :literal:
 
 Bitmap rendering.
@@ -791,7 +850,7 @@ A.19. Exponential (exp)
 
 ASCII rendering.
 
-.. include:: ./ansic/testexp.txt
+.. include:: ./ansicstd/testexp.txt
     :literal:
 
 Bitmap rendering.
@@ -804,7 +863,7 @@ A.20. Natural logarithm (log)
 
 ASCII rendering.
 
-.. include:: ./ansic/testlog.txt
+.. include:: ./ansicstd/testlog.txt
     :literal:
 
 Bitmap rendering.
@@ -817,7 +876,7 @@ A.21. Secant (sec)
 
 ASCII rendering.
 
-.. include:: ./ansic/testsec.txt
+.. include:: ./ansicstd/testsec.txt
     :literal:
 
 Bitmap rendering.
@@ -830,7 +889,7 @@ A.22. Hyperbolic secant (sech)
 
 ASCII rendering.
 
-.. include:: ./ansic/testsech.txt
+.. include:: ./ansicstd/testsech.txt
     :literal:
 
 Bitmap rendering.
@@ -843,7 +902,7 @@ A.23. Sine (sin)
 
 ASCII rendering.
 
-.. include:: ./ansic/testsin.txt
+.. include:: ./ansicstd/testsin.txt
     :literal:
 
 Bitmap rendering.
@@ -856,7 +915,7 @@ A.24. Hyperbolic sine (sinh)
 
 ASCII rendering.
 
-.. include:: ./ansic/testsinh.txt
+.. include:: ./ansicstd/testsinh.txt
     :literal:
 
 Bitmap rendering.
@@ -869,7 +928,7 @@ A.25. Square root (sqrt)
 
 ASCII rendering.
 
-.. include:: ./ansic/testsqrt.txt
+.. include:: ./ansicstd/testsqrt.txt
     :literal:
 
 Bitmap rendering.
@@ -882,7 +941,7 @@ A.26. Tangent (tan)
 
 ASCII rendering.
 
-.. include:: ./ansic/testtan.txt
+.. include:: ./ansicstd/testtan.txt
     :literal:
 
 Bitmap rendering.
@@ -895,11 +954,63 @@ A.27. Hyperbolic tangent (tanh)
 
 ASCII rendering.
 
-.. include:: ./ansic/testtanh.txt
+.. include:: ./ansicstd/testtanh.txt
     :literal:
 
 Bitmap rendering.
 
 .. image:: ./figures/testtanh.png
    :alt: Bitmap rendering for ``tanh``.
+
+A.28. Floor (floor)
+-------------------
+
+ASCII rendering.
+
+.. include:: ./ansicstd/testfloor.txt
+    :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testfloor.png
+   :alt: Bitmap rendering for ``floor``.
+
+A.29. Ceiling (ceil)
+--------------------
+
+ASCII rendering.
+
+.. include:: ./ansicstd/testceil.txt
+    :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testceil.png
+   :alt: Bitmap rendering for ``ceil``.
+
+A.30. Round-to-nearest (round)
+------------------------------
+
+ASCII rendering.
+
+.. include:: ./ansicstd/testround.txt
+    :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testround.png
+   :alt: Bitmap rendering for ``round``.
+
+A.31. Truncation (trunc)
+------------------------
+
+ASCII rendering.
+
+.. include:: ./ansicstd/testtrunc.txt
+    :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testtrunc.png
+   :alt: Bitmap rendering for ``trunc``.
 
