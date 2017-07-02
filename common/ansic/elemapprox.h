@@ -53,6 +53,7 @@ double klog(double x);
 double klog10(double x);
 double kpow(double x, double y);
 double ksqrt(double x);
+double kcbrt(double x);
 double khypot(double x, double y);
 double katan(double x);
 double katan2(double y, double x);

@@ -140,6 +140,7 @@ begin
         (func(1 to 4) = "sinh") or 
         (func(1 to 4) = "tanh") or
         (func(1 to 4) = "sqrt") or
+        (func(1 to 4) = "cbrt") or
         (func(1 to 4) = "ceil") or
         (func(1 to 4) = "fabs")) then
       lim := 4;
@@ -232,6 +233,8 @@ begin
       plot_log10(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "sqrt") then
       plot_sqrt(step, x_dim, y_dim, arr);
+    elsif (func(1 to 4) = "cbrt") then
+      plot_cbrt(step, x_dim, y_dim, arr);
     elsif (func(1 to 4) = "sech") then
       plot_sech(step, x_dim, y_dim, arr);
     elsif (func(1 to 3) = "sec") then

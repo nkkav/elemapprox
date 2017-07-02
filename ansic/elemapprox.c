@@ -267,6 +267,23 @@ double ksqrt(double x)
   return (sqrtval);
 }
 
+double kcbrt(double x)
+{
+  double cbrtval;
+  double epsilon;
+  epsilon = 0.00001;
+  if (x < 0.0) {
+    printf("cbrt illegal argument: %lf", x);
+    exit(1);
+  }
+  if (x < epsilon) {
+    cbrtval = 0.0;
+  } else {
+    cbrtval = kexp(0.33333333 * klog(x));
+  }
+  return (cbrtval);
+}
+
 double khypot(double x, double y)
 {
   return (ksqrt(x*x + y*y));

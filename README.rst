@@ -187,6 +187,8 @@ The transcendental functions supported include most elementary functions
 +-----------------------+------------------------------------------------------+
 | ``ksqrt(x)``          | Square root.                                         |
 +-----------------------+------------------------------------------------------+
+| ``kcbrt(x)``          | Cube root.                                           |
++-----------------------+------------------------------------------------------+
 | ``ktan(x)``           | Tangent.                                             |
 +-----------------------+------------------------------------------------------+
 | ``ktanh(x)``          | Hyperbolic tangent.                                  |
@@ -949,7 +951,20 @@ Bitmap rendering.
 .. image:: ./figures/testsqrt.png
    :alt: Bitmap rendering for ``sqrt``.
 
-A.27. Tangent (tan)
+A.27. Cube root (cbrt)
+----------------------
+
+ASCII rendering.
+
+.. include:: ./ansicstd/testcbrt.txt
+    :literal:
+
+Bitmap rendering.
+
+.. image:: ./figures/testcbrt.png
+   :alt: Bitmap rendering for ``cbrt``.
+
+A.28. Tangent (tan)
 -------------------
 
 ASCII rendering.
@@ -962,7 +977,7 @@ Bitmap rendering.
 .. image:: ./figures/testtan.png
    :alt: Bitmap rendering for ``tan``.
 
-A.28. Hyperbolic tangent (tanh)
+A.29. Hyperbolic tangent (tanh)
 -------------------------------
 
 ASCII rendering.
@@ -975,7 +990,7 @@ Bitmap rendering.
 .. image:: ./figures/testtanh.png
    :alt: Bitmap rendering for ``tanh``.
 
-A.29. Floor (floor)
+A.30. Floor (floor)
 -------------------
 
 ASCII rendering.
@@ -988,7 +1003,7 @@ Bitmap rendering.
 .. image:: ./figures/testfloor.png
    :alt: Bitmap rendering for ``floor``.
 
-A.30. Ceiling (ceil)
+A.31. Ceiling (ceil)
 --------------------
 
 ASCII rendering.
@@ -1001,7 +1016,7 @@ Bitmap rendering.
 .. image:: ./figures/testceil.png
    :alt: Bitmap rendering for ``ceil``.
 
-A.31. Round-to-nearest (round)
+A.32. Round-to-nearest (round)
 ------------------------------
 
 ASCII rendering.
@@ -1014,7 +1029,7 @@ Bitmap rendering.
 .. image:: ./figures/testround.png
    :alt: Bitmap rendering for ``round``.
 
-A.32. Truncation (trunc)
+A.33. Truncation (trunc)
 ------------------------
 
 ASCII rendering.

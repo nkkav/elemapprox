@@ -108,6 +108,11 @@ double ksqrt(double x)
   return sqrt(x);
 }
 
+double kcbrt(double x)
+{
+  return cbrt(x);
+}
+
 double khypot(double x, double y)
 {
   return (ksqrt(x*x + y*y));

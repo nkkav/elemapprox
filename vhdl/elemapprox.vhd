@@ -68,6 +68,7 @@ package elemapprox_pkg is
   function log10  (x : in real) return real;
   function pow    (x : in real; y : in real) return real;
   function sqrt   (x : in real) return real;
+  function cbrt   (x : in real) return real;
   function hypot  (x : in real; y : in real) return real;
   function atan   (x : in real) return real;
   function atan2  (y : in real; x : in real) return real;
@@ -366,6 +367,24 @@ package body elemapprox_pkg is
     end if;
     return t_sqrt;
   end sqrt;
+
+  function cbrt (x : in real) return real is
+    variable t_cbrt : real;
+    variable epsilon : real;
+  begin
+    epsilon := 0.00001;
+    if (x < 0.0) then
+      assert false 
+        report "cbrt illegal argument:" & real'IMAGE(x) 
+        severity failure;    
+    end if;
+    if (x < epsilon) then
+      t_cbrt := 0.0;
+    else
+      t_cbrt := exp(0.33333333*log(x));
+    end if;
+    return t_cbrt;
+  end cbrt;
 
   function hypot (x : in real; y : in real) return real is
     variable t_hypot : real;

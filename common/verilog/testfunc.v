@@ -139,6 +139,8 @@ module testfunc;
 	  funcplot.plot_log10(step);
 	else if (elem_func_name == "sqrt")
 	  funcplot.plot_sqrt(step);
+	else if (elem_func_name == "cbrt")
+	  funcplot.plot_cbrt(step);
 	else if (elem_func_name == "sec")
 	  funcplot.plot_sec(step);
 	else if (elem_func_name == "sech")

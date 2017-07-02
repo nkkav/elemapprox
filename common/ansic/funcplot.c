@@ -287,6 +287,18 @@ void plot_sqrt(void)
   }
 }
 
+void plot_cbrt(void)
+{
+  double x, y=0.0;
+  graph_init(0.0, 0.0, 1000.0, 20.0);
+  x = 0.0;
+  while (x <= 1000.0) {
+    y = kcbrt(x);
+    graph_plot(x, y);
+    x = x + step;
+  }
+}
+
 void plot_sec(void)
 {
   double x, y=0.0;

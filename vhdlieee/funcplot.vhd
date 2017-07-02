@@ -652,10 +652,10 @@ package body funcplot_pkg is
     variable x, y : real;
     variable xmin, ymin, xmax, ymax : real;
   begin
-    graph_init(0.0, 0.0, 3000.0, 20.0, y_dim, a, xmin, ymin, xmax, ymax);
+    graph_init(0.0, 0.0, 1000.0, 20.0, y_dim, a, xmin, ymin, xmax, ymax);
     x := 0.0;
     y := 0.0;
-    while (x <= 3000.0) loop
+    while (x <= 1000.0) loop
       y := kcbrt(x);
       graph_plot(x, y, xmin, ymin, xmax, ymax, x_dim, y_dim, a);
       x := x + step;

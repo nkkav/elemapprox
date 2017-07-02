@@ -407,7 +407,24 @@ module funcplot;
       x = x + step;
     end
   end
-  endtask  
+  endtask
+
+  task plot_cbrt;
+    input step;
+    real step;
+    real x, y;
+  begin
+    graph.init(0.0, 0.0, 1000.0, 20.0, testfunc.y_dim);
+    x = 0.0;
+    y = 0.0;
+    while (x <= 1000.0)
+    begin
+      y = elemapprox.cbrt(x);
+      graph.plot(x, y, testfunc.x_dim, testfunc.y_dim);
+      x = x + step;
+    end
+  end
+  endtask
 
   task plot_sec;
     input step;

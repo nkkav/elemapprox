@@ -161,6 +161,28 @@ begin
 end
 endfunction
 
+function real cbrt;
+  input x;
+  real x;
+  real epsilon;
+begin
+  epsilon = 0.00001;
+  if (x < 0.0)
+  begin
+    $display("cbrt illegal argument:",x);
+    $stop;
+  end
+  if (x < epsilon) 
+  begin
+    cbrt = 0.0;
+  end
+  else
+  begin
+    cbrt = $pow(x, 0.33333333);
+  end
+end
+endfunction
+
 function real hypot;
   input x, y;
   real x, y;
