@@ -6,7 +6,7 @@ vlib work
 vcom elemapprox.vhd
 vcom ../common/vhdl/graph.vhd
 vcom funcplot.vhd
-vcom testfunc.vhd
+vcom ../common/vhdl/testfunc.vhd
 vsim testfunc
 onbreak {quit -f}
 run -all

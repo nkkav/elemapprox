@@ -20,7 +20,7 @@ init: force
 	$(GHDL) -a $(GHDLFLAGS) elemapprox.vhd
 	$(GHDL) -a $(GHDLFLAGS) ../common/vhdl/graph.vhd
 	$(GHDL) -a $(GHDLFLAGS) funcplot.vhd
-	$(GHDL) -a $(GHDLFLAGS) testfunc.vhd
+	$(GHDL) -a $(GHDLFLAGS) ../common/vhdl/testfunc.vhd
 
 force:
 
