@@ -361,13 +361,18 @@ C, Verilog HDL, and VHDL)</td>
 <td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
 </tr>
 <tr><td><strong>Release Date</strong></td>
-<td>01 July 2017</td>
+<td>03 July 2017</td>
 </tr>
 <tr><td><strong>Version</strong></td>
-<td>1.4.0</td>
+<td>1.4.1</td>
 </tr>
 <tr><td><strong>Rev. history</strong></td>
 <td>&nbsp;</td>
+</tr>
+<tr><td><strong>v1.4.1</strong></td>
+<td><p class="first">2017-07-03</p>
+<p class="last">Add <tt class="docutils literal">cbrt</tt>.</p>
+</td>
 </tr>
 <tr><td><strong>v1.4.0</strong></td>
 <td><p class="first">2017-07-01</p>
@@ -763,6 +768,18 @@ functions.</td>
 Options include PBM or ASCII image generation and
 function selection.</td>
 </tr>
+<tr><td>/common/vhdl</td>
+<td>Common files for the VHDL implementations</td>
+</tr>
+<tr><td>graph.vhd</td>
+<td>VHDL package code with a collection of ASCII and PBM
+procedures.</td>
+</tr>
+<tr><td>testfunc.vhd</td>
+<td>VHDL testbench code for the elementary functions.
+Options include PBM or ASCII image generation and
+function selection through a configuration file.</td>
+</tr>
 <tr><td>/verilog</td>
 <td>Verilog HDL implementation</td>
 </tr>
@@ -843,10 +860,6 @@ related mathematical constants.</td>
 <td>VHDL package code for creating the plot data for the
 elementary functions.</td>
 </tr>
-<tr><td>graph.vhd</td>
-<td>VHDL package code with a collection of ASCII and PBM
-procedures.</td>
-</tr>
 <tr><td>plot-ghdl-ascii.sh</td>
 <td>Bash script for plotting the elementary functions
 as ASCII graphs using GHDL. The script generates a
@@ -870,11 +883,6 @@ the simulation.</td>
 as PBM images using Modelsim. The script generates
 a configuration file (<tt class="docutils literal">config.txt</tt>) for controlling
 the simulation.</td>
-</tr>
-<tr><td>testfunc.vhd</td>
-<td>VHDL testbench code for the elementary functions.
-Options include PBM or ASCII image generation and
-function selection through a configuration file.</td>
 </tr>
 <tr><td>test&lt;func&gt;.pbm</td>
 <td>Generated PBM image data for the function &lt;func&gt;.</td>
@@ -903,10 +911,6 @@ related mathematical constants.</td>
 <td>VHDL package code for creating the plot data for the
 elementary functions.</td>
 </tr>
-<tr><td>graph.vhd</td>
-<td>VHDL package code with a collection of ASCII and PBM
-procedures.</td>
-</tr>
 <tr><td>plot-ghdl-ascii.sh</td>
 <td>Bash script for plotting the elementary functions
 as ASCII graphs using GHDL. The script generates a
@@ -930,11 +934,6 @@ the simulation.</td>
 as PBM images using Modelsim. The script generates
 a configuration file (<tt class="docutils literal">config.txt</tt>) for controlling
 the simulation.</td>
-</tr>
-<tr><td>testfunc.vhd</td>
-<td>VHDL testbench code for the elementary functions.
-Options include PBM or ASCII image generation and
-function selection through a configuration file.</td>
 </tr>
 <tr><td>test&lt;func&gt;.pbm</td>
 <td>Generated PBM image data for the function &lt;func&gt;.</td>
@@ -1702,14 +1701,6 @@ VHDL version of <tt class="docutils literal">elemapprox</tt>).</p>
 </div>
 <div class="section" id="a-21-base-10-logarithm-log10">
 <h2>A.21. Base-10 logarithm (log10)</h2>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">&lt;stdin&gt;</tt>, line 877)</p>
-<p>Title underline too short.</p>
-<pre class="literal-block">
-A.21. Base-10 logarithm (log10)
------------------------------
-</pre>
-</div>
 <p>ASCII rendering.</p>
 <pre class="literal-block">
 ................................................................................

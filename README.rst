@@ -12,11 +12,15 @@
 +-------------------+----------------------------------------------------------+
 | **Website**       | http://www.nkavvadias.com                                |
 +-------------------+----------------------------------------------------------+
-| **Release Date**  | 01 July 2017                                             |
+| **Release Date**  | 03 July 2017                                             |
 +-------------------+----------------------------------------------------------+
-| **Version**       | 1.4.0                                                    |
+| **Version**       | 1.4.1                                                    |
 +-------------------+----------------------------------------------------------+
 | **Rev. history**  |                                                          |
++-------------------+----------------------------------------------------------+
+|        **v1.4.1** | 2017-07-03                                               |
+|                   |                                                          |
+|                   | Add ``cbrt``.                                            |
 +-------------------+----------------------------------------------------------+
 |        **v1.4.0** | 2017-07-01                                               |
 |                   |                                                          |
@@ -307,6 +311,15 @@ following files:
 |                       | Options include PBM or ASCII image generation and    |
 |                       | function selection.                                  |
 +-----------------------+------------------------------------------------------+
+| /common/vhdl          | Common files for the VHDL implementations            |
++-----------------------+------------------------------------------------------+
+| graph.vhd             | VHDL package code with a collection of ASCII and PBM |
+|                       | procedures.                                          |
++-----------------------+------------------------------------------------------+
+| testfunc.vhd          | VHDL testbench code for the elementary functions.    |
+|                       | Options include PBM or ASCII image generation and    |
+|                       | function selection through a configuration file.     |
++-----------------------+------------------------------------------------------+
 | /verilog              | Verilog HDL implementation                           |
 +-----------------------+------------------------------------------------------+
 | clean-math-verilog.sh | Bash script for cleaning up the generated            |
@@ -365,9 +378,6 @@ following files:
 | funcplot.vhd          | VHDL package code for creating the plot data for the |
 |                       | elementary functions.                                |
 +-----------------------+------------------------------------------------------+
-| graph.vhd             | VHDL package code with a collection of ASCII and PBM |
-|                       | procedures.                                          |
-+-----------------------+------------------------------------------------------+
 | plot-ghdl-ascii.sh    | Bash script for plotting the elementary functions    |
 |                       | as ASCII graphs using GHDL. The script generates a   |
 |                       | configuration file (``config.txt``) for controlling  |
@@ -387,10 +397,6 @@ following files:
 |                       | as PBM images using Modelsim. The script generates   |
 |                       | a configuration file (``config.txt``) for controlling|
 |                       | the simulation.                                      |
-+-----------------------+------------------------------------------------------+
-| testfunc.vhd          | VHDL testbench code for the elementary functions.    |
-|                       | Options include PBM or ASCII image generation and    |
-|                       | function selection through a configuration file.     |
 +-----------------------+------------------------------------------------------+
 | test<func>.pbm        | Generated PBM image data for the function <func>.    |
 +-----------------------+------------------------------------------------------+
@@ -411,9 +417,6 @@ following files:
 | funcplot.vhd          | VHDL package code for creating the plot data for the |
 |                       | elementary functions.                                |
 +-----------------------+------------------------------------------------------+
-| graph.vhd             | VHDL package code with a collection of ASCII and PBM |
-|                       | procedures.                                          |
-+-----------------------+------------------------------------------------------+
 | plot-ghdl-ascii.sh    | Bash script for plotting the elementary functions    |
 |                       | as ASCII graphs using GHDL. The script generates a   |
 |                       | configuration file (``config.txt``) for controlling  |
@@ -433,10 +436,6 @@ following files:
 |                       | as PBM images using Modelsim. The script generates   |
 |                       | a configuration file (``config.txt``) for controlling|
 |                       | the simulation.                                      |
-+-----------------------+------------------------------------------------------+
-| testfunc.vhd          | VHDL testbench code for the elementary functions.    |
-|                       | Options include PBM or ASCII image generation and    |
-|                       | function selection through a configuration file.     |
 +-----------------------+------------------------------------------------------+
 | test<func>.pbm        | Generated PBM image data for the function <func>.    |
 +-----------------------+------------------------------------------------------+
@@ -874,7 +873,7 @@ Bitmap rendering.
    :alt: Bitmap rendering for ``log``.
 
 A.21. Base-10 logarithm (log10)
------------------------------
+-------------------------------
 
 ASCII rendering.
 
