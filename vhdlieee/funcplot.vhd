@@ -779,7 +779,6 @@ package body funcplot_pkg is
   procedure plot_floor (
     step  : in real; 
     x_dim : in integer; 
-
     y_dim : in integer;
     a     : inout pixel_arr
   ) is
@@ -799,7 +798,6 @@ package body funcplot_pkg is
   procedure plot_ceil (
     step  : in real; 
     x_dim : in integer; 
-
     y_dim : in integer;
     a     : inout pixel_arr
   ) is
@@ -819,7 +817,6 @@ package body funcplot_pkg is
   procedure plot_fabs (
     step  : in real; 
     x_dim : in integer; 
-
     y_dim : in integer;
     a     : inout pixel_arr
   ) is
@@ -839,7 +836,6 @@ package body funcplot_pkg is
   procedure plot_round (
     step  : in real; 
     x_dim : in integer; 
-
     y_dim : in integer;
     a     : inout pixel_arr
   ) is
@@ -859,7 +855,6 @@ package body funcplot_pkg is
   procedure plot_trunc (
     step  : in real; 
     x_dim : in integer; 
-
     y_dim : in integer;
     a     : inout pixel_arr
   ) is
