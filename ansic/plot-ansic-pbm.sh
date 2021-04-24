@@ -8,7 +8,6 @@ for app in "sin" "cos" "tan" "cot" "sec" "csc" \
   "floor" "ceil" "round" "trunc" "fabs"
 do
   echo "Plotting elementary function: ${app}"
-#  ./test${app}.exe
   ./testfunc.exe -s 0.001 -func ${app} -pbm -x 256 -y 256 > test${app}.pbm
 done
 
@@ -21,4 +20,3 @@ fi
 echo "This script has been running $SECONDS $units."
 
 echo "Ran plot-ansic-pbm on all tests."
-exit 0

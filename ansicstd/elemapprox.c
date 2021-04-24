@@ -296,4 +296,3 @@ double kfmax(double x, double y)
     f = y;
   return f;
 }
-

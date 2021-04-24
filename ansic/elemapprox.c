@@ -174,9 +174,8 @@ double rootof2(int n)
 
 double kexp(double x)
 {
-  double x1, power, prod, expval;
-  int i;
-  x1 = kfabs(x) * MATH_LOG2E;
+  double expval;
+  double x1 = kfabs(x) * MATH_LOG2E;
   if (x1 > 255.0) {
     expval = 0.0;
     if (x > 0.0) {
@@ -184,9 +183,9 @@ double kexp(double x)
       exit(1);
     }
   } else {
-    prod = 1.0;
-    power = 128.0;
-    for (i = 7; i >= -23; i = i-1) {
+    double prod = 1.0;
+    double power = 128.0;
+    for (int i = 7; i >= -23; i = i-1) {
       if (x1 > power) {
         prod = prod * rootof2(i);
         x1 = x1 - power;
@@ -204,20 +203,20 @@ double kexp(double x)
 
 double klog(double x)
 {
-  double re, log2val, logval;
-  int i;
+  double logval;
   if (x <= 0.0) {
+    logval = 0;
     printf("log illegal argument: %lf",x);
     exit(1);
-    logval = 0;
   } else {
+    double re;
     if (x < 1.0) {
       re = 1.0/x;
     } else {
       re = x;
     }
-    log2val = 0.0;
-    for (i = 7; i >= -23; i = i-1) {
+    double log2val = 0.0;
+    for (int i = 7; i >= -23; i = i-1) {
       if (re > rootof2(i)) {
         re = re/rootof2(i);
         log2val = 2.0*log2val + 1.0;
@@ -550,4 +549,3 @@ double kfmax(double x, double y)
     f = y;
   return f;
 }
-

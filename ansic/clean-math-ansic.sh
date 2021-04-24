@@ -19,4 +19,3 @@ fi
 echo "This script has been running $SECONDS $units."
 
 echo "Ran clean-math-ansic on all tests."
-exit 0

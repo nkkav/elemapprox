@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 #include "graph.h"
 #include "funcplot.h"
 
@@ -38,7 +39,7 @@ int main(int argc, char **argv)
 {
   int i, copied_elem_func_name=0;
   int enable_pbm=0, enable_ascii=1;
-  char *elem_func_name;
+  char *elem_func_name = NULL;
 
   /* Read input arguments. */
   if (argc < 2) {
@@ -85,6 +86,8 @@ int main(int argc, char **argv)
     fprintf(stderr, "Error: Elementary function not specified.\n");
     exit(1);
   }
+
+  assert(elem_func_name != NULL);
   
   if (strcmp(elem_func_name, "acos") == 0) {
     plot_acos();
@@ -149,9 +152,9 @@ int main(int argc, char **argv)
   } else if (strcmp(elem_func_name, "ceil") == 0) {
     plot_ceil();
   } else if (strcmp(elem_func_name, "round") == 0) {
-    plot_floor();
+    plot_round();
   } else if (strcmp(elem_func_name, "trunc") == 0) {
-    plot_ceil();
+    plot_trunc();
   } else if (strcmp(elem_func_name, "fabs") == 0) {
     plot_fabs();
   }  

@@ -24,4 +24,3 @@ fi
 echo "This script has been running $SECONDS $units."
 
 echo "Ran plot-ansic-ascii on all tests."
-exit 0
